@@ -45,10 +45,9 @@ page-wrapper {
   flex-wrap: wrap;
 }
 .content-trio {
-  flex: 33%;
-  max-width: 33%;
-  margin-right: 15px;
-  margin-left: 15px;
+  flex: calc(33% - 30px);
+  max-width: 30%;
+  margin: 15px;
   background-color: #fff;
   height: 160px;
   border-radius: 3px;
