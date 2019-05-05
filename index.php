@@ -17,14 +17,20 @@
     <div class="content-wrapper">
       <div class="content-trio">
         <div class="content-block">
-          <div class="block-icon"><i class="fas fa-flag""></i></div>
+          <div class="block-icon"><i class="fas fa-flag"></i></div>
+          <h5>Strategy</h5>
+          <p>Some text goes here about what this section covers.</p>
         </div>
       </div>
       <div class="content-trio">
-        <div class="content-block"></div>
+          <div class="block-icon"><i class="fas fa-dumbbell"></i></div>
+          <h5>Training</h5>
+          <p>Some text goes here about what this section covers.</p>
       </div>
       <div class="content-trio">
-        <div class="content-block"></div>
+          <div class="block-icon"><i class="fas fa-flask"></i></div>
+          <h5>Labs</h5>
+          <p>Some text goes here about what this section covers.</p>
       </div>
     </div>
   </div>
