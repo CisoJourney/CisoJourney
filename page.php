@@ -32,7 +32,7 @@
       <div class="content-full">
         <div class="content-block">
           <h5 class="uppercase-text spacing-text">Introduction</h5>
-          <p>Articles covering the critical foundation topics of cybersecurity; such as how to plan, manage, and implement your security plans.</p>
+          <p>Articles covering the critical foundation topics of cybersecurity; such as how to plan, manage, and implement your security plans. Adding more text here just to see how line wrapping works. More text text yep yep.</p>
           <p>A second paragraph with more content goes in here.</p>
         </div>
       </div>
