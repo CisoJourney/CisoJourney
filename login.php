@@ -29,12 +29,10 @@
       <p>Sign-in or register to access member only functions!</p>
     </div>
     <div class="content-wrapper">
-      <div class="content-full">
-        <div class="content-block center-text">
-          <h5 class="uppercase-text spacing-text nopad-text">Strategy</h5>
+        <div class="login-block center-text">
+          <h5 class="uppercase-text spacing-text nopad-text">Sign-in</h5>
         </div>
       </div>
-    </div>
   </div>
 </div>
 </body>
