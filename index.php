@@ -1,4 +1,4 @@
-<html>
+#<html>
 <head>
  <title>CISO Journey</title>
  <link rel="stylesheet" type="text/css" href="/main.css" />
@@ -9,6 +9,7 @@
 <div class="top-bar">
 </div>
 <div class="title-bar">
+<span class="on-brand">CISO</span>: Journey
 </div>
 <div class="nav-bar">
 </div>
