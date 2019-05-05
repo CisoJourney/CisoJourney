@@ -33,7 +33,7 @@
           <h5 class="uppercase-text spacing-text">Register</h5>
           <input class="login-input" type="text" placeholder="e-mail">
           <input class="login-input" type="password" placeholder="password">
-          <input class="login-input" type="password" placeholdre="confirm password">
+          <input class="login-input" type="password" placeholder="confirm password">
           <input class="login-button" type="submit">
         </div>
       </div>
