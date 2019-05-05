@@ -80,6 +80,9 @@ spacing-text {
 .dim-text {
  color: #bbb;
 }
+.nopadding-text {
+ padding: 0;
+}
 .content {
   width: 95%;
   margin: 0 auto;

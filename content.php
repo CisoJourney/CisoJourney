@@ -31,7 +31,7 @@
     <div class="content-wrapper">
       <div class="content-full"><a href="/content.php">
         <div class="content-block center-text">
-          <h5 class="uppercase-text spacing-text">Strategy</h5>
+          <h5 class="uppercase-text spacing-text nopadding-text">Strategy</h5>
           <p>Articles covering the critical foundation topics of cybersecurity; such as how to plan, manage, and implement your security plans.</p>
         </div></a>
       </div>
@@ -39,7 +39,7 @@
     <div class="content-wrapper">
       <div class="content-full"><a href="/content.php">
         <div class="content-block center-text">
-          <h5 class="uppercase-text spacing-text">Risk <i class="fas fa-crown dim-text"></i></h5>
+          <h5 class="uppercase-text spacing-text nopadding-text">Risk <i class="fas fa-crown dim-text"></i></h5>
           <p>Foobar goes here to describe what the article is about, this is just a short line on what to expect from the text.</p>
         </div></a>
       </div>
