@@ -12,7 +12,7 @@
 </div>
 <div class="nav-bar">
 </div>
-<div class="content-wrapper">
+<div class="page-wrapper">
   <div class="content">
     <div class="content-wrapper">
       <div class="content-trio">
