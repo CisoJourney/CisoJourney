@@ -54,7 +54,7 @@
       </div>
       <div class="content-duo center-text"><a href="/content.php">
         <div class="content-block">
-          <div class="block-icon recover-color"><i class="fas fa-pills"></i></div>
+          <div class="block-icon recover-color"><i class="fas fa-capsules"></i></div>
           <h5 class="uppercase-text spacing-text">Recover</h5>
           <p>Taking the training articles to the next level with hands-on labs that let you practise the techniques that you've learned. Want to see how an issue really works? You'll find that content here.</p>
         </div></a>
