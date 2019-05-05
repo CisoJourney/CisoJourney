@@ -19,7 +19,9 @@ body {
   font-size: 36px;
 }
 .title {
+  width: fit-content;
   margin: 0 auto;
+  padding: 20px;
 }
 .on-brand {
   color: green;
