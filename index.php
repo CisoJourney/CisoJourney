@@ -16,10 +16,10 @@
 </div>-->
 <div class="nav-bar">
 <ul>
-<li><a href="/content.php">Risk</a></li>
-<li><a href="/content.php">Protection</a></li>
-<li><a href="/content.php">Detection</a></li>
-<li><a href="/contnt.php">Recovery</a></li>
+<li><a href="/content.php">Prepare</a></li>
+<li><a href="/content.php">Protect</a></li>
+<li><a href="/content.php">Detect</a></li>
+<li><a href="/contnt.php">Recover</a></li>
 </ul>
 </div>
 <div class="page-wrapper">
