@@ -73,12 +73,12 @@ spacing-text {
   flex: calc(33% - 30px);
   max-width: 30%;
   margin: 15px;
-  background-color: #fff;
 }
 .content-block {
   padding: 20px;
   border-radius: 8px;
   box-shadow: #859196 0 0 20px;
+  background-color: #fff;
 }
 .block-icon {
   margin: 0 auto;
