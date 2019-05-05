@@ -10,12 +10,14 @@ body {
 
 .top-bar {
   text-align: right;
-  width: 100%;
+  width: calc(100% - 20px);
   background-color: black;
   border-bottom: 2px solid gray;
   color: white;
   padding: 10px;
   font-family: arial;
+  font-weight: bold;
+  font-size: 14px;
 }
 .title-bar {
   background-color: white;
