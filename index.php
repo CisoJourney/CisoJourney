@@ -14,13 +14,15 @@
 <div class="content-wrapper">
   <div class="content-centre">
     <div class="content-trio">
+      Content left
     </div>
     <div class="content-trio">
+      Content middle
     </div>
     <div class="content-trio">
+      content right
     </div>
   </div>
 </div>
-Testing more
 </body>
 </html>
