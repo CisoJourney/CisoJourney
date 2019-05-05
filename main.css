@@ -54,6 +54,9 @@ body {
 .uppercase-text {
   text-transform: uppercase;
 }
+.black-text {
+  color: black;
+}
 .content {
   width: 95%;
   margin: 0 auto;
