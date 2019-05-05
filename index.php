@@ -9,9 +9,9 @@
 <body>
 <div class="top-bar">
 </div>
-<div class="title-bar">
-<!--<div class="title"><span class="on-brand">CISO</span>: Journey</div>-->
-</div>
+<!--<div class="title-bar">
+<div class="title"><span class="on-brand">CISO</span>: Journey</div>
+</div>-->
 <div class="nav-bar">
 <ul>
 <li>Risk</li>
