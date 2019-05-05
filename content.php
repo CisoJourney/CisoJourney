@@ -36,6 +36,7 @@
         </div></a>
       </div>
     </div>
+    <hr>
     <div class="content-wrapper">
       <div class="content-full"><a href="/content.php">
         <div class="content-block center-text">
