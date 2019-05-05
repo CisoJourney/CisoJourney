@@ -137,6 +137,7 @@ spacing-text {
   border-radius: 5px;
   border: 1px solid lightgray;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 .login-button {
   width: 50%;
@@ -147,6 +148,7 @@ spacing-text {
   font-weight: bold;
   background-color: #3CB371;
   color: white;
+  font-size: 20px;
 }
 
 
