@@ -42,10 +42,11 @@ page-wrapper {
 }
 .content-wrapper {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 .content-trio {
-  width: 100%;
+  flex: 33%;
+  max-width: 33%
   margin-right: 15px;
   margin-left: 15px;
   background-color: #fff;
