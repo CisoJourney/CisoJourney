@@ -38,6 +38,7 @@ page-wrapper {
 .content {
   width: 80%;
   margin: 0 auto;
+  padding-top: 20px;
 }
 .content-wrapper {
   display: flex;
@@ -56,5 +57,6 @@ page-wrapper {
 }
 .block-icon {
   margin: 0 auto;
-  font-size: 40px;
+  font-size: 30px;
+  width: 30px;
 }
