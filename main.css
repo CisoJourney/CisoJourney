@@ -46,7 +46,7 @@ page-wrapper {
 }
 .content-trio {
   flex: 33%;
-  max-width: 33%
+  max-width: 33%;
   margin-right: 15px;
   margin-left: 15px;
   background-color: #fff;
