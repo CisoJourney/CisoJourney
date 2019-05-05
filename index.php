@@ -23,14 +23,18 @@
         </div>
       </div>
       <div class="content-trio">
+        <div class="content-block">
           <div class="block-icon"><i class="fas fa-dumbbell"></i></div>
           <h5>Training</h5>
           <p>Some text goes here about what this section covers.</p>
+        </div>
       </div>
       <div class="content-trio">
+        <div class="content-block">
           <div class="block-icon"><i class="fas fa-flask"></i></div>
           <h5>Labs</h5>
           <p>Some text goes here about what this section covers.</p>
+        </div>
       </div>
     </div>
   </div>
