@@ -1,3 +1,36 @@
 body {
+  padding: 0;
+  margin: 0;
   font-family: arial;
 }
+
+.top-bar {
+  width: 100%;
+  height: 16px;
+  background-color: darkgray;
+}
+.title-bar {
+  width: 100%;
+  height: 160px;
+  background-color: lightgray;
+}
+.nav-bar {
+  width: 100%;
+  height: 16px;
+  background-color: green;
+}
+.content-wrapper {
+  width: 100%;
+  height: 200px;
+  background-color: green;
+}
+.content-centre {
+  width: 80%;
+}
+.content-trio {
+  display: inline-block;
+  width: 30%;
+  margin-right: 5px;
+  background colour: red;
+}
+
