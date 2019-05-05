@@ -7,6 +7,10 @@ body {
   line-height: 1.5;
   color: #859196;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .top-bar {
   text-align: right;
@@ -89,6 +93,15 @@ spacing-text {
   margin: 0 auto;
   font-size: 56px;
   width: 56px;
+}
+.ciso-color :hover {
+  color: darkgreen;
+}
+.training-color :hover {
+  color: darkred;
+}
+.labs-color :hover {
+  color: darkorange;
 }
 
 @media only screen and (max-width: 900px) {
