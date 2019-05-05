@@ -29,12 +29,12 @@
       <p>A line of text describing the content of the article, and what to expect</p>
     </div>
     <div class="content-wrapper">
-      <div class="content-full"><a href="/content.php">
+      <div class="content-full">
         <div class="content-block">
-          <h5 class="uppercase-text spacing-text>Introduction</h5>
+          <h5 class="uppercase-text spacing-text">Introduction</h5>
           <p>Articles covering the critical foundation topics of cybersecurity; such as how to plan, manage, and implement your security plans.</p>
           <p>A second paragraph with more content goes in here.</p>
-        </div></a>
+        </div>
       </div>
     </div>
   </div>
