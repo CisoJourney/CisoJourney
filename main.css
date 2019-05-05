@@ -102,6 +102,11 @@ spacing-text {
   max-width: 30%;
   margin: 15px;
 }
+.content-trio {
+  flex: calc(50% - 30px);
+  max-width: 50%;
+  margin: 15px;
+}
 .content-block {
   padding: 20px;
   border-radius: 8px;
@@ -158,10 +163,20 @@ spacing-text {
   max-width: 50%;
   margin: 15px;
 }
+.content-quatro {
+  flex: calc(50% - 30px);
+  max-width: 50%;
+  margin: 15px;
+}
 }
 
 @media only screen and (max-width: 700px) {
 .content-trio {
+  flex: calc(100% - 30px);
+  max-width: 100%;
+  margin: 15px;
+}
+.content-quatro {
   flex: calc(100% - 30px);
   max-width: 100%;
   margin: 15px;
