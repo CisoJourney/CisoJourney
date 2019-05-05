@@ -9,12 +9,8 @@
 </head>
 <body>
 <div class="top-bar">
-<div class="logo"
-Ciso: Journey
-</div>
-<div class="profile-buttons">
-<a href="/login.php">Sign in</a> | <a href="/register.php">Register</a>
-</div>
+<div class="logo">Ciso: Journey</div>
+<div class="profile-buttons"><a href="/login.php">Sign in</a> | <a href="/register.php">Register</a></div>
 </div>
 <!--<div class="title-bar">
 <div class="title"><span class="on-brand">CISO</span>: Journey</div>
