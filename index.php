@@ -39,7 +39,7 @@
       <div class="content-trio"><a href="/content.php">
         <div class="content-block center-text">
           <div class="block-icon training-color"><i class="fas fa-dumbbell"></i></div>
-          <h5 class="uppercase-text spacing-text">Training</h5>
+          <h5 class="uppercase-text spacing-text">Testing</h5>
           <p>Content geared towards penetration testing and vulnerability analysis. Had a vulnerability raised on a security test recently and want to know more? Check here.</p>
         </div></a>
       </div>
