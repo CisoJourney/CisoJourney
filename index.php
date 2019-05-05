@@ -13,6 +13,12 @@
 <!--<div class="title"><span class="on-brand">CISO</span>: Journey</div>-->
 </div>
 <div class="nav-bar">
+<ul>
+<li>Risk</li>
+<li>Protection</li>
+<li>Detection</li>
+<li>Recovery</li>
+</ul>
 </div>
 <div class="page-wrapper">
   <div class="content">

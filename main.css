@@ -32,7 +32,10 @@ body {
   height: 32px;
   background-color: gray;
 }
-page-wrapper {
+.nav-bar ul li {
+  display: inline-block;
+}
+.page-wrapper {
   width: 100%;
   height: 200px;
 }
