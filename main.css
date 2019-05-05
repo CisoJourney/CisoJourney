@@ -9,11 +9,13 @@ body {
 }
 
 .top-bar {
+  text-align: right;
   width: 100%;
-  height: 32px;
   background-color: black;
   border-bottom: 2px solid gray;
   color: white;
+  padding: 10px;
+  font-family: arial;
 }
 .title-bar {
   background-color: white;
