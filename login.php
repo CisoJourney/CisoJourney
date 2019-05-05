@@ -31,6 +31,9 @@
     <div class="content-wrapper">
         <div class="login-block center-text">
           <h5 class="uppercase-text spacing-text nopad-text">Sign-in</h5>
+          <input class="login-input" type="text">
+          <input class="login-input" type="password">
+          <input class="login-button" type="submit">
         </div>
       </div>
   </div>
