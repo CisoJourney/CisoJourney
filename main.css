@@ -97,14 +97,19 @@ spacing-text {
   display: flex;
   flex-wrap: wrap;
 }
+.content-duo {
+  flex: calc(50% - 30px);
+  max-width: 50%;
+  margin: 15px;
+}
 .content-trio {
   flex: calc(33% - 30px);
   max-width: 30%;
   margin: 15px;
 }
 .content-quatro {
-  flex: calc(50% - 30px);
-  max-width: 50%;
+  flex: calc(25% - 30px);
+  max-width: 25%;
   margin: 15px;
 }
 .content-block {
@@ -177,6 +182,11 @@ spacing-text {
   margin: 15px;
 }
 .content-quatro {
+  flex: calc(100% - 30px);
+  max-width: 100%;
+  margin: 15px;
+}
+.content-duo {
   flex: calc(100% - 30px);
   max-width: 100%;
   margin: 15px;
