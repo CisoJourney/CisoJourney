@@ -94,13 +94,13 @@ spacing-text {
   font-size: 56px;
   width: 56px;
 }
-.ciso-color :hover {
+.ciso-color:hover {
   color: darkgreen;
 }
-.training-color :hover {
+.training-color:hover {
   color: darkred;
 }
-.labs-color :hover {
+.labs-color:hover {
   color: darkorange;
 }
 
