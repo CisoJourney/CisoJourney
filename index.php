@@ -17,7 +17,7 @@
     <div class="content-wrapper">
       <div class="content-trio">
         <div class="content-block">
-          <i class="fas fa-flag""></i>
+          <div class="block-flag"><i class="fas fa-flag""></i></div>
         </div>
       </div>
       <div class="content-trio">

@@ -52,6 +52,9 @@ page-wrapper {
   border-radius: 3px;
 }
 .content-block {
-  
+  padding: 20px;  
 }
-
+.block-icon {
+  margin: 0 auto;
+  font-size: 40px;
+}
