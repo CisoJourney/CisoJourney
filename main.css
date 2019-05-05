@@ -144,7 +144,7 @@ spacing-text {
   border-radius: 5px;
   border: 1px solid grey;
   margin-bottom: 10px;
-  text-decoration: bold;
+  font-weight: bold;
 }
 
 
