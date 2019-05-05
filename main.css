@@ -13,6 +13,7 @@ body {
   height: 32px;
   background-color: black;
   border-bottom: 2px solid gray;
+  color: white;
 }
 .title-bar {
   background-color: white;

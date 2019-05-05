@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="top-bar">
+Sign in | Register
 </div>
 <!--<div class="title-bar">
 <div class="title"><span class="on-brand">CISO</span>: Journey</div>
@@ -39,7 +40,7 @@
         <div class="content-block center-text">
           <div class="block-icon"><i class="fas fa-dumbbell"></i></div>
           <h5 class="uppercase-text spacing-text">Training</h5>
-          <p>Content geared towards penetration testing and vulnerability analysis. Had a vulnerability raised on a security test recently and want to know more? Check here..</p>
+          <p>Content geared towards penetration testing and vulnerability analysis. Had a vulnerability raised on a security test recently and want to know more? Check here.</p>
         </div>
       </div>
       <div class="content-trio center-text">
