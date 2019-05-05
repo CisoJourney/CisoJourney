@@ -26,15 +26,15 @@
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
-      <h3 class="uppercase-text black-text">Cybersecurity Strategy</h3>
-      <p>A chat full of security strategy hints, tips, and discussion.</p>
+      <h3 class="uppercase-text black-text">Error 404 - File not found</h3>
+      <p>Sorry, the page you requested does not exist :(</p>
     </div>
     <div class="content-wrapper">
       <div class="content-trio"><a href="/content.php">
         <div class="content-block center-text">
           <div class="block-icon ciso-color"><i class="fas fa-flag"></i></div>
-          <h5 class="uppercase-text spacing-text">Error 404</h5>
-          <p>Sorry - the page you requeted does not exist :(</p>
+          <h5 class="uppercase-text spacing-text">Strategy</h5>
+          <p>Articles covering the critical foundation topics of cybersecurity; such as how to plan, manage, and implement your security plans.</p>
         </div></a>
       </div>
       <div class="content-trio"><a href="/content.php">
