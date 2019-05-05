@@ -16,7 +16,7 @@
 </div>
 <div class="page-wrapper">
   <div class="content">
-    <div class="content-full">
+    <div class="content-full center-text">
       <h3 class="uppercase-text">Cybersecurity Strategy</h3>
       <p>A chat full of security strategy hints, tips, and discussion.</p>
     </div>
