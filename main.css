@@ -132,6 +132,9 @@ spacing-text {
 .labs-color:hover {
   color: darkorange;
 }
+.recover-color:hover {
+  color: darkpurple;
+}
 .login-block {
   margin: 0 auto;
   width: 100%;
