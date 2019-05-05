@@ -13,6 +13,10 @@
 </div>
 <div class="content-wrapper">
   <div class="content-centre">
+    <div class="content-full">
+      <h1>Cyber Security Strategy</h1>
+      <p>A platform to learn, discuss, and build your organisation's cyber security strategy.</p>
+    </div>
     <div class="content-trio">
       Content left
     </div>
