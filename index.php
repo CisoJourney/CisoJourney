@@ -15,6 +15,10 @@
 </div>
 <div class="page-wrapper">
   <div class="content">
+    <div class="content-full">
+      <h3>Cyber Security Strategy</h3>
+      <p>A chat full of security strategy hints, tips, and discussion.</p>
+    </div>
     <div class="content-wrapper">
       <div class="content-trio">
         <div class="content-block center-text">
