@@ -3,20 +3,21 @@
  <title>CISO Journey</title>
  <link rel="stylesheet" type="text/css" href="/main.css" />
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+ <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 </head>
 <body>
 <div class="top-bar">
 </div>
 <div class="title-bar">
-<div class="title"><span class="on-brand">CISO</span>: Journey</div>
-</div>
+<!--<div class="title"><span class="on-brand">CISO</span>: Journey</div>
+</div>-->
 <div class="nav-bar">
 </div>
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full">
-      <h3>Cyber Security Strategy</h3>
+      <h3 class="uppercase-text">Cybersecurity Strategy</h3>
       <p>A chat full of security strategy hints, tips, and discussion.</p>
     </div>
     <div class="content-wrapper">
