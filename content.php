@@ -3,20 +3,6 @@ include('/var/www/CISOJourney.com/head.php');
 include('/var/www/CISOJourney.com/topbar.php');
 include('/var/www/CISOJourney.com/navbar.php')
 ?>
-<div class="top-bar">
-<a href="/login.php">Sign in</a> | <a href="/register.php">Register</a>
-</div>
-<!--<div class="title-bar">
-<div class="title"><span class="on-brand">CISO</span>: Journey</div>
-</div>-->
-<div class="nav-bar">
-<ul>
-<li><a href="/content.php">Risk</a></li>
-<li><a href="/content.php">Protection</a></li>
-<li><a href="/content.php">Detection</a></li>
-<li><a href="/contnt.php">Recovery</a></li>
-</ul>
-</div>
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">

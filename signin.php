@@ -1,27 +1,8 @@
-<html>
-<head>
- <title>CISO Journey</title>
- <link rel="stylesheet" type="text/css" href="/main.css" />
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-</head>
-</head>
-<body>
-<div class="top-bar">
-<a href="/login.php">Sign in</a> | <a href="/register.php">Register</a>
-</div>
-<!--<div class="title-bar">
-<div class="title"><span class="on-brand">CISO</span>: Journey</div>
-</div>-->
-<div class="nav-bar">
-<ul>
-<li>Risk</li>
-<li>Protection</li>
-<li>Detection</li>
-<li>Recovery</li>
-</ul>
-</div>
+<?php
+include('/var/www/CISOJourney.com/head.php');
+include('/var/www/CISOJourney.com/topbar.php');
+include('/var/www/CISOJourney.com/navbar.php')
+?>
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
