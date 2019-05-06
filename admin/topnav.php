@@ -28,19 +28,22 @@ else if ($_SESSION['privs'] < 3) {
           <div class="block-icon"><i class="fas fa-search"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Top Nav</h5>
 <table>
-<tr><th class="admin-table">ID</th><th class="admin-table">Title</th><th class="admin-table">URL</th></tr>
+<tr><th class="admin-table">ID</th><th class="admin-table">Title</th><th class="admin-table">URL</th><th></th></tr>
 <?php
 $result = $mysqli->query("SELECT id,title,url FROM topnav;");
 while($row = $result->fetch_assoc()) {
   print '<tr>';
   print '<td class="admin-table">';
-  print '<a href="/admin/edit-topnav.php?nav=' . htmlspecialchars($row['id']) . '">' . htmlspecialchars($row['id']) . '</a>';
+  print htmlspecialchars($row['id']);
   print '</td>';
   print '<td class="admin-table">';
   print htmlspecialchars($row['title']);
   print '</td>';
   print '<td class="admin-table">';
   print htmlspecialchars($row['url']);
+  print '</td>';
+  print '<td class="admin-table">';
+  print '<a href="/admin/edit-topnav.php?nav=' . htmlspecialchars($row['id']) . '"><input type="submit" value="edit"></a>';
   print '</td>';
   print '</tr>';
 }
