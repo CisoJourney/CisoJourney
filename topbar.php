@@ -1,5 +1,5 @@
 <div class="top-bar">
-<div class="logo">Ciso: Journey</div>
+<div class="logo"><a href="https://cisojourney.com/">Ciso: Journey</a></div>
 <div class="profile-buttons">
 <?php
 if (isset($_SESSION['email'])) {
