@@ -13,5 +13,9 @@ else if ($_POST['password'] != $_POST['confirm']) {
   header('Location: https://cisojourney.com/register.php?error=match');
   exit();
 }
-var_dump(hash_algos());
+
+$salt = openssl_random_pseudo_bytes(64);
+$iterations = 10000;
+print hash_pbkdf2('sha3-512', $_GET['password'], $salt , $iterations);
+
 ?>
