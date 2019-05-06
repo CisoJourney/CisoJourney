@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
