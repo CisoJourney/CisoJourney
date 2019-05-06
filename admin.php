@@ -2,6 +2,19 @@
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
+
+if (!isset($_SESSION['privs']) {
+  header('Location: /login.php');
+  exit();
+}
+else if ($_SESSION['privs'] == 3) {
+  header('Location: /login.php');
+  exit();
+}
+else {
+  header('Location: /profile.php');
+  exit();
+}
 ?>
 <div class="page-wrapper">
   <div class="content">
