@@ -20,7 +20,7 @@ else if ($_POST['id'] == "" or $_POST['title'] == "" or $_POST['url'] == "") {
   exit();
 }
 
-$stmt = $mysqli->prepare("UPDATE topnav SET title = ?, url = ? WHERE id = ?;")
+$stmt = $mysqli->prepare("UPDATE topnav SET title = ?, url = ? WHERE id = ?;");
 $stmt->bind_param("ss", $_POST['title'], $_POST['url']);
 $stmt->execute();
 header('Location: /admin/topnav.php');
