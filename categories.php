@@ -20,8 +20,8 @@ $result = $mysqli->query("SELECT id,title,description,icon FROM categories;");
 while($row = $result->fetch_assoc()) {
 ?>
     <div class="content-wrapper">
-      <div class="content-duo"><a href="/category.php?id=<?php print($row['id']); ?>">
-        <div class="content-block center-text">
+      <div class="content-duo">
+        <div class="content-block center-text"><a href="/category.php?id=<?php print($row['id']); ?>">
           <div class="block-icon ciso-color"><i class="<?php print($row['icon']); ?>"></i></div>
           <h5 class="uppercase-text spacing-text">Prepare</h5>
           <p>Articles covering the critical foundation topics of cybersecurity; such as how to plan, manage, and implement your security plans.</p>
