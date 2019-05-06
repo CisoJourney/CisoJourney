@@ -17,8 +17,8 @@ else if ($_SESSION['privs'] < 3) {
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
-      <h3 class="uppercase-text black-text">Cybersecurity Strategy</h3>
-      <p>A site full of security strategy hints, tips, and discussion.</p>
+      <h3 class="uppercase-text black-text">Administer Site</h3>
+      <p>Jus' don't screw it up.</p>
     </div>
     <div class="content-wrapper">
       <div class="content-quatro">
