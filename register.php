@@ -12,6 +12,19 @@ include('/var/www/CISOJourney.com/navbar.php')
     <div class="content-wrapper">
         <div class="login-block center-text">
           <h5 class="uppercase-text spacing-text">Register</h5>
+          <p><?php
+if isset($_GET['error']) {
+  if ($_GET['error'] == 'missing') {
+   print('Oops, all fields are required!');
+  }
+  else if ($_GET['error'] == 'blank') {
+   print('Oops, all fields are required!');
+  }
+  else if ($_GET['error'] == 'match') {
+   print('Oops, password and confirm must match!');
+  }
+}
+          ?></p>
           <form method="POST" action="process-registration.php">
             <input class="login-input" name="email" type="text" placeholder="e-mail">
             <input class="login-input" name="password" type="password" placeholder="password">
