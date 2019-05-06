@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 
 $stmt = $mysqli->prepare("SELECT area,title,description FROM articles WHERE area = 1 and category = ?;");
-$stmt->bind_param("s", $_GET['id']);
+$stmt->bind_param("i", intval($_GET['id']));
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
