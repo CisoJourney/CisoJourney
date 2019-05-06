@@ -41,6 +41,7 @@ $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 ?>
 <form method="POST" action="/admin/update-category.php">
+<input class="login-input" name="area" type="text" value="<?php print htmlspecialchars($row['area']); ?>">
 <input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
 <input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['title']); ?>">
 <textarea class="login-input" name="description"><?php print htmlspecialchars($row['description']); ?></textarea>
