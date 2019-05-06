@@ -28,7 +28,7 @@ else if ($_SESSION['privs'] < 3) {
           <div class="block-icon"><i class="fas fa-users"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Users</h5>
 <table>
-<tr><th class="admin-table">Email</th><th class="admin-table">Privs</th><th></th></tr>
+<tr><th class="admin-table">Email</th><th class="admin-table">Privs</th><th></th><th></th></tr>
 <?php
 $result = $mysqli->query("SELECT * FROM users;");
 while($row = $result->fetch_assoc()) {
@@ -44,6 +44,9 @@ while($row = $result->fetch_assoc()) {
   print '</td>';
   print '<td class="admin-table">';
   print '<a href="/admin/edit-user.php?user=' . htmlspecialchars($row['email']) . '"><input type="submit" value="Edit"></a>';
+  print '</td>';
+  print '<td class="admin-table">';
+  print '<a href="/admin/delete-user.php?user=' . htmlspecialchars($row['email']) . '"><input type="submit" value="Delete"></a>';
   print '</td>';
   print '</tr>';
 }
