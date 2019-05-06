@@ -20,15 +20,15 @@ else if ($_POST['email'] == "" or $_POST['password'] == "") {
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-$stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ?")
+$stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
-$row = $result->fetch_array(MYSQLI_NUM)
-$salt = $row['salt']
-$iterations = $row['iterations']
-$hash = $row['hash']
-$privs = $row['privs']
+$row = $result->fetch_array(MYSQLI_NUM);
+$salt = $row['salt'];
+$iterations = $row['iterations'];
+$hash = $row['hash'];
+$privs = $row['privs'];
 $checkhash = hash_pbkdf2('sha3-512', $password, $salt , $iterations);
 
 if ($hash == $checkhash) {
