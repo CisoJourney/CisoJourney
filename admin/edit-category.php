@@ -34,7 +34,7 @@ else if (!isset($_GET['category'])) {
           <div class="block-icon"><i class="fas fa-layer-group"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Categories</h5>
 <p class="red-text">
-<php
+<?php
 if (isset($_GET['error']) {
   if ($_GET['error'] == 'missing') {
     print('Oops, all fields are required!');
@@ -53,13 +53,14 @@ if (isset($_GET['updated'])) {
   }
 }
 ?>
+</p>
 <?php
 $stmt = $mysqli->prepare("SELECT area,id,title,description,icon FROM categories WHERE id = ?;");
 $stmt->bind_param("s", $_GET['category']);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
-?>
+?></p>
 <form method="POST" action="/admin/update-category.php">
 <select class="login-input" name="area">
   <option <?php if($row['area'] == 1) { print "selected"; } ?> value="1">Strategy</option>

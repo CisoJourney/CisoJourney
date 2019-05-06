@@ -36,7 +36,7 @@ else if (!isset($_GET['nav'])) {
           <div class="block-icon"><i class="fas fa-search"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Edit Menu</h5>
 <p class="red-text">
-<php
+<?php
 if (isset($_GET['error']) {
   if ($_GET['error'] == 'missing') {
     print('Oops, all fields are required!');
@@ -55,6 +55,7 @@ if (isset($_GET['updated'])) {
   }
 }
 ?>
+</p>
 <?php
 $stmt = $mysqli->prepare("SELECT id,title,url FROM topnav WHERE id = ?;");
 $stmt->bind_param("s", $_GET['nav']);
