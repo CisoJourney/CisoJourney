@@ -22,6 +22,9 @@ else if ($_SESSION['privs'] < 3) {
       <h3 class="uppercase-text black-text">Edit Top Nav</h3>
       <p>Modifing the top nav menu</p>
     </div>
+    <div class="content-full">
+      <p>Admin >> Top Nav >> Edit Nav Item</p>
+    </div>
     <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
