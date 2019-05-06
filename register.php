@@ -37,7 +37,7 @@ if (isset($_GET['error'])) {
             <input class="login-input" name="confirm" type="password" placeholder="confirm password">
             <img id="captcha" src="/securimage/securimage_show.php" alt="CAPTCHA Image" />
             <input class="login-input" type="text" name="captcha_code" size="10" maxlength="6" placeholder="captcha text (case insensitive)"/>
-            <input class="login-button" type="submit">
+            <input class="login-button" value="Register" type="submit">
           </form>
         </div>
       </div>
