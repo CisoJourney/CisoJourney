@@ -12,10 +12,12 @@ include('/var/www/CISOJourney.com/navbar.php')
     <div class="content-wrapper">
         <div class="login-block center-text">
           <h5 class="uppercase-text spacing-text">Register</h5>
-          <input class="login-input" type="text" placeholder="e-mail">
-          <input class="login-input" type="password" placeholder="password">
-          <input class="login-input" type="password" placeholder="confirm password">
-          <input class="login-button" type="submit">
+          <form method="POST" action="process-registration.php">
+            <input class="login-input" type="text" placeholder="e-mail">
+            <input class="login-input" type="password" placeholder="password">
+            <input class="login-input" type="password" placeholder="confirm password">
+            <input class="login-button" type="submit">
+          </form>
         </div>
       </div>
   </div>
