@@ -31,8 +31,6 @@ else if (!isset($_GET['category'])) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-layer-group"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Categories</h5>
-<table>
-<tr><th class="admin-table">ID</th><th class="admin-table">Title</th></tr>
 <?php
 $stmt = $mysqli->prepare("SELECT id,title,description FROM categories WHERE id = ?;");
 $stmt->bind_param("s", $_GET['category']);
