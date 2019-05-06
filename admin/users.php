@@ -25,6 +25,9 @@ else if ($_SESSION['privs'] < 3) {
     <div class="content-full center-text">
       <p class="red-text">User deleted!</p>
     </div>
+    <div class="content-full">
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; Edit Users</p>
+    </div>
     <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
