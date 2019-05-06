@@ -26,7 +26,9 @@ else if (!isset($_GET['category'])) {
       <h3 class="uppercase-text black-text">Administer Category</h3>
       <p>Modifying a category...</p>
     </div>
-    <div class="content-wrapper">
+    <div class="content-full">
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/categories.php">Categories</a> &gt;&gt; Edit Item</p>
+    </div>    <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-layer-group"></i></div>
@@ -42,6 +44,7 @@ $row = $result->fetch_assoc();
 <input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
 <input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['title']); ?>">
 <textarea class="login-input" name="description"><?php print htmlspecialchars($row['description']); ?></textarea>
+<input class="login-input" name="icon" type="text" value="<?php print htmlspecialchars($row['icon']); ?>">
 <input class="login-button" value="Update" type="submit">
 </form>
 
