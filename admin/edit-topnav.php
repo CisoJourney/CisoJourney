@@ -52,7 +52,7 @@ $row = $result->fetch_assoc();
 <form method="POST" action="/admin/update-topnav.php">
 <input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
 <input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['title']); ?>">
-<input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['url']); ?>">
+<input class="login-input" name="url" type="text" value="<?php print htmlspecialchars($row['url']); ?>">
 <input class="login-button" value="Update" type="submit">
 </form>
 
