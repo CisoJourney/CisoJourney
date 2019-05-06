@@ -28,19 +28,22 @@ else if ($_SESSION['privs'] < 3) {
           <div class="block-icon"><i class="fas fa-users"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Users</h5>
 <table>
-<tr><th class="admin-table">Email</th><th class="admin-table">Privs</th></tr>
+<tr><th class="admin-table">Email</th><th class="admin-table">Privs</th><th></th></tr>
 <?php
 $result = $mysqli->query("SELECT * FROM users;");
 while($row = $result->fetch_assoc()) {
   print '<tr>';
   print '<td class="admin-table">';
-  print '<a href="/admin/edit-user.php?user=' . htmlspecialchars($row['email']) . '">' . htmlspecialchars($row['email']) . '</a>';
+  print htmlspecialchars($row['email']);
   print '</td>';
   print '<td class="admin-table">';
   if ($row['privs'] == 3) { print 'Admin'; }
   else if ($row['privs'] == 2) { print 'Member+Labs'; }
   else if ($row['privs'] == 1) { print 'Member'; }
   else if ($row['privs'] == 0) { print 'Bambi'; }
+  print '</td>';
+  print '<td class="admin-table">';
+  print '<a href="/admin/edit-user.php?user=' . htmlspecialchars($row['email']) . '"><input type="submit" value="Edit"></a>';
   print '</td>';
   print '</tr>';
 }
