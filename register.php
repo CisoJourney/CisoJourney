@@ -13,9 +13,9 @@ include('/var/www/CISOJourney.com/navbar.php')
         <div class="login-block center-text">
           <h5 class="uppercase-text spacing-text">Register</h5>
           <form method="POST" action="process-registration.php">
-            <input class="login-input" type="text" placeholder="e-mail">
-            <input class="login-input" type="password" placeholder="password">
-            <input class="login-input" type="password" placeholder="confirm password">
+            <input class="login-input" name="email" type="text" placeholder="e-mail">
+            <input class="login-input" name="password" type="password" placeholder="password">
+            <input class="login-input" name="confirm" type="password" placeholder="confirm password">
             <input class="login-button" type="submit">
           </form>
         </div>
