@@ -1,5 +1,5 @@
 <?php
-$result = $mysqli->query("SELECT title,description,icon FROM areas;");
+$result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
 while($row = $result->fetch_assoc()) {
 ?>
       <div class="content-trio">
