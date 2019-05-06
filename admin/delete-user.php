@@ -31,7 +31,7 @@ else if (!isset($_GET['user'])) {
     </div>    <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
-          <div class="block-icon"><i class="fas fa-layer-group"></i></div>
+          <div class="block-icon"><i class="fas fa-users"></i></div>
           <h5 class="uppercase-text center-text spacing-text">User</h5>
 <p class="red-text">
 <?php
