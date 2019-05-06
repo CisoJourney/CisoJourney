@@ -30,8 +30,8 @@ else if (!isset($_GET['nav'])) {
     <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
-          <div class="block-icon"><i class="fas fa-layer-group"></i></div>
-          <h5 class="uppercase-text center-text spacing-text">Menu</h5>
+          <div class="block-icon"><i class="fas fa-search"></i></div>
+          <h5 class="uppercase-text center-text spacing-text">Edit Menu</h5>
 <p class="red-text">
 <php
 if ($_GET['error'] == 'missing') {
