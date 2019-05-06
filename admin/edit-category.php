@@ -41,7 +41,7 @@ $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 ?>
 <form method="POST" action="/admin/update-category.php">
-<select name="area">
+<select class="login-input" name="area">
   <option <?php if($row['area'] == 1) { print "selected"; } ?> value="1">Strategy</option>
   <option <?php if($row['area'] == 2) { print "selected"; } ?> value="2">Training</option>
   <option <?php if($row['area'] == 3) { print "selected"; } ?> value="3">Labs</option>

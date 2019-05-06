@@ -154,6 +154,7 @@ spacing-text {
   border: 1px solid lightgray;
   margin-bottom: 10px;
   font-size: 20px;
+  background-color: white;
 }
 .login-button {
   width: 50%;
