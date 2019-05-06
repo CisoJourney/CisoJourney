@@ -12,10 +12,10 @@ include('/var/www/CISOJourney.com/navbar.php')
     <div class="content-wrapper">
         <div class="login-block center-text">
           <h5 class="uppercase-text spacing-text">Sign-in</h5>
-          <input class="login-input" type="text">
-          <input class="login-input" type="password">
+          <input class="login-input" type="text" placeholder="e-mail">
+          <input class="login-input" type="password" placeholder="password">
+          <input class="login-input" type="text" name="captcha_code" size="10" maxlength="6" placeholder="captcha code (case insensitive)" />
           <img id="captcha" src="/securimage/securimage_show.php" alt="CAPTCHA Image" />
-          <input class="login-input" type="text" name="captcha_code" size="10" maxlength="6" placeholder="Captcha code (case insensitive)" />
           <input class="login-button" type="submit">
         </div>
       </div>

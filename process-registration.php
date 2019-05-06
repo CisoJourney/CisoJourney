@@ -27,9 +27,10 @@ else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 }
 
 $email = $_POST['email'];
+$password = $_POST['password']'
 $salt = openssl_random_pseudo_bytes(64);
 $iterations = 10000;
-$hash = hash_pbkdf2('sha3-512', $_GET['password'], $salt , $iterations);
+$hash = hash_pbkdf2('sha3-512', $password, $salt , $iterations);
 $privs = 0;
 
 if ($stmt = $mysqli->prepare("INSERT INTO users (email, salt, iterations, hash, privs) VALUES (?, ?, ?, ?, ?);")) {
