@@ -155,6 +155,7 @@ spacing-text {
   margin-bottom: 10px;
   font-size: 20px;
   background-color: white;
+  font-family: inherit;
 }
 .dim-input {
   background-color: #efefef;
