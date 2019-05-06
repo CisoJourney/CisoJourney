@@ -32,7 +32,7 @@ include('/var/www/CISOJourney.com/navbar.php')
           <div class="block-icon"><i class="fas fa-flask"></i></div>
           <h5 class="uppercase-text spacing-text">Labs</h5>
           <p>Access to all of our articles and hands-on labs. Plus early access to new training content.</p>
-          <p>8.50, monthly</p>
+          <p>£8.50, monthly</p>
         </div></a>
       </div>
       </a>
