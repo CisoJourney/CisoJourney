@@ -24,16 +24,22 @@ $stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
-$row = $result->fetch_array(MYSQLI_NUM);
-$salt = $row['salt'];
-$iterations = $row['iterations'];
-$hash = $row['hash'];
-$privs = $row['privs'];
-$checkhash = hash_pbkdf2('sha3-512', $password, $salt , $iterations);
+$row = $result->fetch_assoc();
 
-if ($hash == $checkhash) {
-  print "Hashes match";
-  print $hash;
-  print $checkhash;
+if ($row['email'] != $email) {
+  header('Location: https://cisojourney.com/login.php?error=user');
+}
+else {
+  $salt = $row['salt'];
+  $iterations = $row['iterations'];
+  $hash = $row['hash'];
+  $privs = $row['privs'];
+  $checkhash = hash_pbkdf2('sha3-512', $password, $salt , $iterations);
+
+  if ($hash == $checkhash) {
+    print "Hashes match";
+    print $hash;
+    print $checkhash;
+  }
 }
 ?>
