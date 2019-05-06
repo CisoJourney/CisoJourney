@@ -14,8 +14,14 @@ else if ($_POST['password'] != $_POST['confirm']) {
   exit();
 }
 
+$email = $_POST['email']
 $salt = openssl_random_pseudo_bytes(64);
 $iterations = 10000;
 $hash = hash_pbkdf2('sha3-512', $_GET['password'], $salt , $iterations);
+$privs = 0;
 
+if ($stmt = $mysqli->prepare("INSERT INTO users (email, salt, iterations, hash, privs) VALUES (?, ?, ?, ?, ?);")) {
+    $stmt->bind_param("ssisi", $email, $salt, $iterations, $hash, $privs);
+    $stmt->execute();
+}
 ?>
