@@ -16,17 +16,17 @@ else if (!isset($_POST['id'])) {
   exit();
 }
 else if (!isset($_POST['title']) or !isset($_POST['description']) or !isset($_POST['icon'])) {
-  header('Location: /admin/edit-content.php?error=missing&nav=' . htmlspecialchars($_POST['id']));
+  header('Location: /admin/edit-content.php?error=missing&content=' . htmlspecialchars($_POST['id']));
   exit();
 }
 else if ($_POST['title'] == "" or $_POST['description'] == "" or $_POST['icon'] == "") {
-  header('Location: /admin/edit-content.php?error=blank&nav=' . htmlspecialchars($_POST['id']));
+  header('Location: /admin/edit-content.php?error=blank&content=' . htmlspecialchars($_POST['id']));
   exit();
 }
 
 $stmt = $mysqli->prepare("UPDATE areas SET title = ?, description = ?, icon = ? WHERE id = ?;");
 $stmt->bind_param("sssi", $_POST['title'], $_POST['description'], $_POST['icon'], intval($_POST['id']));
 $stmt->execute();
-header('Location: /admin/edit-category.php?updated=true&nav=' . htmlspecialchars($_POST['id']));
+header('Location: /admin/edit-content.php?updated=true&content=' . htmlspecialchars($_POST['id']));
 exit();
 ?>
