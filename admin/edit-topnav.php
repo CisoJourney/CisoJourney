@@ -37,7 +37,7 @@ else if (!isset($_GET['nav'])) {
           <h5 class="uppercase-text center-text spacing-text">Edit Menu</h5>
 <p class="red-text">
 <?php
-if (isset($_GET['error']) {
+if (isset($_GET['error'])) {
   if ($_GET['error'] == 'missing') {
     print('Oops, all fields are required!');
   }
