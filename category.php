@@ -12,7 +12,6 @@ $stmt = $mysqli->prepare("SELECT area,title,description FROM articles WHERE area
 $stmt->bind_param("i", intval($_GET['id']));
 $stmt->execute();
 $result = $stmt->get_result();
-$row = $result->fetch_assoc();
 
 ?>
 <div class="page-wrapper">
