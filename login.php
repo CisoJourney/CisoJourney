@@ -12,6 +12,19 @@ include('/var/www/CISOJourney.com/navbar.php')
     <div class="content-wrapper">
         <div class="login-block center-text">
           <h5 class="uppercase-text spacing-text">Sign-in</h5>
+<p class="red-text"><?php
+if (isset($_GET['error'])) {
+  if ($_GET['error'] == 'captcha') {
+   print('Oops, captcha code was incorrect!');
+  }
+  else if ($_GET['error'] == 'missing') {
+   print('Oops, all fields are required!');
+  }
+  else if ($_GET['error'] == 'blank') {
+   print('Oops, all fields are required!');
+  }
+}
+?><p>
           <form method="POST" action="process-login.php">
             <input class="login-input" name="email" type="text" placeholder="e-mail">
             <input class="login-input" name="password" type="password" placeholder="password">
