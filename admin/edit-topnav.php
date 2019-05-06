@@ -15,10 +15,11 @@ else if ($_SESSION['privs'] < 3) {
   header('Location: /profile.php');
   exit();
 }
-else if (!isset($_GET['nav'])) {
-  header('Location: /admin/topnav.php');
+else if (isset($_GET['nav'])) {
+  header('Location: /admin/topbar.php');
   exit();
 }
+
 ?>
 <div class="page-wrapper">
   <div class="content">
