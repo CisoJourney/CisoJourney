@@ -99,7 +99,7 @@ spacing-text {
 }
 .content-duo {
   flex: calc(50% - 30px);
-  max-width: calc(50% - 30px;
+  max-width: calc(50% - 30px);
   margin: 15px;
 }
 .content-trio {
