@@ -24,5 +24,6 @@ if ($stmt = $mysqli->prepare("INSERT INTO users (email, salt, iterations, hash, 
     $stmt->bind_param("ssisi", $email, $salt, $iterations, $hash, $privs);
     $stmt->execute();
 }
-print "Done";
+
+header('Location: https://cisojourney.com/profile.php');
 ?>
