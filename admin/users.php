@@ -36,7 +36,7 @@ while($row = $result->fetch_assoc()) {
   print '<td class="admin-table">';
   print '<a href="/admin/edit-user.php?user=' . htmlspecialchars($row['email']) . '">' . htmlspecialchars($row['email']) . '</a>';
   print '</td>';
-  print '<td class="admin-table">'
+  print '<td class="admin-table">';
   if ($row['privs'] == 3) { print 'Admin'; }
   else if ($row['privs'] == 2) { print 'Member+Labs'; }
   else if ($row['privs'] == 1) { print 'Member'; }
