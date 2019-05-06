@@ -32,7 +32,7 @@ else if ($_SESSION['privs'] < 3) {
 <?php
 $result = $mysqli->query("SELECT * FROM users;");
 while($row = $result->fetch_assoc()) {
-  print '<a href="/admin/edit-user.php?' . htmlspecialchars($row['email']) . '"><tr><td>' . htmlspecialchars($row['email']) . '</td><td>' . htmlspecialchars($row['privs']) . '</tr></a>';
+  print '<a href="/admin/edit-user.php?user=' . htmlspecialchars($row['email']) . '"><tr><td>' . htmlspecialchars($row['email']) . '</td><td>' . htmlspecialchars($row['privs']) . '</tr></a>';
 }
 ?>
         </div>
