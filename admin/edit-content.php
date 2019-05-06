@@ -31,8 +31,8 @@ else if (!isset($_GET['content'])) {
     </div>    <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
-          <div class="block-icon"><i class="fas fa-layer-group"></i></div>
-          <h5 class="uppercase-text center-text spacing-text">Users</h5>
+          <div class="block-icon"><i class="fas fa-align-justify"></i></div>
+          <h5 class="uppercase-text center-text spacing-text">Content</h5>
 <p class="red-text">
 <?php
 if (isset($_GET['error'])) {
