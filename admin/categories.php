@@ -22,6 +22,9 @@ else if ($_SESSION['privs'] < 3) {
       <h3 class="uppercase-text black-text">Administer Categories</h3>
       <p>Modify the categories titles or descriptions!</p>
     </div>
+    <div class="content-full">
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; Edit Categories</p>
+    </div>
     <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
