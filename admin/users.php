@@ -29,7 +29,6 @@ else if ($_SESSION['privs'] < 3) {
           <h5 class="uppercase-text center-text spacing-text">Users</h5>
 <?php
 $stmt = $mysqli->query("SELECT * FROM users;");
-$stmt->execute();
 $result = $stmt->get_result();
 while($row = $result->fetch_assoc()) {
   print htmlspecialchars($row['email']);
