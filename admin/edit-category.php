@@ -15,7 +15,7 @@ else if ($_SESSION['privs'] < 3) {
   header('Location: /profile.php');
   exit();
 }
-else if (!isset($_GET['id'])) {
+else if (!isset($_GET['category'])) {
   header('Location: /admin/categories.php');
   exit();
 }
@@ -35,7 +35,7 @@ else if (!isset($_GET['id'])) {
 <tr><th class="admin-table">ID</th><th class="admin-table">Title</th></tr>
 <?php
 $stmt = $mysqli->prepare("SELECT id,title,description FROM categories WHERE id = ?;");
-$stmt->bind_param("s", $_GET['id']);
+$stmt->bind_param("s", $_GET['category']);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
