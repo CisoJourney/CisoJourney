@@ -27,7 +27,7 @@ else if (!isset($_GET['user'])) {
       <p>Modifying a user...</p>
     </div>
     <div class="content-full">
-      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/users.php">Users</a> &gt;&gt; Edit Item</p>
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/users.php">Edit Users</a> &gt;&gt; Edit Item</p>
     </div>    <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
