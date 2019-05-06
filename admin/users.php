@@ -59,7 +59,9 @@ while($row = $result->fetch_assoc()) {
   print '<a href="/admin/edit-user.php?user=' . htmlspecialchars($row['email']) . '"><input type="submit" value="Edit"></a>';
   print '</td>';
   print '<td class="admin-table">';
-  print '<a href="/admin/delete-user.php?user=' . htmlspecialchars($row['email']) . '"><input type="submit" value="Delete"></a>';
+  if ($row['email'] != $_SESSION['email']) {
+    print '<a href="/admin/delete-user.php?user=' . htmlspecialchars($row['email']) . '"><input type="submit" value="Delete"></a>';
+  }
   print '</td>';
   print '</tr>';
 }
