@@ -8,8 +8,6 @@ if (isset($_SESSION['email'])) {
 else  {
   print '<a href="/login.php">Sign in</a> | <a href="/register.php">Register</a>';
 }
-
-}
 ?>
 </div>
 </div>
