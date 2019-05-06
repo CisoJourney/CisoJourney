@@ -25,7 +25,7 @@ else if ($_POST['title'] == "" or $_POST['description'] == "" or $_POST['icon'] 
 }
 
 $stmt = $mysqli->prepare("UPDATE categories SET area = ?, title = ?, description = ?, icon = ? WHERE id = ?;");
-$stmt->bind_param("sss", $_POST['area'], $_POST['title'], $_POST['description'], $_POST['icon'], $_POST['id']);
+$stmt->bind_param("isssi", intval($_POST['area']), $_POST['title'], $_POST['description'], $_POST['icon'], intval($_POST['id']));
 $stmt->execute();
 header('Location: /admin/edit-category.php?updated=true&nav=' . htmlspecialchars($_POST['id']));
 exit();
