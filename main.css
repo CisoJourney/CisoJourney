@@ -78,6 +78,9 @@ hr {
 .black-text {
   color: black;
 }
+.red-text {
+  color: red;
+}
 spacing-text {
   letter-spacing: 0.5px;
 }

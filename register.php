@@ -12,7 +12,7 @@ include('/var/www/CISOJourney.com/navbar.php')
     <div class="content-wrapper">
         <div class="login-block center-text">
           <h5 class="uppercase-text spacing-text">Register</h5>
-          <p><?php
+          <p class="red-text"><?php
 if (isset($_GET['error'])) {
   if ($_GET['error'] == 'missing') {
    print('Oops, all fields are required!');
