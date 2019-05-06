@@ -1,8 +1,8 @@
 <?php
-include('/var/www/CISOJourney.com/headers.php');
-include('/var/www/CISOJourney.com/head.php');
-include('/var/www/CISOJourney.com/topbar.php');
-include('/var/www/CISOJourney.com/navbar.php')
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php');
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php');
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php');
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php')
 ?>
 <div class="page-wrapper">
   <div class="content">
