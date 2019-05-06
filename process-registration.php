@@ -13,7 +13,7 @@ else if ($_POST['password'] != $_POST['confirm']) {
   header('Location: https://cisojourney.com/register.php?error=match');
   exit();
 }
-else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) {
+else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
   header('Location: https://cisojourney.com/register.php?error=email');
   exit();
 }
