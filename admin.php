@@ -10,10 +10,39 @@ include('/var/www/CISOJourney.com/navbar.php')
       <p>A site full of security strategy hints, tips, and discussion.</p>
     </div>
     <div class="content-wrapper">
-      <div class="content-full">
+      <div class="content-quatro">
         <div class="content-block">
-          <h5 class="uppercase-text spacing-text">Admin</h5>
-          <p>Articles covering the critical foundation topics of cybersecurity; such as how to plan, manage, and implement your security plans.</p>
+          <div class="block-icon"><i class="fas fa-users"></i></div>
+          <h5 class="uppercase-text spacing-text">Users</h5>
+          <p></p>
+        </div>
+      </div>
+      <div class="content-quatro">
+        <div class="content-block">
+          <div class="block-icon"><i class="fas fa-layer-group"></i></div>
+          <h5 class="uppercase-text spacing-text">Categories</h5>
+          <p></p>
+        </div>
+      </div>
+      <div class="content-quatro">
+        <div class="content-block">
+          <div class="block-icon"><i class="fas fa-book"></i></div>
+          <h5 class="uppercase-text spacing-text">Articles</h5>
+          <p></p>
+        </div>
+      </div>
+      <div class="content-quatro">
+        <div class="content-block">
+          <div class="block-icon"><i class="fas fa-align-justify"></i></div>
+          <h5 class="uppercase-text spacing-text">Content</h5>
+          <p></p>
+        </div>
+      </div>
+      <div class="content-quatro">
+        <div class="content-block">
+          <div class="block-icon"><i class="fas fa-flask"></i></div>
+          <h5 class="uppercase-text spacing-text">Labs</h5>
+          <p></p>
         </div>
       </div>
       </a>
