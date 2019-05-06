@@ -27,10 +27,12 @@ else if ($_SESSION['privs'] < 3) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-users"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Users</h5>
+<table>
+<tr><th>Email</th><th>Privs</th></tr>
 <?php
 $result = $mysqli->query("SELECT * FROM users;");
 while($row = $result->fetch_assoc()) {
-  print htmlspecialchars($row['email']);
+  print '<tr><td>' . htmlspecialchars($row['email']) . '</td><td>' . htmlspecialchars($row['privs']) . '</tr>';
 }
 ?>
         </div>
