@@ -1,6 +1,6 @@
 <div class="top-bar">
-<div class="logo"><a href="https://cisojourney.com/">Ciso: Journey</a></div>
-<div class="profile-buttons">
+  <div class="logo"><a href="https://cisojourney.com/">Ciso: Journey</a></div>
+  <div class="profile-buttons">
 <?php
 if (isset($_SESSION['email'])) {
   if ($_SESSION['privs'] == 3) {
@@ -12,5 +12,5 @@ else  {
   print '<a href="/login.php">Sign in</a> | <a href="/register.php">Register</a>';
 }
 ?>
-</div>
+  </div>
 </div>
