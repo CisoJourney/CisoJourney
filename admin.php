@@ -3,7 +3,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-if (!isset($_SESSION['privs']) {
+if (!isset($_SESSION['privs'])) {
   header('Location: /login.php');
   exit();
 }
