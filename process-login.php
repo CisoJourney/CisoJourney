@@ -28,6 +28,7 @@ $row = $result->fetch_assoc();
 
 if ($row['email'] != $email) {
   header('Location: https://cisojourney.com/login.php?error=user');
+  exit();
 }
 else {
   $salt = $row['salt'];
@@ -37,9 +38,14 @@ else {
   $checkhash = hash_pbkdf2('sha3-512', $password, $salt , $iterations);
 
   if ($hash == $checkhash) {
-    print "Hashes match";
-    print $hash;
-    print $checkhash;
+    header('Location: https://cisojourney.com/login.php?error=user');
+    $_SESSION['email'] = $email;
+    $_SESSION['privs'] = $privs;
+    exit();
+  }
+  else {
+    header('Location: https://cisojourney.com/login.php?error=user');
+    exit();
   }
 }
 ?>

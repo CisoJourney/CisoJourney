@@ -23,6 +23,9 @@ if (isset($_GET['error'])) {
   else if ($_GET['error'] == 'blank') {
    print('Oops, all fields are required!');
   }
+  else if ($_GET['error'] == 'user') {
+   print('Oops, invalid credentials!');
+  }
 }
 ?><p>
           <form method="POST" action="process-login.php">
