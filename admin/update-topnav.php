@@ -27,6 +27,6 @@ else if ($_POST['title'] == "" or $_POST['url'] == "") {
 $stmt = $mysqli->prepare("UPDATE topnav SET title = ?, url = ? WHERE id = ?;");
 $stmt->bind_param("sss", $_POST['title'], $_POST['url'], $_POST['id']);
 $stmt->execute();
-header('Location: /admin/edit-topnav.php?nav=' . htmlspecialchars($_POST['id']));
+header('Location: /admin/edit-topnav.php?updated=true&nav=' . htmlspecialchars($_POST['id']));
 exit();
 ?>

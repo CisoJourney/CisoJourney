@@ -37,14 +37,24 @@ else if (!isset($_GET['nav'])) {
           <h5 class="uppercase-text center-text spacing-text">Edit Menu</h5>
 <p class="red-text">
 <php
-if ($_GET['error'] == 'missing') {
-  print('Oops, all fields are required!');
-}
-else if ($_GET['error'] == 'blank') {
-  print('Oops, all fields are required!');
+if (isset($_GET['error']) {
+  if ($_GET['error'] == 'missing') {
+    print('Oops, all fields are required!');
+  }
+  else if ($_GET['error'] == 'blank') {
+    print('Oops, all fields are required!');
+  }
 }
 ?>
 </p>
+<p class="black-text">
+<?php
+if (isset($_GET['updated'])) {
+  if ($_GET['updated'] == 'true') {
+    print('Updated!');
+  }
+}
+?>
 <?php
 $stmt = $mysqli->prepare("SELECT id,title,url FROM topnav WHERE id = ?;");
 $stmt->bind_param("s", $_GET['nav']);
