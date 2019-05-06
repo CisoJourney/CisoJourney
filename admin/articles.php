@@ -48,7 +48,7 @@ while($row = $result->fetch_assoc()) {
   print htmlspecialchars($row['title']);
   print '</td>';
   print '<td class="admin-table">';
-  if ($row['area'] == 1) { print '<i class="fas fa-crown"></i>'; }
+  if ($row['premium'] == 1) { print '<i class="fas fa-crown"></i>'; }
   print '</td>';
   print '<td class="admin-table">';
   print '<a href="/admin/edit-article.php?article=' . htmlspecialchars($row['id']) . '"><input type="submit" value="edit"></a>';
