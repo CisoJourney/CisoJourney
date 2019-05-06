@@ -23,7 +23,7 @@ else if ($_SESSION['privs'] < 3) {
       <p>Modifing the top nav menu</p>
     </div>
     <div class="content-full">
-      <p><a href="/admin.php">Admin</a> &gt;&gt; <a href="/admin/topnav.php">Top Nav</a> &gt;&gt; Edit Nav Item</p>
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; Top Nav</p>
     </div>
     <div class="content-wrapper">
       <div class="content-full">

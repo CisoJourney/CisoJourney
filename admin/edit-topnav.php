@@ -27,6 +27,9 @@ else if (!isset($_GET['nav'])) {
       <h3 class="uppercase-text black-text">Administer Menu</h3>
       <p>Modifying a menu item...</p>
     </div>
+    <div class="content-full">
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/edit-topnav.php">Top Nav</a> &gt;&gt; Edit Item</p>
+    </div>
     <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
