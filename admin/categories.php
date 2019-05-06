@@ -28,11 +28,16 @@ else if ($_SESSION['privs'] < 3) {
           <div class="block-icon"><i class="fas fa-layer-group"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Categories</h5>
 <table>
-<tr><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th></tr>
+<tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th></tr>
 <?php
 $result = $mysqli->query("SELECT * FROM categories;");
 while($row = $result->fetch_assoc()) {
   print '<tr>';
+  print '<td class="admin-table">';
+  if ($row['area'] == 1) { print '<i class="fas fa-flag"></i>'; }
+  else if ($row['area'] == 2) { print '<i class="fas fa-dumbbell"></i>'; }
+  else if ($row['area'] == 3) { print '<i class="fas fa-flask"></i>'; }
+  print '</td>';
   print '<td class="admin-table">';
   print htmlspecialchars($row['id']);
   print '</td>';
