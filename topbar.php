@@ -4,7 +4,7 @@
 <?php
 if (isset($_SESSION['email'])) {
   if ($_SESSION['privs'] == 3) {
-    print '<a href="/admin.php">Admin</a> | ';
+    print '<a href="/admin/index.php">Admin</a> | ';
   }
   print '<a href="/profile.php">My Profile</a> | <a href="/logout.php">Log out</a>';
 }
