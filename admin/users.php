@@ -22,6 +22,9 @@ else if ($_SESSION['privs'] < 3) {
       <h3 class="uppercase-text black-text">Administer Users</h3>
       <p>Check up on the userbase!</p>
     </div>
+    <div class="content-full center-text">
+      <p class="red-text">User deleted!</p>
+    </div>
     <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
