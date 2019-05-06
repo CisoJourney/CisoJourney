@@ -39,7 +39,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 ?>
-<form method="POST" action="/admin/update-category.php">
+<form method="POST" action="/admin/update-topnav.php">
 <input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
 <input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['title']); ?>">
 <input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['url']); ?>">
