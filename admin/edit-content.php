@@ -63,9 +63,9 @@ $row = $result->fetch_assoc();
 ?>
 <form method="POST" action="/admin/update-content.php">
 <input class="login-input dim-input" name="id" value="<?php print htmlspecialchars($row['id']); ?>" readonly>
-<input class="login-input dim-input" name="title" value="<?php print htmlspecialchars($row['title']); ?>">
-<input class="login-input dim-input" name="description" value="<?php print htmlspecialchars($row['description']); ?>">
-<input class="login-input dim-input" name="icon" value="<?php print htmlspecialchars($row['icon']); ?>">
+<input class="login-input" name="title" value="<?php print htmlspecialchars($row['title']); ?>">
+<input class="login-input" name="description" value="<?php print htmlspecialchars($row['description']); ?>">
+<input class="login-input" name="icon" value="<?php print htmlspecialchars($row['icon']); ?>">
 <input class="login-button" value="Update" type="submit">
 </form>
 
