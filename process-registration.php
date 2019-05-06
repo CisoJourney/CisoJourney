@@ -16,6 +16,6 @@ else if ($_POST['password'] != $_POST['confirm']) {
 
 $salt = openssl_random_pseudo_bytes(64);
 $iterations = 10000;
-print hash_pbkdf2('sha3-512', $_GET['password'], $salt , $iterations);
+$hash = hash_pbkdf2('sha3-512', $_GET['password'], $salt , $iterations);
 
 ?>
