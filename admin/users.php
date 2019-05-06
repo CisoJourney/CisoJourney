@@ -1,9 +1,11 @@
 <?php
 session_start();
 
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 
 if (!isset($_SESSION['privs'])) {
   header('Location: /login.php');
@@ -25,7 +27,14 @@ else if ($_SESSION['privs'] < 3) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-users"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Users</h5>
-          <p>Users go here</p>
+<?php
+$stmt = $mysqli->query("SELECT * FROM users;");
+$stmt->execute();
+$result = $stmt->get_result();
+while($row = $result->fetch_assoc()) {
+  print htmlspecialchars($row['email']);
+}
+?>
         </div>
       </div>
       </a>
