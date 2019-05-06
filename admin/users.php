@@ -28,11 +28,11 @@ else if ($_SESSION['privs'] < 3) {
           <div class="block-icon"><i class="fas fa-users"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Users</h5>
 <table>
-<tr><th>Email</th><th>Privs</th></tr>
+<tr><th class="admin-table">Email</th><th class="admin-table">Privs</th></tr>
 <?php
 $result = $mysqli->query("SELECT * FROM users;");
 while($row = $result->fetch_assoc()) {
-  print '<tr><td><a href="/admin/edit-user.php?user=' . htmlspecialchars($row['email']) . '">' . htmlspecialchars($row['email']) . '</a></td><td>' . htmlspecialchars($row['privs']) . '</tr>';
+  print '<tr><td class="admin-table"><a href="/admin/edit-user.php?user=' . htmlspecialchars($row['email']) . '">' . htmlspecialchars($row['email']) . '</a></td><td class="admin-table">' . htmlspecialchars($row['privs']) . '</tr>';
 }
 ?>
         </div>
