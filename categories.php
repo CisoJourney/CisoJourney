@@ -7,7 +7,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-$result = $mysqli->query("SELECT id,title,description,icon FROM categories;");
+$result = $mysqli->query("SELECT id,title,description,icon FROM categories WHERE area = 1;");
 ?>
 <div class="page-wrapper">
   <div class="content">
