@@ -16,7 +16,7 @@ else if ($_SESSION['privs'] < 3) {
   exit();
 }
 else if (!isset($_GET['nav'])) {
-  header('Location: /admin/topbar.php');
+  header('Location: /admin/edit-topbar.php');
   exit();
 }
 
