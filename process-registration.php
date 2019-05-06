@@ -14,3 +14,4 @@ else if ($_POST['password'] != $_POST['confirm']) {
   exit();
 }
 ?>
+var_dump(hash_algos());
