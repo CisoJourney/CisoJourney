@@ -45,7 +45,7 @@ else if ($_SESSION['privs'] < 3) {
         </div>
       </div>
       <div class="content-quatro">
-        <div class="content-block"><a href="/admin/contents.php">
+        <div class="content-block"><a href="/admin/content.php">
           <div class="block-icon"><i class="fas fa-align-justify"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Content</h5>
           <p></p></a>
