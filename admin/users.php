@@ -22,9 +22,6 @@ else if ($_SESSION['privs'] < 3) {
       <h3 class="uppercase-text black-text">Administer Users</h3>
       <p>Check up on the userbase!</p>
     </div>
-    <div class="content-full center-text">
-      <p class="red-text">User deleted!</p>
-    </div>
     <div class="content-full">
       <p><a href="/admin/index.php">Admin</a> &gt;&gt; Edit Users</p>
     </div>
@@ -33,6 +30,11 @@ else if ($_SESSION['privs'] < 3) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-users"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Users</h5>
+<?php
+if (isset($_GET['deleted']) and $_GET['deleted'] == 'true') {
+  print '<p class="red-text">User deleted!</p>';
+}
+?>
 <table>
 <tr><th class="admin-table">Email</th><th class="admin-table">Privs</th><th></th><th></th></tr>
 <?php
