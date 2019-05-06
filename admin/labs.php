@@ -23,13 +23,13 @@ else if ($_SESSION['privs'] < 3) {
       <p>Modify the labs titles, descriptions, or content!</p>
     </div>
     <div class="content-full">
-      <p><a href="/admin/index.php">Admin</a> &gt;&gt; Edit Articles</p>
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; Edit Labs</p>
     </div>
     <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
-          <div class="block-icon"><i class="fas fa-book"></i></div>
-          <h5 class="uppercase-text center-text spacing-text">Articles</h5>
+          <div class="block-icon"><i class="fas fa-flask"></i></div>
+          <h5 class="uppercase-text center-text spacing-text">Labs</h5>
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th></tr>
 <?php
