@@ -28,8 +28,7 @@ else if ($_SESSION['privs'] < 3) {
           <div class="block-icon"><i class="fas fa-users"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Users</h5>
 <?php
-$stmt = $mysqli->query("SELECT * FROM users;");
-$result = $stmt->get_result();
+$result = $mysqli->query("SELECT * FROM users;");
 while($row = $result->fetch_assoc()) {
   print htmlspecialchars($row['email']);
 }
