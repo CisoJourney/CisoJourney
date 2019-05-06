@@ -58,6 +58,13 @@ else if ($_SESSION['privs'] < 3) {
           <p></p></a>
         </div>
       </div>
+      <div class="content-quatro">
+        <div class="content-block"><a href="/admin/topnav.php">
+          <div class="block-icon"><i class="fas fa-search"></i></div>
+          <h5 class="uppercase-text center-text spacing-text">Top Nav</h5>
+          <p></p></a>
+        </div>
+      </div>
       </a>
     </div>
   </div>
