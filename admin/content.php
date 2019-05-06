@@ -28,7 +28,7 @@ else if ($_SESSION['privs'] < 3) {
     <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
-          <div class="block-icon"><i class="fas fa-layer-group"></i></div>
+          <div class="block-icon"><i class="fas fa-align-justify"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Content</h5>
 <table>
 <tr><th class="admin-table">ID</th><th class="admin-table">Title</th><th>icon</th><th></th></tr>
