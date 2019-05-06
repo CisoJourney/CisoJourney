@@ -27,11 +27,11 @@ while($row = $result->fetch_assoc()) {
           <p>Articles covering the critical foundation topics of cybersecurity; such as how to plan, manage, and implement your security plans.</p>
         </div></a>
       </div>
+    </div>
 
 <?php
 }
 ?>
-    </div>
   </div>
 </div>
 </body>
