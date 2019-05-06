@@ -37,7 +37,7 @@ if ($stmt = $mysqli->prepare("SELECT email FROM users WHERE email = ?;")) {
   $stmt->bind_param("s", $email);
   $stmt->execute();
   $stmt->store_result();
-  if ($stmt->num_rows) > 0 {
+  if ($stmt->num_rows > 0) {
     header('Location: https://cisojourney.com/register.php?error=taken');
     exit();
   }
