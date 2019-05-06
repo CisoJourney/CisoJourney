@@ -27,16 +27,29 @@ else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 }
 
 $email = $_POST['email'];
-$password = $_POST['password']'
+$password = $_POST['password'];
 $salt = openssl_random_pseudo_bytes(64);
 $iterations = 10000;
 $hash = hash_pbkdf2('sha3-512', $password, $salt , $iterations);
 $privs = 0;
 
-if ($stmt = $mysqli->prepare("INSERT INTO users (email, salt, iterations, hash, privs) VALUES (?, ?, ?, ?, ?);")) {
+if ($stmt = $mysqli->prepare("SELECT email FROM users WHERE email = ?;")) {
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $stmt->store_result();
+  if ($stmt->num_rows) > 0 {
+    header('Location: https://cisojourney.com/register.php?error=taken');
+    exit();
+  }
+  else {
+    $stmt = $mysqli->prepare("INSERT INTO users (email, salt, iterations, hash, privs) VALUES (?, ?, ?, ?, ?);");
     $stmt->bind_param("ssisi", $email, $salt, $iterations, $hash, $privs);
     $stmt->execute();
+    $_SESSION['email'] = $email;
+    $_SESSION['privs'] = $privs;
+    header('Location: https://cisojourney.com/profile.php');
+    exit();
+  }
 }
 
-header('Location: https://cisojourney.com/profile.php');
 ?>

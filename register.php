@@ -29,6 +29,9 @@ if (isset($_GET['error'])) {
   else if ($_GET['error'] == 'email') {
    print('Oops, invalid email address supplied!');
   }
+  else if ($_GET['error'] == 'taken') {
+   print('Oops, email address already registered!');
+  }
 }
           ?></p>
           <form method="POST" action="process-registration.php">
