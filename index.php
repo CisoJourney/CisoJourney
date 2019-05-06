@@ -14,7 +14,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
       <p>A site full of security strategy hints, tips, and discussion.</p>
     </div>
     <div class="content-wrapper">
-      <?php include_once $_SERVER['DOCUMENT_ROOT'] .  '/content.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] .  '/content.php'; ?>
     </div>
   </div>
 </div>
