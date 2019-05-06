@@ -24,8 +24,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/navbar.php'
     <div class="content-wrapper">
       <div class="content-full"><a href="/categories.php">
         <div class="content-block center-text">
-          <h5 class="uppercase-text spacing-text">Strategy</h5>
-          <p>Articles covering the critical foundation topics of cybersecurity; such as how to plan, manage, and implement your security plans.</p>
+          <h5 class="uppercase-text spacing-text">Profile</h5>
+          <p>User profile goes here.</p>
         </div></a>
       </div>
       </a>
