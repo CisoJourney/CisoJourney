@@ -23,6 +23,9 @@ if (isset($_GET['error'])) {
   else if ($_GET['error'] == 'match') {
    print('Oops, password and confirm must match!');
   }
+  else if ($_GET['error'] == 'email') {
+   print('Oops, invalid email address supplied!');
+  }
 }
           ?></p>
           <form method="POST" action="process-registration.php">
