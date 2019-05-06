@@ -1,7 +1,7 @@
 <?php
-include('/var/www/CISOJourney.com/head.php');
-include('/var/www/CISOJourney.com/topbar.php');
-include('/var/www/CISOJourney.com/navbar.php')
+include('/var/www/CISOJourney.com/head.php';
+include('/var/www/CISOJourney.com/topbar.php';
+include('/var/www/CISOJourney.com/navbar.php';
 ?>
 <div class="page-wrapper">
   <div class="content">
