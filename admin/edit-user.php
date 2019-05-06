@@ -41,7 +41,7 @@ $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 ?>
 <form method="POST" action="/admin/update-user.php">
-<input class="login-input" name="email" value="<?php print htmlspecialchars($row['email']); ?>" readonly>
+<input class="login-input dim-input" name="email" value="<?php print htmlspecialchars($row['email']); ?>" readonly>
 <select class="login-input" name="privs">
   <option <?php if($row['privs'] == 0) { print "selected"; } ?> value="0">Bambi</option>
   <option <?php if($row['privs'] == 1) { print "selected"; } ?> value="1">Member</option>
