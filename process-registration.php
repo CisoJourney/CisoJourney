@@ -9,4 +9,3 @@ else if ($_POST['password'] != $_POST['confirm']) {
   header('https://cisojourney.com/register.php?error=match');
 }
 ?>
-All good
