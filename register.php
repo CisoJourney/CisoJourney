@@ -14,7 +14,10 @@ include('/var/www/CISOJourney.com/navbar.php')
           <h5 class="uppercase-text spacing-text">Register</h5>
           <p class="red-text"><?php
 if (isset($_GET['error'])) {
-  if ($_GET['error'] == 'missing') {
+  if ($_GET['error'] == 'captcha') {
+   print('Oops, captcha code was incorrect!');
+  }
+  else if ($_GET['error'] == 'missing') {
    print('Oops, all fields are required!');
   }
   else if ($_GET['error'] == 'blank') {
@@ -32,6 +35,8 @@ if (isset($_GET['error'])) {
             <input class="login-input" name="email" type="text" placeholder="e-mail">
             <input class="login-input" name="password" type="password" placeholder="password">
             <input class="login-input" name="confirm" type="password" placeholder="confirm password">
+            <img id="captcha" src="/securimage/securimage_show.php" alt="CAPTCHA Image" />
+            <input type="text" name="captcha_code" size="10" maxlength="6" />
             <input class="login-button" type="submit">
           </form>
         </div>

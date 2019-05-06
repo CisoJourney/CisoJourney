@@ -1,7 +1,15 @@
 <?php
 include ('/var/www/CISOJourney.com/auth.php');
+session_start();
 
-if (!isset($_POST['email']) or !isset($_POST['password']) or !isset($_POST['confirm'])) {
+include_once $_SERVER['DOCUMENT_ROOT'] . '/securimage/securimage.php';
+$securimage = new Securimage();
+
+if ($securimage->check($_POST['captcha_code']) == false) {
+  header('Location: https://cisojourney.com/register.php?error=captcha');
+  exit();
+}
+else if (!isset($_POST['email']) or !isset($_POST['password']) or !isset($_POST['confirm'])) {
   header('Location: https://cisojourney.com/register.php?error=missing');
   exit();
 }
