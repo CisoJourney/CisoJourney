@@ -7,11 +7,7 @@ if (!isset($_SESSION['privs'])) {
   header('Location: /login.php');
   exit();
 }
-else if ($_SESSION['privs'] == 3) {
-  header('Location: /login.php');
-  exit();
-}
-else {
+else if ($_SESSION['privs'] < 3) {
   header('Location: /profile.php');
   exit();
 }
