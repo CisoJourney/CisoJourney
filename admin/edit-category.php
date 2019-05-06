@@ -27,7 +27,7 @@ else if (!isset($_GET['category'])) {
       <p>Modifying a category...</p>
     </div>
     <div class="content-full">
-      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/categories.php">Categories</a> &gt;&gt; Edit Item</p>
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/categories.php">Edit Categories</a> &gt;&gt; Edit Item</p>
     </div>    <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
