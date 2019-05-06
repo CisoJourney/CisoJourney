@@ -1,4 +1,5 @@
 <?php
+include('/var/www/CISOJourney.com/headers.php');
 include('/var/www/CISOJourney.com/head.php');
 include('/var/www/CISOJourney.com/topbar.php');
 include('/var/www/CISOJourney.com/navbar.php')
