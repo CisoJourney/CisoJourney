@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . auth.php');
+include_once $_SERVER['DOCUMENT_ROOT'] . '/auth.php');
 session_start();
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/securimage/securimage.php';
