@@ -27,7 +27,7 @@ else if (!isset($_GET['content'])) {
       <p>Modifying index content...</p>
     </div>
     <div class="content-full">
-      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/content.php">Content</a> &gt;&gt; Edit Item</p>
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/content.php">Edit Content</a> &gt;&gt; Edit Item</p>
     </div>    <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">

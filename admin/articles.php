@@ -31,7 +31,7 @@ else if ($_SESSION['privs'] < 3) {
           <div class="block-icon"><i class="fas fa-book"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Articles</h5>
 <table>
-<tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th></tr>
+<tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Premium</th><th></th></tr>
 <?php
 $result = $mysqli->query("SELECT * FROM articles;");
 while($row = $result->fetch_assoc()) {
@@ -46,6 +46,9 @@ while($row = $result->fetch_assoc()) {
   print '</td>';
   print '<td class="admin-table">';
   print htmlspecialchars($row['title']);
+  print '</td>';
+  print '<td class="admin-table">';
+  if ($row['area'] == 1) { print '<i class="fas fa-crown"></i>'; }
   print '</td>';
   print '<td class="admin-table">';
   print '<a href="/admin/edit-article.php?article=' . htmlspecialchars($row['id']) . '"><input type="submit" value="edit"></a>';
