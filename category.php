@@ -23,9 +23,9 @@ $result = $stmt->get_result();
     <div class="content-full">
 <?php
 while($row = $result->fetch_assoc()) {
-  print '<div class="content-block nopad-text">';
-  print '<p>' . htmlspecialchars($row['title']) . '</p>';
-  print '<p>' . htmlspecialchars($row['description']) . '</p>';
+  print '<div class="content-block">';
+  print '<h5 class="nopad-text">' . htmlspecialchars($row['title']) . '</h5>';
+  print '<p class="nopad-text">' . htmlspecialchars($row['description']) . '</p>';
   print '</div>';
 }
 ?>
