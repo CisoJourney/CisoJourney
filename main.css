@@ -99,17 +99,17 @@ spacing-text {
 }
 .content-duo {
   flex: calc(50% - 30px);
-  max-width: 50%;
+  max-width: calc(50% - 30px;
   margin: 15px;
 }
 .content-trio {
   flex: calc(33% - 30px);
-  max-width: 30%;
+  max-width: calc(33% - 30px);
   margin: 15px;
 }
 .content-quatro {
   flex: calc(25% - 30px);
-  max-width: 25%;
+  max-width: calc(25% - 30px);
   margin: 15px;
 }
 .content-block {
