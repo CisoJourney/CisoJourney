@@ -43,6 +43,11 @@ if (isset($_GET['error'])) {
 ?>
 </p>
 <?php
+if ($_GET['user'] == $_SESSION['email']) {
+  header('Location: /admin/users.php?delete=self');
+  exit();
+}
+
 // TODO: Check the supplied user exists
 $stmt = $mysqli->prepare("SELECT email,privs FROM users WHERE email = ?;");
 $stmt->bind_param("s", $_GET['user']);

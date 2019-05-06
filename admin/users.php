@@ -30,11 +30,16 @@ else if ($_SESSION['privs'] < 3) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-users"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Users</h5>
+<p class="red-text">
 <?php
 if (isset($_GET['deleted']) and $_GET['deleted'] == 'true') {
-  print '<p class="red-text">User deleted!</p>';
+  print 'User deleted!';
+}
+else if (isset($_GET['delete']) and $_GET['delete'] == 'self') {
+  print "Oops, you can't delete yourself!";
 }
 ?>
+</p>
 <table>
 <tr><th class="admin-table">Email</th><th class="admin-table">Privs</th><th></th><th></th></tr>
 <?php
