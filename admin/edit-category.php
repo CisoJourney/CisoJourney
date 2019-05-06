@@ -41,7 +41,11 @@ $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 ?>
 <form method="POST" action="/admin/update-category.php">
-<input class="login-input" name="area" type="text" value="<?php print htmlspecialchars($row['area']); ?>">
+<select name="area">
+  <option <?php if($row['area'] == 1) { print "selected"; } ?> value="1">Strategy</option>
+  <option <?php if($row['area'] == 2) { print "selected"; } ?> value="2">Training</option>
+  <option <?php if($row['area'] == 3) { print "selected"; } ?> value="3">Labs</option>
+</select>
 <input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
 <input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['title']); ?>">
 <textarea class="login-input" name="description"><?php print htmlspecialchars($row['description']); ?></textarea>
