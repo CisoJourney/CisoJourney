@@ -33,6 +33,26 @@ else if (!isset($_GET['category'])) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-layer-group"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Categories</h5>
+<p class="red-text">
+<php
+if (isset($_GET['error']) {
+  if ($_GET['error'] == 'missing') {
+    print('Oops, all fields are required!');
+  }
+  else if ($_GET['error'] == 'blank') {
+    print('Oops, all fields are required!');
+  }
+}
+?>
+</p>
+<p class="black-text">
+<?php
+if (isset($_GET['updated'])) {
+  if ($_GET['updated'] == 'true') {
+    print('Updated!');
+  }
+}
+?>
 <?php
 $stmt = $mysqli->prepare("SELECT area,id,title,description,icon FROM categories WHERE id = ?;");
 $stmt->bind_param("s", $_GET['category']);
