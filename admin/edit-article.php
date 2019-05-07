@@ -15,8 +15,8 @@ else if ($_SESSION['privs'] < 3) {
   header('Location: /profile.php');
   exit();
 }
-else if (!isset($_GET['category'])) {
-  header('Location: /admin/categories.php');
+else if (!isset($_GET['id'])) {
+  header('Location: /admin/articles.php');
   exit();
 }
 ?>
@@ -87,3 +87,4 @@ $row = $result->fetch_assoc();
 </div>
 </body>
 </html>
+
