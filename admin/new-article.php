@@ -28,8 +28,8 @@ else if ($_SESSION['privs'] < 3) {
     <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
-          <div class="block-icon"><i class="fas fa-layer-group"></i></div>
-          <h5 class="uppercase-text center-text spacing-text">Categories</h5>
+          <div class="block-icon"><i class="fas fa-book"></i></div>
+          <h5 class="uppercase-text center-text spacing-text">Articles</h5>
           <p class="red-text">
 <?php
 if (isset($_GET['error'])) {
