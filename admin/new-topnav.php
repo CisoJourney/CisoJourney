@@ -48,7 +48,7 @@ $row = $result->fetch_assoc();
 $id = $row['highestID'] + 1;
 ?></p>
 <form method="POST" action="/admin/insert-topnav.php">
-<input class="login-input" name="id dim-text" value="<?php print htmlspecialchars($id); ?>" readonly>
+<input class="login-input" name="id" value="<?php print htmlspecialchars($id); ?>" readonly>
 <input class="login-input" name="area" type="text" value="" placeholder="area">
 <input class="login-input" name="title" type="text" value="" placeholder="title">
 <input class="login-input" name="url" type="text" value="" placeholder="url">
