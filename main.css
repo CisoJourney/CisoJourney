@@ -139,6 +139,15 @@ spacing-text {
 .labs-area {
   border-bottom: 4px solid darkorange;
 }
+.training-title {
+  color: darkred;
+}
+.labs-title {
+  color: darkorange;
+}
+.recover-title {
+  color: purple;
+}
 .training-color:hover {
   color: darkred;
 }
