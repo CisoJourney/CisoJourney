@@ -34,7 +34,7 @@ else if ($_SESSION['privs'] < 3) {
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Premium</th><th></th></tr>
 <?php
-$result = $mysqli->query("SELECT * FROM articles;");
+$result = $mysqli->query("SELECT area,ID,title,description,content,premium,category FROM articles;");
 while($row = $result->fetch_assoc()) {
   print '<tr>';
   print '<td class="admin-table">';
@@ -43,7 +43,7 @@ while($row = $result->fetch_assoc()) {
   else if ($row['area'] == 3) { print '<i class="fas fa-flask"></i>'; }
   print '</td>';
   print '<td class="admin-table">';
-  print htmlspecialchars($row['id']);
+  print htmlspecialchars($row['ID']);
   print '</td>';
   print '<td class="admin-table">';
   print htmlspecialchars($row['title']);
@@ -52,10 +52,10 @@ while($row = $result->fetch_assoc()) {
   if ($row['premium'] == 1) { print '<i class="fas fa-crown"></i>'; }
   print '</td>';
   print '<td class="admin-table">';
-  print '<a href="/admin/edit-article.php?article=' . htmlspecialchars($row['id']) . '"><input type="submit" value="edit"></a>';
+  print '<a href="/admin/edit-article.php?article=' . htmlspecialchars($row['ID']) . '"><input type="submit" value="edit"></a>';
   print '</td>';
   print '<td class="admin-table">';
-  print '<a href="/admin/delete-article.php?article=' . htmlspecialchars($row['id']) . '"><input type="submit" value="delete"></a>';
+  print '<a href="/admin/delete-article.php?article=' . htmlspecialchars($row['ID']) . '"><input type="submit" value="delete"></a>';
   print '</td>';
   print '</tr>';
 }
