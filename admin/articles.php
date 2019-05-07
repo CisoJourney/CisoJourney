@@ -30,6 +30,7 @@ else if ($_SESSION['privs'] < 3) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-book"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Articles</h5>
+<a href="/admin/new-article.php><input type="submit" value="New Article"></a>
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Premium</th><th></th></tr>
 <?php
