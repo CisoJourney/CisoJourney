@@ -23,16 +23,16 @@ else if (!isset($_GET['category'])) {
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
-      <h3 class="uppercase-text black-text">Administer Category</h3>
-      <p>Modifying a category...</p>
+      <h3 class="uppercase-text black-text">Administer Article</h3>
+      <p>Modifying an article...</p>
     </div>
     <div class="content-full">
-      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/categories.php">Edit Categories</a> &gt;&gt; Edit Item</p>
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/articles.php">Edit Articles</a> &gt;&gt; Edit Item</p>
     </div>    <div class="content-wrapper">
       <div class="content-full">
         <div class="content-block">
-          <div class="block-icon"><i class="fas fa-layer-group"></i></div>
-          <h5 class="uppercase-text center-text spacing-text">Categories</h5>
+          <div class="block-icon"><i class="fas fa-book"></i></div>
+          <h5 class="uppercase-text center-text spacing-text">Articles</h5>
 <p class="red-text">
 <?php
 if (isset($_GET['error'])) {
@@ -55,13 +55,13 @@ if (isset($_GET['updated'])) {
 ?>
 </p>
 <?php
-$stmt = $mysqli->prepare("SELECT area,id,title,description,icon FROM categories WHERE id = ?;");
-$stmt->bind_param("s", $_GET['category']);
+$stmt = $mysqli->prepare("SELECT area,id,title,description,content,premium,category FROM articles WHERE id = ?;");
+$stmt->bind_param("s", $_GET['id']);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 ?></p>
-<form method="POST" action="/admin/update-category.php">
+<form method="POST" action="/admin/update-article.php">
 <select class="login-input" name="area">
   <option <?php if($row['area'] == 1) { print "selected"; } ?> value="1">Strategy</option>
   <option <?php if($row['area'] == 2) { print "selected"; } ?> value="2">Training</option>
@@ -70,7 +70,12 @@ $row = $result->fetch_assoc();
 <input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
 <input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['title']); ?>">
 <textarea class="login-input" name="description"><?php print htmlspecialchars($row['description']); ?></textarea>
-<input class="login-input" name="icon" type="text" value="<?php print htmlspecialchars($row['icon']); ?>">
+<textarea class="login-input" name="content"><?php print htmlspecialchars($row['content']); ?></textarea>
+<select class="login-input" name="premium">
+  <option <?php if($row['area'] == 0) { print "selected"; } ?> value="1">Not Premium</option>
+  <option <?php if($row['area'] == 1) { print "selected"; } ?> value="2">Premium</option>
+</select>
+<textarea class="login-input" name="category"><?php print htmlspecialchars($row['category']); ?></textarea>
 <input class="login-button" value="Update" type="submit">
 </form>
 
