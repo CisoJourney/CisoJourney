@@ -25,7 +25,7 @@ $result = $stmt->get_result();
 while($row = $result->fetch_assoc()) {
 ?>
       <div class="content-duo">
-        <div class="content-block center-text"><a href="/category.php?id=<?php print(htmlspecialchars($row['id'])); ?>">
+        <div class="content-block center-text"><a href="/category.php?id=<?php print(htmlspecialchars($row['id'])); ?>&area=<?php print(htmlspecialchars($row['area'])); ?>">
           <div class="block-icon ciso-color"><i class="<?php print(htmlspecialchars($row['icon'])); ?>"></i></div>
           <h5 class="uppercase-text spacing-text"><?php print(htmlspecialchars($row['title'])); ?></h5>
           <p><?php print(htmlspecialchars($row['description'])); ?></p>
