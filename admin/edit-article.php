@@ -64,7 +64,7 @@ $row = $result->fetch_assoc();
 <form method="POST" action="/admin/update-article.php">
 <select class="login-input" name="area">
   <option <?php if($row['area'] == 1) { print "selected"; } ?> value="1">Strategy</option>
-  <option <?php if($row['area'] == 2) { print "selected"; } ?> value="2">Training</option>
+  <option <?php if($row['area'] == 2) { print "selected"; } ?> value="2">Testing</option>
   <option <?php if($row['area'] == 3) { print "selected"; } ?> value="3">Labs</option>
 </select>
 <input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
@@ -72,8 +72,9 @@ $row = $result->fetch_assoc();
 <textarea class="login-input" name="description"><?php print htmlspecialchars($row['description']); ?></textarea>
 <textarea class="login-input" name="content"><?php print htmlspecialchars($row['content']); ?></textarea>
 <select class="login-input" name="premium">
-  <option <?php if($row['area'] == 0) { print "selected"; } ?> value="1">Not Premium</option>
-  <option <?php if($row['area'] == 1) { print "selected"; } ?> value="2">Premium</option>
+  <option <?php if($row['premium'] == 0) { print "selected"; } ?> value="1">Not Premium</option>
+  <option <?php if($row['premium'] == 1) { print "selected"; } ?> value="2">Member</option>
+  <option <?php if($row['premium'] == 2) { print "selected"; } ?> value="3">Labs</option>
 </select>
 <input class="login-input" name="category" type="text" value="<?php print htmlspecialchars($row['category']); ?>">
 <input class="login-button" value="Update" type="submit">
