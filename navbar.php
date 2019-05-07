@@ -1,3 +1,6 @@
+<div class="title-bar">
+<div class="title">CISO: Journey</div>
+</div>
 <div class="
 <?php
 if (isset($_GET['area'])) {
