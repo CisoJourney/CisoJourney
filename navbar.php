@@ -13,6 +13,7 @@ if (isset($_GET['area'])) {
   $stmt = $mysqli->prepare("SELECT id,title,url,area FROM topnav WHERE area = ?");
   $stmt->bind_param("i", intval($_GET['area']));
   $stmt->execute();
+  $result = $stmt->get_result();
 } else {
   $result = $mysqli->query("SELECT id,title,url FROM topnav WHERE area = 1;");
 }
