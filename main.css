@@ -129,6 +129,9 @@ spacing-text {
 .ciso-color:hover {
   color: darkgreen;
 }
+.ciso-area {
+  border-bottom: 2px solid darkgreen;
+}
 .training-color:hover {
   color: darkred;
 }
