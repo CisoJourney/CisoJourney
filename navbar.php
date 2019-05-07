@@ -14,7 +14,7 @@ if (isset($_GET['area'])) {
   $stmt->bind_param("i", intval($_GET['area']));
   $stmt->execute();
 } else {
-  $result = $mysqli->query("SELECT id,title,url FROM topnav;");
+  $result = $mysqli->query("SELECT id,title,url FROM topnav WHERE area = 1;");
 }
 while($row = $result->fetch_assoc()) {
   print '  <li>';
