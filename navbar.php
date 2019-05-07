@@ -1,4 +1,12 @@
-<div class="title-bar">
+<div class="title-bar
+<?php
+if (isset($_GET['area'])) {
+  if ($_GET['area'] == 1) { print 'ciso-area '; }
+  else if ($_GET['area'] == 2) { print 'pentest-area '; }
+  else if ($_GET['area'] == 3) { print 'labs-area '; }
+}
+?>
+">
 <div class="title">CISO: Journey</div>
 </div>
 <div class="
