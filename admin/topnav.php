@@ -30,6 +30,7 @@ else if ($_SESSION['privs'] < 3) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-search"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Top Nav</h5>
+<a href="/admin/new-topnav.php"><input type="submit" value="edit"></a>
 <table>
 <tr><th class="admin-table">ID</th><th>Area</th><th class="admin-table">Title</th><th class="admin-table">URL</th><th></th></tr>
 <?php
