@@ -53,7 +53,7 @@ $id = $row['highestID'] + 1;
   <option value="2">Training</option>
   <option value="3">Labs</option>
 </select>
-<input class="login-input" name="id" value="<?php print htmlspecialchars($id]); ?>" readonly>
+<input class="login-input" name="id" value="<?php print htmlspecialchars($id); ?>" readonly>
 <input class="login-input" name="title" type="text" value="">
 <textarea class="login-input" name="description"></textarea>
 <input class="login-input" name="icon" type="text" value="">
