@@ -37,7 +37,7 @@ if ($stmt = $mysqli->prepare("SELECT id FROM topnav WHERE id = ?;")) {
 }
 
 // Add the new category to the database
-$stmt = $mysqli->prepare("INSERT INTO tponav (id, area, title, url) VALUES (?, ?, ?, ?);");
+$stmt = $mysqli->prepare("INSERT INTO topnav (id, area, title, url) VALUES (?, ?, ?, ?);");
 $stmt->bind_param("iisss", intval($_POST['id']), intval($_POST['area']), $_POST['title'], $_POST['url']);
 $stmt->execute();
 header('Location: /admin/edit-topnav.php?added=true&id=' . htmlspecialchars($_POST['id']));
