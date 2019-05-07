@@ -43,7 +43,7 @@ if (isset($_GET['error'])) {
 ?>
           </p>
 <?php
-$result = $mysqli->prepare("SELECT MAX(id) AS highestID FROM categories;");
+$result = $mysqli->query("SELECT MAX(id) AS highestID FROM categories;");
 $row = $result->fetch_assoc();
 $id = $row['highestID'] + 1;
 ?></p>
