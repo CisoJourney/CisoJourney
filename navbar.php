@@ -1,6 +1,6 @@
 <div class="
-<?php 
-if (isset($_GET['area']) {
+<?php
+if (isset($_GET['area'])) {
   if ($_GET['area'] == 1) { print 'ciso-area '; }
   else if ($_GET['area'] == 2) { print 'pentest-area '; }
   else if ($_GET['area'] == 3) { print 'labs-area '; }
