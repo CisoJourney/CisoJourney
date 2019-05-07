@@ -191,7 +191,7 @@ spacing-text {
   font-size: 30px;
   position: relative;
   line-height: 0;
-  bottom: 90px;
+  top: 60px;
   font-weight: bold;
 }
 
