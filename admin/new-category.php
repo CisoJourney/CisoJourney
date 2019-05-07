@@ -42,19 +42,10 @@ if (isset($_GET['error'])) {
 }
 ?>
           </p>
-          <p class="black-text">
-<?php
-if (isset($_GET['updated'])) {
-  if ($_GET['updated'] == 'true') {
-    print('Updated!');
-  }
-}
-?>
-          </p>
 <?php
 $result = $mysqli->prepare("SELECT MAX(id) AS highestID FROM categories;");
 $row = $result->fetch_assoc();
-$id = $row['highestID'] + 1
+$id = $row['highestID'] + 1;
 ?></p>
 <form method="POST" action="/admin/insert-category.php">
 <select class="login-input" name="area">
