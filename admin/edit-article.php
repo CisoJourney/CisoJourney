@@ -75,7 +75,7 @@ $row = $result->fetch_assoc();
   <option <?php if($row['area'] == 0) { print "selected"; } ?> value="1">Not Premium</option>
   <option <?php if($row['area'] == 1) { print "selected"; } ?> value="2">Premium</option>
 </select>
-<textarea class="login-input" name="category"><?php print htmlspecialchars($row['category']); ?></textarea>
+<input class="login-input" name="category" type="text" value="<?php print htmlspecialchars($row['category']); ?>">
 <input class="login-button" value="Update" type="submit">
 </form>
 
