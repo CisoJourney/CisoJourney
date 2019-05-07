@@ -63,8 +63,9 @@ $row = $result->fetch_assoc();
 ?></p>
 <form method="POST" action="/admin/update-category.php">
 <select class="login-input" name="area">
+  <?php //TODO: Make this list dynamic from the areas table ?>
   <option <?php if($row['area'] == 1) { print "selected"; } ?> value="1">Strategy</option>
-  <option <?php if($row['area'] == 2) { print "selected"; } ?> value="2">Training</option>
+  <option <?php if($row['area'] == 2) { print "selected"; } ?> value="2">Testing</option>
   <option <?php if($row['area'] == 3) { print "selected"; } ?> value="3">Labs</option>
 </select>
 <input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
