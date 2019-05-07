@@ -52,6 +52,7 @@ hr {
   width: 100%;
   background-color: white;
   text-align: center;
+  border-bottom: 2px solid darkgreen;
 }
 .nav-bar ul {
   padding: 0;
@@ -131,6 +132,12 @@ spacing-text {
 }
 .ciso-area {
   border-bottom: 2px solid darkgreen;
+}
+.pentest-area {
+  border-bottom: 2px solid darkred;
+}
+.labs-area {
+  border-bottom: 2px solid darkorange;
 }
 .training-color:hover {
   color: darkred;
