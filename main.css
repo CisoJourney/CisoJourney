@@ -139,6 +139,9 @@ spacing-text {
 .labs-area {
   border-bottom: 4px solid darkorange;
 }
+.ciso-title {
+  color: darkgreen;
+}
 .training-title {
   color: darkred;
 }
