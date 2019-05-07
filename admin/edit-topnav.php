@@ -57,7 +57,7 @@ if (isset($_GET['updated'])) {
 ?>
 </p>
 <?php
-$stmt = $mysqli->prepare("SELECT id,title,url FROM topnav WHERE id = ?;");
+$stmt = $mysqli->prepare("SELECT id,area,title,url FROM topnav WHERE id = ?;");
 $stmt->bind_param("s", $_GET['nav']);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -65,6 +65,7 @@ $row = $result->fetch_assoc();
 ?>
 <form method="POST" action="/admin/update-topnav.php">
 <input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
+<input class="login-input" name="area" type="text" value="<?php print htmlspecialchars($row['area']); ?>">
 <input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['title']); ?>">
 <input class="login-input" name="url" type="text" value="<?php print htmlspecialchars($row['url']); ?>">
 <input class="login-button" value="Update" type="submit">
