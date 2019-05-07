@@ -51,7 +51,7 @@ $id = $row['highestID'] + 1;
 <?php //TODO: this list should be dynamic ?>
 <select class="login-input" name="area">
   <option value="1">Strategy</option>
-  <option value="2">Training</option>
+  <option value="2">Testing</option>
   <option value="3">Labs</option>
 </select>
 <input class="login-input" name="id" value="<?php print htmlspecialchars($id); ?>" readonly>
