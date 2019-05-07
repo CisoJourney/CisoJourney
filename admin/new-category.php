@@ -48,6 +48,7 @@ $row = $result->fetch_assoc();
 $id = $row['highestID'] + 1;
 ?></p>
 <form method="POST" action="/admin/insert-category.php">
+<?php //TODO: this list should be dynamic ?>
 <select class="login-input" name="area">
   <option value="1">Strategy</option>
   <option value="2">Training</option>

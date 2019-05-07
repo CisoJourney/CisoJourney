@@ -38,7 +38,7 @@ if ($stmt = $mysqli->prepare("SELECT id FROM categories WHERE id = ?;")) {
 
 // Add the new category to the database
 $stmt = $mysqli->prepare("INSERT INTO categories (id, area, title, description, icon) VALUES (?, ?, ?, ?, ?);");
-$stmt->bind_param("iisss", intval($_POST['id']), intval($_POST['area']), $_POST['title'], $_POST['description'], intval($_POST['icon']));
+$stmt->bind_param("iisss", intval($_POST['id']), intval($_POST['area']), $_POST['title'], $_POST['description'], $_POST['icon']);
 $stmt->execute();
 header('Location: /admin/edit-category.php?added=true&id=' . htmlspecialchars($_POST['id']));
 exit();
