@@ -9,7 +9,7 @@ while($row = $result->fetch_assoc()) {
           <p><?php print(htmlspecialchars($row['description']))?></p>
         <?php
 // TODO: HACK this is a hack to show that labs is 
-if ($row['title'] == 'Labs') { print 'Coming Soon!';} 
+if ($row['title'] == 'Labs') { print '<div class=".labs-comingsoon">Coming Soon!</div>';} 
 ?>
         </div></a>
       </div>
