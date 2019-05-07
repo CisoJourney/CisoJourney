@@ -185,6 +185,16 @@ spacing-text {
   padding-left: 15px;
   padding-left: 15px;
 }
+.labs-comingsoon {
+  transform: rotate(-20deg);
+  color: darkorange;
+  font-size: 30px;
+  position: relative;
+  line-height: 0;
+  bottom: 90px;
+  font-weight: bold;
+}
+
 
 @media only screen and (max-width: 900px) {
 .content-trio {
