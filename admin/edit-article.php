@@ -15,7 +15,7 @@ else if ($_SESSION['privs'] < 3) {
   header('Location: /profile.php');
   exit();
 }
-else if (!isset($_GET['id'])) {
+else if (!isset($_GET['article'])) {
   header('Location: /admin/articles.php');
   exit();
 }
@@ -56,7 +56,7 @@ if (isset($_GET['updated'])) {
 </p>
 <?php
 $stmt = $mysqli->prepare("SELECT area,id,title,description,content,premium,category FROM articles WHERE id = ?;");
-$stmt->bind_param("s", $_GET['id']);
+$stmt->bind_param("s", $_GET['article']);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
