@@ -49,9 +49,9 @@ if (isset($_GET['error'])) {
 </p>
 <p class="black-text">
 <?php
-if (isset($_GET['updated'])) {
-  if ($_GET['updated'] == 'true') {
-    print('Updated!');
+if (isset($_GET['added'])) {
+  if ($_GET['added'] == 'true') {
+    print('Nav Added!');
   }
 }
 ?>
