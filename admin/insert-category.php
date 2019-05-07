@@ -12,7 +12,7 @@ else if ($_SESSION['privs'] < 3) {
   exit();
 }
 else if (!isset($_POST['id'])) {
-  header('Location: /admin/categories.php');
+  header('Location: /admin/new-category.php');
   exit();
 }
 else if (!isset($_POST['title']) or !isset($_POST['description']) or !isset($_POST['icon']) or !isset($_POST['area'])) {
@@ -24,9 +24,22 @@ else if ($_POST['title'] == "" or $_POST['description'] == "" or $_POST['icon'] 
   exit();
 }
 
-$stmt = $mysqli->prepare("UPDATE categories SET area = ?, title = ?, description = ?, icon = ? WHERE id = ?;");
-$stmt->bind_param("isssi", intval($_POST['area']), $_POST['title'], $_POST['description'], $_POST['icon'], intval($_POST['id']));
+// Check that the category ID isn't taken
+// This works by looking up the ID in the database and throwing an error if a row is found
+if ($stmt = $mysqli->prepare("SELECT id FROM categories WHERE id = ?;")) {
+  $stmt->bind_param("s", $_POST['id']);
+  $stmt->execute();
+  $stmt->store_result();
+  if ($stmt->num_rows > 0) {
+    header('Location: https://cisojourney.com/new-category.php?error=taken');
+    exit();
+  }
+}
+
+// Add the new category to the database
+$stmt = $mysqli->prepare("INSERT INTO categories (id, area, title, description, icon) VALUES (?, ?, ?, ?, ?);");
+$stmt->bind_param("iisss", intval($_POST['id']), intval($_POST['area']), $_POST['title'], $_POST['description'], intval($_POST['icon']));
 $stmt->execute();
-header('Location: /admin/edit-category.php?updated=true&nav=' . htmlspecialchars($_POST['id']));
+header('Location: /admin/edit-category.php?added=true&id=' . htmlspecialchars($_POST['id']));
 exit();
 ?>
