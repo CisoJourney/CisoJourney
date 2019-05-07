@@ -9,7 +9,13 @@ if (isset($_GET['area'])) {
 nav-bar">
   <ul>
 <?php
-$result = $mysqli->query("SELECT id,title,url FROM topnav;");
+if (isset($_GET['area'])) {
+  $stmt = $mysqli->prepare("SELECT id,title,url,area FROM topnav WHERE area = ?");
+  $stmt->bind_param("i", intval($_GET['area']));
+  $stmt->execute();
+} else {
+  $result = $mysqli->query("SELECT id,title,url FROM topnav;");
+}
 while($row = $result->fetch_assoc()) {
   print '  <li>';
   print '<a href="https://cisojourney.com' . htmlspecialchars($row['url']) . '">';
