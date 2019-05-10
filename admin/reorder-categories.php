@@ -32,6 +32,7 @@ else if ($_SESSION['privs'] < 3) {
           <h5 class="uppercase-text center-text spacing-text">Categories</h5>
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th></tr>
+<form method="POST" action="process-reorder-categories.php">
 <?php
 // TODO: this being a fetch_assoc() is silly, but I'm tired today
 $result = $mysqli->query("SELECT MAX(id) as maxID FROM categories;");
@@ -52,7 +53,7 @@ while($row = $result->fetch_assoc()) {
   print htmlspecialchars($row['title']);
   print '</td>';
   print '<td class="admin-table">';
-  print '<select name="order-' . htmlspecialchars($row['id']) . '">';
+  print '<select name="' . htmlspecialchars($row['id']) . '">';
   foreach (range(1, $maxRow['maxID']) as $orderValue) {
     print '<option ';
     if ($orderValue == $row['id']) { print 'selected'; }
