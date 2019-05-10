@@ -13,10 +13,12 @@ if (isset($_GET['area'])) {
 </div>
 <div class="nav-bar">
   <ul>
+<?php
 $result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
 while($row = $result->fetch_assoc()) {
   print '<li>' . htmlspecialchars($row['title']) . '</li>';
 }
+?>
   </ul>
 <?php
 if (isset($_GET['area'])) {
