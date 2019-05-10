@@ -55,7 +55,7 @@ while($row = $result->fetch_assoc()) {
   print '<select name="order-' . htmlspecialchars($row['id']) . '">';
   foreach (range(1, $maxRow['maxID']) as $orderValue) {
     print '<option ';
-    if ($orderValue == $row['id']) { print 'selected'}
+    if ($orderValue == $row['id']) { print 'selected'; }
     print ' value="' . $orderValue . '">'  . $orderValue . '</option>';
   }
   print '</select>';
