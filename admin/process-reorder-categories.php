@@ -17,7 +17,7 @@ foreach ($_POST as $post) {
   }
 }
 
-foreach ($_POST as $catNum => $catNewPosition) {
+foreach ($_POST as $catNewPosition => $catNum) {
   if ($catNum != $catNewPosition) {
     $stmt = $mysqli->prepare("UPDATE categories SET colOrder = ? WHERE id = ?;");
     $stmt->bind_param("ii", intval($catNewPosition), intval($catNum));
