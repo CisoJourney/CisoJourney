@@ -20,6 +20,8 @@ while($row = $result->fetch_assoc()) {
 }
 ?>
   </ul>
+</div>
+<div class="
 <?php
 if (isset($_GET['area'])) {
   if ($_GET['area'] == 1) { print 'ciso-area '; }
