@@ -35,8 +35,8 @@ else if ($_SESSION['privs'] < 3) {
 if (isset($_GET['reordered']) && $_GET['reordered'] == 'true') {
   print 'Categories reordered!';
 }
-</p>
 ?>
+</p>
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th></tr>
 <form method="POST" action="process-reorder-categories.php">
