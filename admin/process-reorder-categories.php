@@ -1,4 +1,6 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+
 // Check each array item for duplictions, by iterating through the supplied
 // variables and counting each occurance. If total occurences is ever > 1
 // we have a duplicate so throw.
