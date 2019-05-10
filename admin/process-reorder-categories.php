@@ -17,7 +17,7 @@ foreach ($_POST as $post) {
 
 foreach ($_POST as $catNum => $catNewPosition) {
   $stmt = $mysqli->prepare("UPDATE categories SET colOrder = ? WHERE id = ?;");
-  $stmt->bind_param("ii", intval($_POST[$catNewPosition]), intval($catNum));
+  $stmt->bind_param("ii", intval($catNewPosition), intval($catNum));
   $stmt->execute();
   header('Location: /admin/reorder-categories.php?reordered=true');
   exit();
