@@ -55,7 +55,7 @@ while($row = $result->fetch_assoc()) {
 ?>
 </table>
 <p><a href="/admin/new-category.php"><input type="submit" value="New Category"></a>
-<a href="/admin/reorder-category.php"><input type="submit" value="Reorder Categories"></a></p>
+<a href="/admin/reorder-categories.php"><input type="submit" value="Reorder Categories"></a></p>
         </div>
       </div>
       </a>
