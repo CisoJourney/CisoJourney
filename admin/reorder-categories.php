@@ -45,7 +45,7 @@ if (isset($_GET['reordered']) && $_GET['reordered'] == 'true') {
 $result = $mysqli->query("SELECT MAX(id) as maxID FROM categories;");
 $maxRow = $result->fetch_assoc();
 
-$result = $mysqli->query("SELECT * FROM categories;");
+$result = $mysqli->query("SELECT * FROM categories ORDER BY colOrder;");
 while($row = $result->fetch_assoc()) {
   print '<tr>';
   print '<td class="admin-table">';
