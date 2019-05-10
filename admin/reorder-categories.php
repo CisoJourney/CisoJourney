@@ -23,7 +23,7 @@ else if ($_SESSION['privs'] < 3) {
       <p>Modify the categories titles or descriptions!</p>
     </div>
     <div class="content-full">
-      <p><a href="/admin/index.php">Admin</a> &gt;&gt; Edit Categories &gt;&gt; Reorder Categories</p>
+      <p><a href="/admin/index.php">Admin</a> &gt;&gt; <a href="/admin/categories.php">Edit Categories</a> &gt;&gt; Reorder Categories</p>
     </div>
     <div class="content-wrapper">
       <div class="content-full">
