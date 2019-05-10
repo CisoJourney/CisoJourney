@@ -33,7 +33,7 @@ else if ($_SESSION['privs'] < 3) {
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th><th></th></tr>
 <?php
-$result = $mysqli->query("SELECT * FROM categories;");
+$result = $mysqli->query("SELECT * FROM categories ORDER BY colOrder;");
 while($row = $result->fetch_assoc()) {
   print '<tr>';
   print '<td class="admin-table">';
