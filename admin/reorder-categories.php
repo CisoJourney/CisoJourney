@@ -54,7 +54,9 @@ while($row = $result->fetch_assoc()) {
   print '<td class="admin-table">';
   print '<select name="order-' . htmlspecialchars($row['id']) . '">';
   foreach (range(1, $maxRow['maxID']) as $orderValue) {
-    print '<option value="' . $orderValue . '">'  . $orderValue . '</option>';
+    print '<option ';
+    if ($orderValue == $row['id']) { print 'selected'}
+    print ' value="' . $orderValue . '">'  . $orderValue . '</option>';
   }
   print '</select>';
   print '</td>';
