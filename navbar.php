@@ -11,7 +11,7 @@ if (isset($_GET['area'])) {
 ?>
   </div>
 </div>
-<div class="nav-bar">
+<div class="area-bar">
   <ul>
 <?php
 $result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
