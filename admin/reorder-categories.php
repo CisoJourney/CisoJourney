@@ -64,7 +64,8 @@ while($row = $result->fetch_assoc()) {
 }
 ?>
 </table>
-<p><a href="/admin/reorder-category.php"><input type="submit" value="Reorder Categories"></a></p>
+<p><input type="submit" value="Reorder Categories"></a></p>
+</form>
         </div>
       </div>
       </a>

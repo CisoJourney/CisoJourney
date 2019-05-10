@@ -11,7 +11,15 @@ if (isset($_GET['area'])) {
 ?>
   </div>
 </div>
+<div class="nav-bar">
+</div>
 <div class="
+  <ul>
+$result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
+while($row = $result->fetch_assoc()) {
+  print(htmlspecialchars($row['title']));
+}
+  </ul>
 <?php
 if (isset($_GET['area'])) {
   if ($_GET['area'] == 1) { print 'ciso-area '; }

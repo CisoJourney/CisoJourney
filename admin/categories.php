@@ -31,7 +31,7 @@ else if ($_SESSION['privs'] < 3) {
           <div class="block-icon"><i class="fas fa-layer-group"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Categories</h5>
 <table>
-<tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th></tr>
+<tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th><th></th></tr>
 <?php
 $result = $mysqli->query("SELECT * FROM categories;");
 while($row = $result->fetch_assoc()) {
@@ -48,7 +48,10 @@ while($row = $result->fetch_assoc()) {
   print htmlspecialchars($row['title']);
   print '</td>';
   print '<td class="admin-table">';
-  print '<a href="/admin/edit-category.php?category=' . htmlspecialchars($row['id']) . '"><input type="submit" value="edit"></a>';
+  print '<a href="/admin/edit-category.php?category=' . htmlspecialchars($row['id']) . '"><input type="submit" value="Edit"></a>';
+  print '</td>';
+  print '<td class="admin-table">';
+  print '<a href="/admin/hide-category.php?category=' . htmlspecialchars($row['id']) . '"><input type="submit" value="Hide"></a>';
   print '</td>';
   print '</tr>';
 }
