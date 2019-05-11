@@ -25,11 +25,11 @@ else if ($area == 3) { $title = '<span class="' . $titleClass . '">IJ</span>: La
 // outweighed by the benefit of side-by-side comparisons for area variables
 
 // A function to load the area names from the DB and draw a menu item for each one
-function drawAreaMenu($mysqli) {
+function drawAreaMenu($mysqli, $area) {
   $areaBarResult = $mysqli->query("SELECT id,title FROM areas;");
 
   while($row = $areaBarResult->fetch_assoc()) {
-    $id = $row['id'];           // id is INT in db, filtering is excessive
+    $id    = htmlspecialchars($row['id']);           // id is INT in db, filtering is excessive
     $title = htmlspecialchars($row['title']);
     $highlight = ""; if ($id == $area) { $highlight == 'class="highlight-bar" '; }
 
@@ -58,7 +58,7 @@ function drawSubAreaMenu($mysqli, $area) {
   <div class="title"><?php print $title;?></div>
 </div>
 <div class="area-bar">
-  <ul><?php drawAreaMenu($mysqli); ?></ul>
+  <ul><?php drawAreaMenu($mysqli, $area); ?></ul>
   <a href="/search.php"><i class="area-search fas fa-search"></i></a>
 </div>
 <div class="<?php print $areaClass; ?> nav-bar">
