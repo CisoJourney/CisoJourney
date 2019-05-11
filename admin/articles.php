@@ -32,7 +32,7 @@ else if ($_SESSION['privs'] < 3) {
           <h5 class="uppercase-text center-text spacing-text">Articles</h5>
 <p><a href="/admin/new-article.php"><input type="submit" value="New Article"></a></p>
 <table>
-<tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Premium</th><th></th></tr>
+<tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Premium</th><th></th><th></th></tr>
 <?php
 $result = $mysqli->query("SELECT area,ID,title,description,content,premium,category FROM articles;");
 while($row = $result->fetch_assoc()) {
@@ -50,6 +50,9 @@ while($row = $result->fetch_assoc()) {
   print '</td>';
   print '<td class="admin-table">';
   if ($row['premium'] == 1) { print '<i class="fas fa-crown"></i>'; }
+  print '</td>';
+  print '<td class="admin-table">';
+  print htmlspecialchars($row['display']);
   print '</td>';
   print '<td class="admin-table">';
   print '<a href="/admin/edit-article.php?article=' . htmlspecialchars($row['ID']) . '"><input type="submit" value="edit"></a>';
