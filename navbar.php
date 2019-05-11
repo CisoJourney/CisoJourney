@@ -36,7 +36,7 @@ function drawAreaMenu($mysqli) {
 
 // A function to draw the sub-menu items for the currently selected area
 function drawSubAreaMenu($mysqli, $area) {
-  $result = execPrepare($mysqli, "SELECT title,url FROM topnav WHERE area = ?;", array("i", $area));
+  $subAreaBarResult- = execPrepare($mysqli, "SELECT title,url FROM topnav WHERE area = ?;", array("i", $area));
   while($row = $subAreaBarResult->fetch_assoc()) {
     $subAreaTitle = htmlspecialchars($row['title']);
     $subAreaURL = 'https://cisojourney.com' . htmlspecialchars($row['url']); 	// Prefixing URL to prevent 2010:A10,
