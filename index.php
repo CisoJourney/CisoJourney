@@ -55,6 +55,14 @@ function drawFrontPage($mysqli) {
         <h3 class="black-text nopad-text">Article title here</h3>
         <p class="nopad-text">Article content goes here</p>
       </div>
+      <div class="content-block">
+        <h3 class="black-text nopad-text">Article title here</h3>
+        <p class="nopad-text">Article content goes here</p>
+      </div>
+      <div class="content-block">
+        <h3 class="black-text nopad-text">Article title here</h3>
+        <p class="nopad-text">Article content goes here</p>
+      </div>
     </div>
   </div>
 </div>
