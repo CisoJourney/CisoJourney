@@ -16,7 +16,7 @@ if (isset($_GET['area'])) {
 <?php
 $result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
 while($row = $result->fetch_assoc()) {
-  print '<li>' . htmlspecialchars($row['title']) . '</li>';
+  print '<li><a href="/categories.php?area=' . htmlspecialchars($row['id']) . '">' . htmlspecialchars($row['title']) . '</a></li>';
 }
 ?>
   </ul>
