@@ -7,9 +7,9 @@ function execPrepare($mysqli, $query, $param) {
   return $result;
 }
 
-$id = '1';
-$format = "i";
-$result = execPrepare($mysqli, "SELECT title FROM articles WHERE id = ?", array(&$format, &$id));
+//$id = '1';
+//$format = "i";
+$result = execPrepare($mysqli, "SELECT title FROM articles WHERE id = ?", array("i", "1"));
 $row = $result->fetch_assoc();
 print 'Output: ' . $row['title'];
 ?>
