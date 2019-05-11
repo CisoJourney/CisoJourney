@@ -231,9 +231,9 @@ spacing-text {
   color: white;
   font-size: 15px;
 }
-.admin-table tr th {
-  padding-left: 15px;
-  padding-left: 15px;
+.admin-table {
+  padding-left: 10px;
+  padding-left: 10px;
 }
 .labs-comingsoon {
   transform: rotate(-20deg);
