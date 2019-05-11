@@ -1,41 +1,75 @@
 <?php
-session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
+
+function drawFrontPage($mysqli) {
+  $result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
+  while($row = $result->fetch_assoc()) {
+    $id    = htmlspecialchars($row['id']);	// TODO: INT in the DB, filtering is excessive
+    $title = htmlspecialchars($row['title']);
+    $desc  = htmlspecialchars($row['description']);
+    $icon  = htmlspecialchars($row['icon']);
+
+    // TODO: What a mess
+    print '<div class="content-trio">';
+    print '<div class="content-block center-text">';
+    print '<a href="/categories.php?area=' . $id . '">';
+    if ($title == 'Labs') { print '<div class="labs-comingsoon">Coming Soon!</div>'; }
+    print '<div class="block-icon"><i class="' . $icon . '"></i></div>';
+    print '<h5 class="uppercase-text spacing-text">' . $title . '</h5>';
+    print '<p>' . $desc . '</p>';
+    print '</a>';
+    print '</div>';
+    print '</div>';
+  }
+}
 ?>
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
-      <h3 class="uppercase-text black-text">Error 404 - File not found</h3>
-      <p>Sorry, the page you requested does not exist :(</p>
+      <h3 class="uppercase-text black-text">Error 404</h3>
+      <p>Sorry, the requested file could not be found :(</p>
     </div>
     <div class="content-wrapper">
-      <div class="content-trio"><a href="/content.php">
-        <div class="content-block center-text">
-          <div class="block-icon ciso-color"><i class="fas fa-flag"></i></div>
-          <h5 class="uppercase-text spacing-text">Strategy</h5>
-          <p>Articles covering the critical foundation topics of cybersecurity; such as how to plan, manage, and implement your security plans.</p>
-        </div></a>
-      </div>
-      <div class="content-trio"><a href="/content.php">
-        <div class="content-block center-text">
-          <div class="block-icon training-color"><i class="fas fa-dumbbell"></i></div>
-          <h5 class="uppercase-text spacing-text">Testing</h5>
-          <p>Content geared towards penetration testing and vulnerability analysis. Had a vulnerability raised on a security test recently and want to know more? Check here.</p>
-        </div></a>
-      </div>
-      </a>
-      <div class="content-trio center-text"><a href="/content.php">
+      <?php drawFrontPage($mysqli); ?>
+    </div>
+    <!-- Simulate some content to play with styles -->
+    <div class="content-wrapper">
+      <div class="content-duo">
+        <h3 class="uppercase-text center-text black-text">Most Popular Posts</h3>
         <div class="content-block">
-          <div class="block-icon labs-color"><i class="fas fa-flask"></i></div>
-          <h5 class="uppercase-text spacing-text">Labs</h5>
-          <p>Taking the training articles to the next level with hands-on labs that let you practise the techniques that you've learned. Want to see how an issue really works? You'll find that content here.</p>
-        </div></a>
+          <h3 class="black-text nopad-text">Article title here</h3>
+          <p class="nopad-text">Article content goes here</p>
+        </div>
+        <div class="content-block">
+          <h3 class="black-text nopad-text">Article title here</h3>
+          <p class="nopad-text">Article content goes here</p>
+        </div>
+        <div class="content-block">
+          <h3 class="black-text nopad-text">Article title here</h3>
+          <p class="nopad-text">Article content goes here</p>
+        </div>
       </div>
-      </a>
+      <div class="content-duo">
+        <h3 class="uppercase-text center-text black-text">Most Popular Posts</h3>
+        <div class="content-block">
+          <h3 class="black-text nopad-text">Article title here</h3>
+          <p class="nopad-text">Article content goes here</p>
+        </div>
+        <div class="content-block">
+          <h3 class="black-text nopad-text">Article title here</h3>
+          <p class="nopad-text">Article content goes here</p>
+        </div>
+        <div class="content-block">
+          <h3 class="black-text nopad-text">Article title here</h3>
+          <p class="nopad-text">Article content goes here</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
