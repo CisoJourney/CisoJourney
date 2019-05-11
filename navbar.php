@@ -1,5 +1,4 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 
 // Saves checking area GET variable each time a menu is drawn.
 if (isset($_GET['area'])) {
@@ -27,7 +26,7 @@ else if ($area == 3) { $title = '<span class="' . $titleClass . '">IJ</span>: La
 // outweighed by the benefit of side-by-side comparisons for area variables
 
 // A function to load the area names from the DB and draw a menu item for each one
-function drawAreaMenu() {
+function drawAreaMenu($mysqli) {
   $areaBarResult = $mysqli->query("SELECT id,title FROM areas;");
 
   while($row = $areaBarResult->fetch_assoc()) {
@@ -38,7 +37,7 @@ function drawAreaMenu() {
 }
 
 // A function to draw the sub-menu items for the currently selected area
-function drawSubAreaMenu() {
+function drawSubAreaMenu($mysqli, $area) {
   $stmt = $mysqli->prepare("SELECT title,url FROM topnav WHERE area = ?");
   $stmt->bind_param("i", $area);
   $stmt->execute();
@@ -47,7 +46,7 @@ function drawSubAreaMenu() {
   while($row = $subAreaBarResult->fetch_assoc()) {
     $subAreaTitle = htmlspecialchars($row['title']);
     $subareaURL = 'https://cisojourney.com' . htmlspecialchars($row['url']); 	// Prefixing URL to prevent 2010:A10,
-    print '<li><a href="' . $url . '">' . $title . '</a></li>';			// but this isn't the best place for this protection
+    print '<li><a href="' . $subAreaURL . '">' . $subAreaTitle . '</a></li>';			// but this isn't the best place for this protection
   }
 }
 
@@ -57,9 +56,9 @@ function drawSubAreaMenu() {
   <div class="title"><?php print $title;?></div>
 </div>
 <div class="area-bar">
-  <ul><?php drawAreaMenu(); ?></ul>
+  <ul><?php drawAreaMenu($mysqli); ?></ul>
   <a href="/search.php"><i class="area-search fas fa-search"></i></a>
 </div>
 <div class="<?php print $areaClass; ?> nav-bar">
-  <ul><?php drawSubAreaMenu(); ?></ul>
+  <ul><?php drawSubAreaMenu($mysqli, $area); ?></ul>
 </div>
