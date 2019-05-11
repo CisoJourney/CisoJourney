@@ -20,7 +20,7 @@ while($row = $result->fetch_assoc()) {
 }
 ?>
   </ul>
-<i class="area-search fas fa-search"
+<i class="area-search fas fa-search">
 </div>
 <div class="
 <?php
