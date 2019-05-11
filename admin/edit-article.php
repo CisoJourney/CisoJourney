@@ -55,7 +55,7 @@ if (isset($_GET['updated'])) {
 ?>
 </p>
 <?php
-$stmt = $mysqli->prepare("SELECT area,id,title,description,content,premium,category FROM articles WHERE id = ?;");
+$stmt = $mysqli->prepare("SELECT area,id,title,description,content,premium,category,display FROM articles WHERE id = ?;");
 $stmt->bind_param("s", $_GET['article']);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -72,9 +72,13 @@ $row = $result->fetch_assoc();
 <textarea class="login-input" name="description"><?php print htmlspecialchars($row['description']); ?></textarea>
 <textarea class="login-input" name="content"><?php print htmlspecialchars($row['content']); ?></textarea>
 <select class="login-input" name="premium">
-  <option <?php if($row['premium'] == 0) { print "selected"; } ?> value="1">Not Premium</option>
-  <option <?php if($row['premium'] == 1) { print "selected"; } ?> value="2">Member</option>
-  <option <?php if($row['premium'] == 2) { print "selected"; } ?> value="3">Labs</option>
+  <option <?php if($row['premium'] == 0) { print "selected"; } ?> value="0">Not Premium</option>
+  <option <?php if($row['premium'] == 1) { print "selected"; } ?> value="1">Member</option>
+  <option <?php if($row['premium'] == 2) { print "selected"; } ?> value="2">Labs</option>
+</select>
+<select class="login-input" name="display">
+  <option <?php if($row['display'] == 0) { print "selected"; } ?> value="0">Hidden</option>
+  <option <?php if($row['display'] == 1) { print "selected"; } ?> value="1">Published</option>
 </select>
 <input class="login-input" name="category" type="text" value="<?php print htmlspecialchars($row['category']); ?>">
 <input class="login-button" value="Update" type="submit">

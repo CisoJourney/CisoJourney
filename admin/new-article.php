@@ -58,10 +58,14 @@ $id = $row['highestID'] + 1;
 <input class="login-input" name="id" value="<?php print htmlspecialchars($id); ?>" readonly>
 <textarea class="login-input" name="description" placeholder="Description"></textarea>
 <textarea class="login-input" name="content" placeholder="Content"></textarea>
-<select class="login-input" name="area">
+<select class="login-input" name="premium">
   <option value="0">Not Premium</option>
   <option value="1">Member</option>
   <option value="2">Labs</option>
+</select>
+<select class="login-input" name="display">
+  <option value="0">Hidden</option>
+  <option value="1">Published</option>
 </select>
 <input class="login-button" value="Create" type="submit">
 </form>
