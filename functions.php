@@ -1,4 +1,5 @@
 <?php
+// A function to execute a prepared query against an array of vars
 function execPrepare($mysqli, $query, $param) {
   $stmt = $mysqli->prepare($query);
   call_user_func_array(array($stmt, 'bind_param'), $param);
@@ -6,10 +7,4 @@ function execPrepare($mysqli, $query, $param) {
   $result = $stmt->get_result();
   return $result;
 }
-
-//$id = '1';
-//$format = "i";
-$result = execPrepare($mysqli, "SELECT title FROM articles WHERE id = ?", array("i", "1"));
-$row = $result->fetch_assoc();
-print 'Output: ' . $row['title'];
 ?>

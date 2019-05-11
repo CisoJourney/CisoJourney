@@ -4,16 +4,13 @@ session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 // Area variable from navbar.php
 function drawCategoryDesc($mysqli, $area) {
-  $stmt = $mysqli->prepare("SELECT title,description FROM categories WHERE id = ?;");
-  $stmt->bind_param("i", $_GET['id']);
-  $stmt->execute();
-  $result = $stmt->get_result();
-
+  $result = execPrepare($mysqli, "SELECT title,description FROM categories WHERE id = ?;", array("i", $_GET['id']));
   while($row = $result->fetch_assoc()) {
     $title = htmlspecialchars($row['title']);
     $desc  = htmlspecialchars($row['description']);
