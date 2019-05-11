@@ -15,7 +15,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
     </div>
     <div class="content-full">
       <div class="content-block center-text">
-Search box here
+        <input type="text" class="login-input center-text" placeholder="Search for..." />
+        <a href="/searched.php"><input type="submit" value="Search" /></a>
       </div>
     </div>
   </div>
