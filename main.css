@@ -45,6 +45,10 @@ hr {
   border-radius: 5px;
   border: 1px solid black;
 }
+.red-button {
+  background-color: red;
+  color: white;
+}
 .logo {
   width: fit-content;
   float: left;
