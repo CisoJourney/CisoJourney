@@ -23,8 +23,8 @@ function drawFrontPage($mysqli) {
     print '<div class="block-icon"><i class="' . $icon . '"></i></div>';
     print '<h5 class="uppercase-text spacing-text">' . $title . '</h5>';
     print '<p>' . $desc . '</p>';
-    print '</div>';
     print '</a>';
+    print '</div>';
     print '</div>';
   }
 }
@@ -32,11 +32,27 @@ function drawFrontPage($mysqli) {
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
-      <h3 class="uppercase-text black-text">Cybersecurity Strategy</h3>
-      <p>A site full of security strategy hints, tips, and discussion.</p>
+      <h3 class="uppercase-text black-text">CISO: Journey Group</h3>
+      <p>A collection of resources for Chief Information Security Officer, IT Security Managers, Security Engineers, and Penetration Testers. Real-world security information, presented neatly, in bite-size pieces.</p>
     </div>
     <div class="content-wrapper">
       <?php drawFrontPage($mysqli); ?>
+    </div>
+    <!-- Simulate some content to play with styles -->
+    <div class="content-full center-text">
+      <h3 class="uppercase-text black-text">Most Popular Posts</h3>
+    </div>
+    <div class="content-full center-text">
+      <h3 class="uppercase-text black-text">Article title here</h3>
+      Article content goes here
+    </div>
+    <div class="content-full center-text">
+      <h3 class="uppercase-text black-text">Article title here</h3>
+      Article content goes here
+    </div>
+    <div class="content-full center-text">
+      <h3 class="uppercase-text black-text">Article title here</h3>
+      Article content goes here
     </div>
   </div>
 </div>
