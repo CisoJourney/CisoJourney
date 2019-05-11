@@ -21,7 +21,7 @@ function drawCategoryDesc($mysqli) {
 }
 
 function drawCategory($mysqli) {
-  $result = execPrepare($mysqli, "SELECT area,title,description FROM articles WHERE area = 1 and category = ?;", array("i", $_GET['id']));
+  $result = execPrepare($mysqli, "SELECT area,title,description FROM articles WHERE area = ? and category = ?;", array("ii", $area, $_GET['id']));
   while($row = $result->fetch_assoc()) {
     $title = htmlspecialchars($row['title']);
     $desc  = htmlspecialchars($row['description']);
