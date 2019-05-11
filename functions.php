@@ -5,6 +5,7 @@ function execPrepare($mysqli, $query, $param) {
   $stmt->execute();
   $result = $stmt->get_result();
   return $result;
+}
 
 $id = '1';
 $format = "i";
