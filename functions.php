@@ -17,6 +17,11 @@ function numPrepare($mysqli, $query, $param) {
   return $stmt->num_rows;
 }
 
+function clean($input) {
+  $input = htmlspecialchars($input);	// Abstracted to make custom filtration possible later
+  return $input;
+}
+
 function softRedirect($target) {	// "Soft" because 302, non-permanent
   $target = htmlspecialchars($target); 	// 2010:A10 would be bad yo
   header('Location: ' + $target);

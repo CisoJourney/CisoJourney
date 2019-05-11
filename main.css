@@ -39,6 +39,12 @@ hr {
   width: fit-content;
   float: right;
 }
+.admin-button {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
 .logo {
   width: fit-content;
   float: left;
