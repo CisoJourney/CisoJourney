@@ -2,14 +2,12 @@
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 
 // If the user is authenticated; they don't need to see the login page
-if ($_SESSION['privs') >= 0) {
-  header('Location: /profile.php');
-  exit();
-}
+if ($_SESSION['privs') >= 0) { softRedirect('/profile.php'); }
 
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/function.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
@@ -28,10 +26,7 @@ if (isset($_GET['error'])) {
   if ($_GET['error'] == 'captcha') {
    print('Oops, captcha code was incorrect!');
   }
-  else if ($_GET['error'] == 'missing') {
-   print('Oops, all fields are required!');
-  }
-  else if ($_GET['error'] == 'blank') {
+  else if ($_GET['error'] == 'missing' && $_GET['error'] == 'blank') {
    print('Oops, all fields are required!');
   }
   else if ($_GET['error'] == 'user') {
