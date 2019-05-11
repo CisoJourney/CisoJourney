@@ -5,6 +5,28 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
+
+function drawFrontPage($mysqli) {
+  $result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
+  while($row = $result->fetch_assoc()) {
+    $id    = htmlspecialchars($row['id']);	// TODO: INT in the DB, filtering is excessive
+    $title = htmlspecialchars($row['title']);
+    $desc  = htmlspecialchars($row['description']);
+    $icon  = htmlspecialchars($row['icon']);
+
+    // TODO: What a mess
+    print '<div class="content-trio">';
+    print '<div class="content-block center-text">';
+    print '<a href="/categories.php?area=' . $id . '">';
+    if ($title == 'Labs') { print '<div class="labs-comingsoon">Coming Soon!</div>'; }
+    print '<div class="block-icon"><i class="' . $icon . '"></i></div>';
+    print '<h5 class="uppercase-text spacing-text">' . $title . '</h5>';
+    print '<p>' . $desc . '</p>';
+    print '</div>';
+    print '</a>';
+    print '</div>';
+  }
+}
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -13,25 +35,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
       <p>A site full of security strategy hints, tips, and discussion.</p>
     </div>
     <div class="content-wrapper">
-<?php
-$result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
-while($row = $result->fetch_assoc()) {
-?>
-      <div class="content-trio">
-        <div class="content-block center-text"><a href="/categories.php?area=<?php print(htmlspecialchars($row['id']))?>">
-        <?php
-// TODO: HACK this is a hack to show that labs is
-if ($row['title'] == 'Labs') { print '<div class="labs-comingsoon">Coming Soon!</div>'; }
-?>
-          <div class="block-icon"><i class="<?php print(htmlspecialchars($row['icon']))?>"></i></div>
-          <h5 class="uppercase-text spacing-text"><?php print(htmlspecialchars($row['title']))?></h5>
-          <p><?php print(htmlspecialchars($row['description']))?></p>
-        </div></a>
-      </div>
-<?php
-}
-?>
-
+      <?php drawFrontPage($mysqli); ?>
     </div>
   </div>
 </div>
