@@ -57,6 +57,10 @@ hr {
 .on-brand {
   color: green;
 }
+.highlight-bar {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
 .nav-bar {
   width: 100%;
   background-color: white;
@@ -76,7 +80,6 @@ hr {
   background-color: white;
   text-align: center;
 }
-
 .area-bar ul {
   display: inline-block;
   width: calc(100% - 96px);

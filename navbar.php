@@ -31,7 +31,9 @@ function drawAreaMenu($mysqli) {
   while($row = $areaBarResult->fetch_assoc()) {
     $id = htmlspecialchars($row['id']);           // id is INT in db, filtering is excessive
     $title = htmlspecialchars($row['title']);
-    print '<li><a href="/categories.php?area=' . $id . '">' . $title . '</a></li>';
+    $highlight = ""; if ($id == $area) { $highlight == 'class="highlight-bar" '; }
+
+    print '<li><a ' . $highlight . 'href="/categories.php?area=' . $id . '">' . $title . '</a></li>';
   }
 }
 
