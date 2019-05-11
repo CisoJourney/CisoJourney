@@ -44,12 +44,12 @@ if (isset($_GET['error'])) {
 }
           ?></p>
           <form method="POST" action="process-registration.php">
-            <input class="login-input" name="email" type="text" placeholder="e-mail">
-            <input class="login-input" name="password" type="password" placeholder="password">
-            <input class="login-input" name="confirm" type="password" placeholder="confirm password">
+            <input class="login-input" name="email" type="text" placeholder="e-mail" />
+            <input class="login-input" name="password" type="password" placeholder="password" autocomplete="off" />
+            <input class="login-input" name="confirm" type="password" placeholder="confirm password" autocomplete="off" />
             <img id="captcha" src="/securimage/securimage_show.php" alt="CAPTCHA Image" />
-            <input class="login-input" type="text" name="captcha_code" size="10" maxlength="6" placeholder="captcha text (case insensitive)"/>
-            <input class="login-button" value="Register" type="submit">
+            <input class="login-input" type="text" name="captcha_code" size="10" maxlength="6" placeholder="captcha text (case insensitive)" autocomplete="off" />
+            <input class="login-button" value="Register" type="submit" />
           </form>
         </div>
       </div>

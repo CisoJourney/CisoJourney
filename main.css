@@ -62,11 +62,6 @@ hr {
   text-align: center;
   border-bottom: 4px solid darkgreen;
 }
-.area-bar {
-  width: 100%;
-  background-color: white;
-  text-align: center;
-}
 .nav-bar ul {
   padding: 0;
   margin: 0;
@@ -75,13 +70,26 @@ hr {
   display: inline-block;
   padding: 10px;
 }
+.area-bar {
+  width: 100%;
+  margin-left: 48px;
+  background-color: white;
+  text-align: center;
+  display: inline-block;
+}
+
 .area-bar ul {
+  width: calc(100% - 96px);
   padding: 0;
   margin: 0;
 }
 .area-bar li {
   display: inline-block;
   padding: 10px;
+}
+.area-search {
+  padding: 10px;
+  font-size: 24px;
 }
 .page-wrapper {
   width: 100%;

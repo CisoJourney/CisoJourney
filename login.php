@@ -11,6 +11,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
+
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -38,11 +39,11 @@ if (isset($_GET['error'])) {
 }
 ?><p>
           <form method="POST" action="process-login.php">
-            <input class="login-input" name="email" type="text" placeholder="e-mail">
-            <input class="login-input" name="password" type="password" placeholder="password">
+            <input class="login-input" name="email" type="text" placeholder="e-mail" />
+            <input class="login-input" name="password" type="password" placeholder="password" autcomplete="off" />
             <img id="captcha" src="/securimage/securimage_show.php" alt="CAPTCHA Image" />
-            <input class="login-input" type="text" name="captcha_code" size="10" maxlength="6" placeholder="captcha code (case insensitive)" />
-            <input class="login-button" value="Login" type="submit">
+            <input class="login-input" type="text" name="captcha_code" size="10" maxlength="6" placeholder="captcha code (case insensitive)" autocomplete="off" />
+            <input class="login-button" value="Login" type="submit" />
           </form>
         </div>
       </div>
