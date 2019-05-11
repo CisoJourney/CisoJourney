@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 // Area variable from navbar.php
-function drawCategoryDesc($mysqli, $area) {
+function drawCategoryDesc($mysqli) {
   $result = execPrepare($mysqli, "SELECT title,description FROM categories WHERE id = ?;", array("i", $_GET['id']));
   while($row = $result->fetch_assoc()) {
     $title = htmlspecialchars($row['title']);
@@ -21,11 +21,7 @@ function drawCategoryDesc($mysqli, $area) {
 }
 
 function drawCategory($mysqli) {
-  $stmt = $mysqli->prepare("SELECT area,title,description FROM articles WHERE area = 1 and category = ?;");
-  $stmt->bind_param("i", intval($_GET['id']));
-  $stmt->execute();
-  $result = $stmt->get_result();
-
+  $result = execPrepare($mysqli, "SELECT area,title,description FROM articles WHERE area = 1 and category = ?;", array("i", $_GET['id']));
   while($row = $result->fetch_assoc()) {
     $title = htmlspecialchars($row['title']);
     $desc  = htmlspecialchars($row['description']);
@@ -40,7 +36,7 @@ function drawCategory($mysqli) {
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
-      <?php drawCategoryDesc($mysqli, $area); ?>
+      <?php drawCategoryDesc($mysqli); ?>
     </div>
     <div class="content-full">
       <?php drawCategory($mysqli); ?>
