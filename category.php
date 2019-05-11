@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 // Area variable from navbar.php
 function drawCategoryDesc($mysqli, $area) {
-  $stmt = $mysqli->prepare("SELECT title,description FROM area WHERE area = ?;");
+  $stmt = $mysqli->prepare("SELECT title,description FROM area WHERE id = ?;");
   $stmt->bind_param("i", $area);
   $stmt->execute();
   $result = $stmt->get_result();
