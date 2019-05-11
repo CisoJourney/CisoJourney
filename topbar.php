@@ -9,7 +9,7 @@ function drawTopBar() {
 
   if      ($_SESSION['privs'] == 3) { print $adminLink   . ' | ' . $profileLink . ' | ' . $logoutLink; } // user is admin
   else if ($_SESSION['privs'] >= 0) { print $profileLink . ' | ' . $logoutLink; }			 // user is user
-  else                              { print $loginLink   . ' | ' $registerLink; }			 // user is unauthed
+  else                              { print $loginLink   . ' | ' . $registerLink; }			 // user is unauthed
 }
 ?>
 <div class="top-bar">
