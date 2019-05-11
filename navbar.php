@@ -44,8 +44,9 @@ function drawSubAreaMenu($mysqli, $area) {
 
   while($row = $subAreaBarResult->fetch_assoc()) {
     $subAreaTitle = htmlspecialchars($row['title']);
-    $subareaURL = 'https://cisojourney.com' . htmlspecialchars($row['url']); 	// Prefixing URL to prevent 2010:A10,
-    print '<li><a href="' . $subAreaURL . '">' . $subAreaTitle . '</a></li>';	// but this isn't the best place for this protection
+    $subAreaURL = 'https://cisojourney.com' . htmlspecialchars($row['url']); 	// Prefixing URL to prevent 2010:A10,
+										// but this isn't the best place for this protection
+    print '<li><a href="' . $subAreaURL . '">' . $subAreaTitle . '</a></li>';
   }
 }
 
