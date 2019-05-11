@@ -1,4 +1,6 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+
 // Saves checking area GET variable each time a menu is drawn.
 if (isset($_GET['area'])) {
   if      ($_GET['area'] == 1) { $area = 1; }
