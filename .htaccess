@@ -3,4 +3,8 @@ ErrorDocument 404 /error/404.php
 
 RewriteEngine On
 RewriteCond %{HTTPS} !on
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^www\.cisojourney\.com [NC]
+RewriteRule ^(.*)$ http://example.com/$1 [L,R=301]
+
