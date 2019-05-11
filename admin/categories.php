@@ -25,6 +25,13 @@ if ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-layer-group"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Categories</h5>
+<p class="red-text">
+<?php
+if (isset($_GET['deleted']) && $_GET['deleted'] == 'true') {
+  print 'Category deleted';
+}
+?>
+</p>
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th><th></th><th></th></tr>
 <?php
