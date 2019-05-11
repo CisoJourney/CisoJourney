@@ -43,7 +43,7 @@ hr {
   font-size: 14px;
 }
 .login-buttons {
-  width: width: -moz-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   float: right;
 }
@@ -58,7 +58,7 @@ hr {
   color: white;
 }
 .logo {
-  width: width: -moz-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   float: left;
 }
@@ -69,7 +69,7 @@ hr {
 .title {
   font-family: 'Jura';
   font-size: 40px;
-  width: width: -moz-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
   padding: 0px;
