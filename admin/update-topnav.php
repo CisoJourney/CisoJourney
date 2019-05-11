@@ -1,15 +1,9 @@
 <?php
-session_start();
-
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 
-if (!isset($_SESSION['privs'])) {
-  header('Location: /login.php');
-  exit();
-}
-else if ($_SESSION['privs'] < 3) {
-  header('Location: /profile.php');
-  exit();
+if ($_SESSION['privs'] < 3) {
+  softRedirect('/profile.php');
 }
 else if (!isset($_POST['id'])) {
   header('Location: /admin/topnav.php');

@@ -1,5 +1,10 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/csrf.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+
+if ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
 
 // Check each array item for duplictions, by iterating through the supplied
 // variables and counting each occurance. If total occurences is ever > 1

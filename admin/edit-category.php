@@ -1,24 +1,15 @@
 <?php
-session_start();
-
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-if (!isset($_SESSION['privs'])) {
-  header('Location: /login.php');
-  exit();
-}
-else if ($_SESSION['privs'] < 3) {
-  header('Location: /profile.php');
-  exit();
-}
-else if (!isset($_GET['category'])) {
-  header('Location: /admin/categories.php');
-  exit();
-}
+if      ($_SESSION['privs'] < 3)    { softRedirect('/profile.php'); }
+else if (!isset($_GET['category'])) { softRedirect('/admin/categories.php'); }
+
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -33,45 +24,41 @@ else if (!isset($_GET['category'])) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-layer-group"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Categories</h5>
-<p class="red-text">
 <?php
 if (isset($_GET['error'])) {
-  if ($_GET['error'] == 'missing') {
-    print('Oops, all fields are required!');
-  }
-  else if ($_GET['error'] == 'blank') {
-    print('Oops, all fields are required!');
+  if ($_GET['error'] == 'missing' or $_GET['error'] == 'blank') {
+    print('<p class="red-text">Oops, all fields are required!</p>');
   }
 }
-?>
-</p>
-<p class="black-text">
-<?php
-if (isset($_GET['updated'])) {
-  if ($_GET['updated'] == 'true') {
-    print('Updated!');
-  }
+
+if (isset($_GET['updated']) && $_GET['updated'] == 'true') {
+  print('<p class="black-text">Updated!</p>');
 }
-?>
-</p>
-<?php
-$stmt = $mysqli->prepare("SELECT area,id,title,description,icon FROM categories WHERE id = ?;");
-$stmt->bind_param("s", $_GET['category']);
-$stmt->execute();
-$result = $stmt->get_result();
+
+$result = execPrepare($mysqli, "SELECT area,id,title,description,icon FROM categories WHERE id = ?;", array("s", $_GET['category']));
 $row = $result->fetch_assoc();
+$id = clean($row['id']);
+$desc = clean($row['description']);
+$title = clean($row['title']);
+$icon = clean($row['icon']);
+
+$areaResult = $mysqli->query("id,title FROM areas;");
+
 ?></p>
 <form method="POST" action="/admin/update-category.php">
 <select class="login-input" name="area">
-  <?php //TODO: Make this list dynamic from the areas table ?>
-  <option <?php if($row['area'] == 1) { print "selected"; } ?> value="1">Strategy</option>
-  <option <?php if($row['area'] == 2) { print "selected"; } ?> value="2">Testing</option>
-  <option <?php if($row['area'] == 3) { print "selected"; } ?> value="3">Labs</option>
+  <?php
+while ($areaRow = $areaResult->fetch_assoc()) {
+  $areaTitle = clean($areaRow['title']);
+  $selected = ""; if ($row['area'] == $areaRow['id']) { $selected = "selected "; }
+  print '<option ' . $selected . 'value="' . $areaRow['id'] . '">' . $areaTitle . '</option>';
+}
+?>
 </select>
-<input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
-<input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['title']); ?>">
-<textarea class="login-input" name="description"><?php print htmlspecialchars($row['description']); ?></textarea>
-<input class="login-input" name="icon" type="text" value="<?php print htmlspecialchars($row['icon']); ?>">
+<input class="login-input" name="id" type="hidden" value="<?php print $id; ?>">
+<input class="login-input" name="title" type="text" value="<?php print $title ?>">
+<input class="login-input" name="description" type="text" value="<?php print $desc; ?>">
+<input class="login-input" name="icon" type="text" value="<?php print $icon; ?>">
 <input class="login-button" value="Update" type="submit">
 </form>
 
