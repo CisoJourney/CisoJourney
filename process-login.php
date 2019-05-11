@@ -1,6 +1,7 @@
 <?php
 // TODO: Comment and refactor
-session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . '/session.php';
+
 session_regenerate_id(true);
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/auth.php';
@@ -10,20 +11,17 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/securimage/securimage.php';
 $securimage = new Securimage();
 
 if ($securimage->check($_POST['captcha_code']) == false) {
-  header('Location: /login.php?error=captcha');
-  exit();
+  softRedirect('/login.php?error=captcha');
 }
 else if (!isset($_POST['email']) or !isset($_POST['password'])) {
-  header('Location: /login.php?error=missing');
-  exit();
+  softRedirect('/login.php?error=missing');
 }
 else if ($_POST['email'] == "" or $_POST['password'] == "") {
-  header('Location: /login.php?error=blank');
-  exit();
+  softRedirect('/login.php?error=blank');
 }
 
 $email = $_POST['email'];
-$result = execPrepare($mysqli, "SELECT * FROM users WHERE email = ?;", array("s", $email);
+$result = execPrepare($mysqli, "SELECT * FROM users WHERE email = ?;", array("s", $email));
 $row = $result->fetch_assoc();
 
 if ($row['email'] != $email) {
@@ -31,11 +29,12 @@ if ($row['email'] != $email) {
   exit();
 }
 else {
-  $salt = $row['salt'];
-  $iterations = $row['iterations'];
-  $hash = $row['hash'];
-  $privs = $row['privs'];
-  $checkhash = hash_pbkdf2('sha3-512', $_POST['password'], $salt , $iterations);
+  $salt      = $row['salt'];
+  $iter      = $row['iterations'];
+  $hash      = $row['hash'];
+  $privs     = $row['privs'];
+  // TODO: It's kinda weird that the algo is the only thing hardcoded
+  $checkhash = hash_pbkdf2('sha3-512', $_POST['password'], $salt , $iter);
 
   if ($hash == $checkhash) {
     header('Location: /login.php?error=user');
