@@ -43,7 +43,7 @@ function drawCategory($mysqli) {
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
-      <?php drawCategoryDesc(); ?>
+      <?php drawCategoryDesc($mysqli, $area); ?>
     </div>
     <div class="content-full">
       <?php drawCategory($mysqli); ?>
