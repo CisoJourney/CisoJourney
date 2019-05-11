@@ -5,7 +5,6 @@ function execPrepare($query, $param)
   $result = $stmt->get_result();
   return $result;
 
-
 $id = '1';
 $format = "i";
 $result = execPrepare("SELECT title FROM articles WHERE id = ?", array(&$format, &$id));
