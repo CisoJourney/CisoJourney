@@ -41,6 +41,16 @@ function drawFrontPage($mysqli) {
     <!-- Simulate some content to play with styles -->
     <div class="content-full center-text">
       <h3 class="uppercase-text black-text">Most Popular Posts</h3>
+    </div>
+    <div class="content-full">
+      <div class="content-block">
+        <h3 class="black-text nopad-text">Article title here</h3>
+        <p class="nopad-text">Article content goes here</p>
+      </div>
+      <div class="content-block">
+        <h3 class="black-text nopad-text">Article title here</h3>
+        <p class="nopad-text">Article content goes here</p>
+      </div>
       <div class="content-block">
         <h3 class="black-text nopad-text">Article title here</h3>
         <p class="nopad-text">Article content goes here</p>
