@@ -13,8 +13,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
       <h3 class="uppercase-text black-text">Cybersecurity Strategy</h3>
       <p>A site full of security strategy hints, tips, and discussion.</p>
     </div>
-    <div class="content-wrapper">
+    <div class="content-full">
+      <div class="content-block center-text">
 Search box here
+      </div>
     </div>
   </div>
 </div>
