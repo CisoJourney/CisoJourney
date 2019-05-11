@@ -9,6 +9,6 @@ function execPrepare($mysqli, $query, $param) {
 $id = '1';
 $format = "i";
 $result = execPrepare($mysqli, "SELECT title FROM articles WHERE id = ?", array(&$format, &$id));
-$row = $result->fetch_assoc()
+$row = $result->fetch_assoc();
 print 'Output: ' . $row['title'];
 >
