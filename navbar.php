@@ -27,7 +27,6 @@ else if ($area == 3) { $title = '<span class="' . $titleClass . '">IJ</span>: La
 // A function to load the area names from the DB and draw a menu item for each one
 function drawAreaMenu($mysqli) {
   $areaBarResult = $mysqli->query("SELECT id,title FROM areas;");
-
   while($row = $areaBarResult->fetch_assoc()) {
     $id    = intval($row['id']);           // id is INT in db, filtering is excessive but intval for paranoia
     $title = htmlspecialchars($row['title']);
@@ -37,11 +36,7 @@ function drawAreaMenu($mysqli) {
 
 // A function to draw the sub-menu items for the currently selected area
 function drawSubAreaMenu($mysqli, $area) {
-  $stmt = $mysqli->prepare("SELECT title,url FROM topnav WHERE area = ?");
-  $stmt->bind_param("i", $area);
-  $stmt->execute();
-  $subAreaBarResult = $stmt->get_result();
-
+  $result = execPrepare($mysqli, "SELECT title,url FROM topnav WHERE area = ?;", array("i", $area));
   while($row = $subAreaBarResult->fetch_assoc()) {
     $subAreaTitle = htmlspecialchars($row['title']);
     $subAreaURL = 'https://cisojourney.com' . htmlspecialchars($row['url']); 	// Prefixing URL to prevent 2010:A10,
@@ -49,7 +44,6 @@ function drawSubAreaMenu($mysqli, $area) {
     print '<li><a href="' . $subAreaURL . '">' . $subAreaTitle . '</a></li>';
   }
 }
-
 ?>
 
 <div class="title-bar">

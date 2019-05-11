@@ -1,7 +1,8 @@
 <?php
-session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 
-if (isset($_SESSION['email'])) {
+// If the user is authenticated; they don't need to see the login page
+if ($_SESSION['privs') >= 0) {
   header('Location: /profile.php');
   exit();
 }

@@ -1,7 +1,7 @@
 <?php
-session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . '/session.php';
 
-if (!isset($_SESSION['email'])) {
+if ($_SESSION['privs'] == -1) {
   header('Location: /login.php');
   exit();
 }

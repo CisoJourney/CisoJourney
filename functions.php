@@ -7,4 +7,13 @@ function execPrepare($mysqli, $query, $param) {
   $result = $stmt->get_result();
   return $result;
 }
+
+function numPrepare($mysqli, $query, $param) {
+  $stmt = $mysqli->prepare($query);
+  call_user_func_array(array($stmt, 'bind_param'), $param);
+  $stmt->execute();
+  $stmt->store_result();
+  $result = $stmt->get_result();
+  return $stmt->num_rows;
+}
 ?>
