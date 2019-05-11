@@ -29,7 +29,7 @@ function drawAreaMenu($mysqli, $area) {
   $areaBarResult = $mysqli->query("SELECT id,title FROM areas;");
 
   while($row = $areaBarResult->fetch_assoc()) {
-    $id    = htmlspecialchars($row['id']);           // id is INT in db, filtering is excessive
+    $id    = intval($row['id']);           // id is INT in db, filtering is excessive but intval for paranoia
     $title = htmlspecialchars($row['title']);
     $highlight = ""; if ($id == $area) { $highlight == 'class="highlight-bar" '; }
 
