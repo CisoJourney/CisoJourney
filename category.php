@@ -18,7 +18,7 @@ function drawCategoryDesc($mysqli, $area) {
     $title = htmlspecialchars($row['title']);
     $desc  = htmlspecialchars($row['description']);
 
-    print '<h3 class="uppercase-text black-text">' . $title . '</h3>
+    print '<h3 class="uppercase-text black-text">' . $title . '</h3>';
     print '<p>' . $desc . '</p>';
   }
 }
