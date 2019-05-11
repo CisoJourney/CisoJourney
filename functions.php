@@ -24,7 +24,7 @@ function clean($input) {
 
 function softRedirect($target) {	// "Soft" because 302, non-permanent
   $target = htmlspecialchars($target); 	// 2010:A10 would be bad yo
-  header('Location: ' + $target);
+  header('Location: ' . $target);
   exit();
 }
 ?>
