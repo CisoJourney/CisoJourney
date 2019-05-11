@@ -56,7 +56,7 @@ function drawFrontPage($mysqli) {
         </div>
       </div>
       <div class="content-duo">
-        <h3 class="uppercase-text black-text">Most Popular Posts</h3>
+        <h3 class="uppercase-text center-text black-text">Most Popular Posts</h3>
         <div class="content-block">
           <h3 class="black-text nopad-text">Article title here</h3>
           <p class="nopad-text">Article content goes here</p>
