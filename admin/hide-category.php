@@ -14,6 +14,6 @@ else if ($_GET['category'] == "" or $_GET['hidden'] == "") {
 }
 
 // TODO: Split this line
-execPrepare($mysqli, "UPDATE categories SET hidden = ? WHERE id = ?;", array("ii", $_GET['hidden'], $_GET['category']);
+execPrepare($mysqli, "UPDATE categories SET hidden = ? WHERE id = ?;", array("ii", $_GET['hidden'], $_GET['category']));
 softRedirect('/admin/categories.php?hidden=true&id=' . $_GET['category']);
 ?>
