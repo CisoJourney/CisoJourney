@@ -1,14 +1,15 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 if      ($_SESSION['privs'] < 3)    { softRedirect('/profile.php'); }
 else if (!isset($_GET['category'])) { softRedirect('/admin/categories.php'); }
+
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 ?>
 <div class="page-wrapper">
@@ -36,11 +37,11 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') {
 }
 
 $result = execPrepare($mysqli, "SELECT area,id,title,description,icon FROM categories WHERE id = ?;", array("s", $_GET['category']));
-$row = $result->fetch_assoc();
-$id = clean($row['id']);
-$desc = clean($row['description']);
-$title = clean($row['title']);
-$icon = clean($row['icon']);
+$row    = $result->fetch_assoc();
+$id     = clean($row['id']);
+$desc   = clean($row['description']);
+$title  = clean($row['title']);
+$icon   = clean($row['icon']);
 
 $areaResult = $mysqli->query("id,title FROM areas;");
 
