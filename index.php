@@ -16,7 +16,7 @@ function drawFrontPage($mysqli) {
     $icon  = htmlspecialchars($row['icon']);
 
     // TODO: What a mess
-    print '<div class="content-duo">';
+    print '<div class="content-trio">';
     print '<div class="content-block center-text">';
     print '<a href="/categories.php?area=' . $id . '">';
     if ($title == 'Labs') { print '<div class="labs-comingsoon">Coming Soon!</div>'; }
