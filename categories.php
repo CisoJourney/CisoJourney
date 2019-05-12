@@ -13,8 +13,8 @@ function drawCategoryDesc($mysqli) {
     $title = clean($row['title']);
     $desc  = clean($row['description']);
 
-    print '<h3 class="uppercase-text black-text">' . $title . '</h3>';
     if ($title == 'Labs') { print '<div class="labs-comingsoon">Coming Soon!</div>'; }
+    print '<h3 class="uppercase-text black-text">' . $title . '</h3>';
     print '<p>' . $desc . '</p>';
   }
 }
