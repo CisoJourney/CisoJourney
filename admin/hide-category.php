@@ -7,10 +7,10 @@ if ($_SESSION['privs'] < 3) {
   softRedirect('/profile.php');
 }
 else if (!isset($_POST['category']) or !isset($_POST['hidden'])) {
-  softRedirect('/admin/categories.php');
+  softRedirect('/admin/categories.php?error=missing');
 }
 else if ($_POST['category'] == "" or $_POST['hidden'] == "") {
-  softRedirect('/admin/categories.php');
+  softRedirect('/admin/categories.php?error=blank');
 }
 
 // TODO: Split this line
