@@ -30,7 +30,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 if (isset($_GET['deleted']) and $_GET['deleted'] == 'true') {
   print '<p class="red-text">Category deleted</p>';
 }
-else (isset($_GET['error'])) {
+else if (isset($_GET['error'])) {
   if ($_GET['error'] == 'missing' or $_GET['error'] == 'blank') {
     print '<p class="black-text">All parameters required!</p>';
   }
