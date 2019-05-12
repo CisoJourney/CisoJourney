@@ -27,7 +27,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-search"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Top Nav</h5>
-<p><a href="/admin/new-topnav.php"><input type="submit" value="New Nav"></a></p>
+<p><a href="/admin/new-topnav.php"><input class="admin-input" type="submit" value="New Nav"></a></p>
 <table>
 <tr><th class="admin-table">ID</th><th>Area</th><th class="admin-table">Title</th><th class="admin-table">URL</th><th></th></tr>
 <?php
@@ -44,7 +44,7 @@ $url   = clean($row['url']);
   print '<td class="admin-table">' . $title . '</td>';
   print '<td class="admin-table">' . $url . '</td>';
   print '<td class="admin-table">';
-  print '<a href="/admin/edit-topnav.php?nav=' . $id . '"><input type="submit" value="edit"></a>';
+  print '<a href="/admin/edit-topnav.php?nav=' . $id . '"><input class="admin-input" type="submit" value="edit"></a>';
   print '</td>';
   print '</tr>';
 }
