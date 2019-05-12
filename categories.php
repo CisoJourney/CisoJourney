@@ -14,6 +14,7 @@ function drawCategoryDesc($mysqli) {
     $desc  = clean($row['description']);
 
     print '<h3 class="uppercase-text black-text">' . $title . '</h3>';
+    if ($title == 'Labs') { print '<div class="labs-comingsoon">Coming Soon!</div>'; }
     print '<p>' . $desc . '</p>';
   }
 }
