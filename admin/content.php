@@ -25,6 +25,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-align-justify"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Content</h5>
+<?php
+if (isset($_GET['deleted']) and $_GET['deleted'] == 'true') {
+  print '<p class="red-text">Category deleted</p>';
+}
+else if (isset($_GET['hidden']) and $_GET['deleted'] == 'true') {
+  print '<p class="black-text">Category hidden</p>';
+}
+else if (isset($_GET['error'])) {
+  if ($_GET['error'] == 'missing' or $_GET['error'] == 'blank') {
+    print '<p class="black-text">All parameters required!</p>';
+  }
+}
+?>
 <table>
 <tr><th class="admin-table">ID</th><th class="admin-table">Title</th><th>icon</th><th>Hidden</th><th></th><th></th></tr>
 <?php
