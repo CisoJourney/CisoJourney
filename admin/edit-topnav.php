@@ -1,24 +1,15 @@
 <?php
-session_start();
-
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+
+if      ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
+else if (!isset($_GET['nav']))   { softRedirect('/admin/topnav.php'); }
+
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
-
-if (!isset($_SESSION['privs'])) {
-  header('Location: /login.php');
-  exit();
-}
-else if ($_SESSION['privs'] < 3) {
-  header('Location: /profile.php');
-  exit();
-}
-else if (!isset($_GET['nav'])) {
-  header('Location: /admin/topnav.php');
-  exit();
-}
 
 ?>
 <div class="page-wrapper">
@@ -35,44 +26,41 @@ else if (!isset($_GET['nav'])) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-search"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Edit Menu</h5>
-<p class="red-text">
 <?php
 if (isset($_GET['error'])) {
-  if ($_GET['error'] == 'missing') {
-    print('Oops, all fields are required!');
-  }
-  else if ($_GET['error'] == 'blank') {
-    print('Oops, all fields are required!');
+  if ($_GET['error'] == 'missing' or $_GET['error'] == 'blank') {
+    print('<p class="red-text">Oops, all fields are required!</p>');
   }
 }
-?>
-</p>
-<p class="black-text">
-<?php
+
 if (isset($_GET['updated'])) {
   if ($_GET['updated'] == 'true') {
-    print('Nav Updated!');
+    print('<p class="black-text">Nav Updated!</p>');
   }
 }
 else if (isset($_GET['added'])) {
   if ($_GET['added'] == 'true') {
-    print('Nav Added!');
+    print('<p class="black-text">Nav Added!</p>');
   }
 }
-?>
-</p>
-<?php
+
 $stmt = $mysqli->prepare("SELECT id,area,title,url FROM topnav WHERE id = ?;");
 $stmt->bind_param("s", $_GET['nav']);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
+
+$id    = clean($row['id']);
+$area  = clean($row['area']);
+$title = clean($row['title']);
+$url   = clean($row['url']);
+
 ?>
 <form method="POST" action="/admin/update-topnav.php">
-<input class="login-input" name="id" type="hidden" value="<?php print htmlspecialchars($row['id']); ?>">
-<input class="login-input" name="area" type="text" value="<?php print htmlspecialchars($row['area']); ?>">
-<input class="login-input" name="title" type="text" value="<?php print htmlspecialchars($row['title']); ?>">
-<input class="login-input" name="url" type="text" value="<?php print htmlspecialchars($row['url']); ?>">
+<input class="login-input" name="id" type="hidden" value="<?php print $id; ?>">
+<input class="login-input" name="area" type="text" value="<?php print $area; ?>">
+<input class="login-input" name="title" type="text" value="<?php print $title; ?>">
+<input class="login-input" name="url" type="text" value="<?php print $url; ?>">
 <input class="login-button" value="Update" type="submit">
 </form>
 
