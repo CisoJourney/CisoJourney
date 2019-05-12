@@ -58,7 +58,7 @@ while($row = $result->fetch_assoc()) {
   print '<a href="/admin/hide-category.php?category=' . $id . '&hidden=';
   if ($hidden == 0) { print "1"; } else { print "0"; }
   print '">';
-  print '<input class="admin-button" type="submit" value="'
+  print '<input class="admin-button" type="submit" value="';
   if ($hidden == 0) { print "Hide"; } else { print "Unhide"; }
   print '"></a>';
   print '</td>';
