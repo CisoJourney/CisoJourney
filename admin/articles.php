@@ -27,7 +27,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-book"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Articles</h5>
-<p><a href="/admin/new-article.php"><input type="submit" value="New Article"></a></p>
+<p><a href="/admin/new-article.php"><input class="admin-button" type="submit" value="New Article"></a></p>
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Premium</th><th></th><th></th></tr>
 <?php
@@ -51,10 +51,10 @@ while($row = $result->fetch_assoc()) {
   print '</td>';
   print '<td class="admin-table">' . $display . '</td>';
   print '<td class="admin-table">';
-  print '<a href="/admin/edit-article.php?article=' . $id . '"><input type="submit" value="edit"></a>';
+  print '<a href="/admin/edit-article.php?article=' . $id . '"><input class="admin-button" type="submit" value="Edit"></a>';
   print '</td>';
   print '<td class="admin-table">';
-  print '<a href="/admin/delete-article.php?article=' . $id . '"><input type="submit" value="delete"></a>';
+  print '<a href="/admin/delete-article.php?article=' . $id . '"><input class="admin-button" type="submit" value="Delete"></a>';
   print '</td>';
   print '</tr>';
 }
