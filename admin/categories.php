@@ -27,7 +27,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
           <div class="block-icon"><i class="fas fa-layer-group"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Categories</h5>
 <?php
-if (isset($_GET['deleted']) && $_GET['deleted'] == 'true') {
+if (isset($_GET['deleted']) and $_GET['deleted'] == 'true') {
   print '<p class="red-text">Category deleted</p>';
 }
 else (isset($_GET['error'])) {
