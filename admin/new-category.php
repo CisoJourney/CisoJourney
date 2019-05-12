@@ -46,6 +46,10 @@ $id = $row['highestID'] + 1;
 <input class="login-input" name="title" type="text" placeholder="Title" value="">
 <textarea class="login-input" name="description" placeholder="Description"></textarea>
 <input class="login-input" name="icon" type="text" placeholder="icon" value="">
+<select class="login-input" name="hidden">
+  <option value="0">Visible</option>
+  <option value="1">Hidden</option>
+</select>
 <input class="login-button" value="Update" type="submit">
 </form>
 

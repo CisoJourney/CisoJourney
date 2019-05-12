@@ -15,11 +15,11 @@ else if (!isset($_POST['id'])) {
   header('Location: /admin/new-category.php');
   exit();
 }
-else if (!isset($_POST['title']) or !isset($_POST['description']) or !isset($_POST['icon']) or !isset($_POST['area'])) {
+else if (!isset($_POST['title']) or !isset($_POST['description']) or !isset($_POST['icon']) or !isset($_POST['area']) or !isset($_POST['hidden'])) {
   header('Location: /admin/edit-category.php?error=missing&nav=' . htmlspecialchars($_POST['id']));
   exit();
 }
-else if ($_POST['title'] == "" or $_POST['description'] == "" or $_POST['icon'] == "" or $_POST['area'] == "") {
+else if ($_POST['title'] == "" or $_POST['description'] == "" or $_POST['icon'] == "" or $_POST['area'] == "" or $_POST['hidden'] == "") {
   header('Location: /admin/edit-category.php?error=blank&nav=' . htmlspecialchars($_POST['id']));
   exit();
 }
@@ -37,8 +37,8 @@ if ($stmt = $mysqli->prepare("SELECT id FROM categories WHERE id = ?;")) {
 }
 
 // Add the new category to the database
-$stmt = $mysqli->prepare("INSERT INTO categories (id, area, title, description, icon) VALUES (?, ?, ?, ?, ?);");
-$stmt->bind_param("iisss", intval($_POST['id']), intval($_POST['area']), $_POST['title'], $_POST['description'], $_POST['icon']);
+$stmt = $mysqli->prepare("INSERT INTO categories (id, area, title, description, icon, hidden) VALUES (?, ?, ?, ?, ?, ?);");
+$stmt->bind_param("iissss", intval($_POST['id']), intval($_POST['area']), $_POST['title'], $_POST['description'], $_POST['icon'], $_POST['hidden']);
 $stmt->execute();
 header('Location: /admin/edit-category.php?added=true&id=' . htmlspecialchars($_POST['id']));
 exit();

@@ -67,7 +67,7 @@ while($row = $result->fetch_assoc()) {
   if ($hidden == 0) { print "1"; } else { print "0"; }
   print '">';
   print '<input class="admin-button" type="submit" value="';
-  if ($hidden == 0) { print "Hide"; } else { print "Unhide"; }
+  if ($hidden == 0) { print "  Hide  "; } else { print "Unhide"; }
   print '"></a>';
   print '</td>';
   print '<td class="admin-table">';
