@@ -26,7 +26,7 @@ else if ($area == 3) { $title = '<span class="' . $titleClass . '">IJ</span>: La
 
 // A function to load the area names from the DB and draw a menu item for each one
 function drawAreaMenu($mysqli) {
-  $areaBarResult = $mysqli->query("SELECT id,title FROM areas;");
+  $areaBarResult = $mysqli->query("SELECT id,title FROM areas WHERE hidden = 0;");
   while($row = $areaBarResult->fetch_assoc()) {
     $id    = intval($row['id']);           // id is INT in db, filtering is excessive but intval for paranoia
     $title = htmlspecialchars($row['title']);
