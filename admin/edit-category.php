@@ -36,19 +36,20 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') {
   print('<p class="black-text">Updated!</p>');
 }
 
-$result = execPrepare($mysqli, "SELECT area,id,title,description,icon FROM categories WHERE id = ?;", array("s", $_GET['category']));
+$result = execPrepare($mysqli, "SELECT area,id,title,description,icon,hidden FROM categories WHERE id = ?;", array("s", $_GET['category']));
 $row    = $result->fetch_assoc();
 $id     = clean($row['id']);
 $desc   = clean($row['description']);
 $title  = clean($row['title']);
 $icon   = clean($row['icon']);
+$hidden = clean($row['hidden']);
 
 $areaResult = $mysqli->query("SELECT id,title FROM areas;");
 
 ?></p>
 <form method="POST" action="/admin/update-category.php">
 <select class="login-input" name="area">
-  <?php
+<?php
 while ($areaRow = $areaResult->fetch_assoc()) {
   $areaTitle = clean($areaRow['title']);
   $selected = ""; if ($row['area'] == $areaRow['id']) { $selected = "selected "; }
@@ -60,6 +61,10 @@ while ($areaRow = $areaResult->fetch_assoc()) {
 <input class="login-input" name="title" type="text" value="<?php print $title ?>">
 <input class="login-input" name="description" type="text" value="<?php print $desc; ?>">
 <input class="login-input" name="icon" type="text" value="<?php print $icon; ?>">
+<select class="login-input" name="hidden">
+<option <?php if ($hidden == 0) { print "selected "; } ?>value="0">Visible</option>
+<option <?php if ($hidden == 1) { print "selected "; } ?>value="1">Hidden</option>
+</select>
 <input class="login-button" value="Update" type="submit">
 </form>
 
