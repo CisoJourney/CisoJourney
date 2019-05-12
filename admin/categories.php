@@ -35,11 +35,11 @@ if (isset($_GET['deleted']) && $_GET['deleted'] == 'true') {
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Hidden</th><th></th><th></th><th></th></tr>
 <?php
 $result = $mysqli->query("SELECT * FROM categories ORDER BY colOrder;");
-$id     = htmlspecialchars($row['id']);
-$title  = htmlspecialchars($row['title']);
-$hidden = htmlspecialchars($row['hidden']);
-
 while($row = $result->fetch_assoc()) {
+  $id     = htmlspecialchars($row['id']);
+  $title  = htmlspecialchars($row['title']);
+  $hidden = htmlspecialchars($row['hidden']);
+
   print '<tr>';
   print '<td class="admin-table">';
   // TODO: dynamically load area icons
