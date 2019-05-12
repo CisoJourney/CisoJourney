@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 function drawFrontPage($mysqli) {
-  $result = $mysqli->query("SELECT id,title,description,icon FROM areas WHERE hidden = 0;");
+  $result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
   while($row = $result->fetch_assoc()) {
     $id    = htmlspecialchars($row['id']);	// TODO: INT in the DB, filtering is excessive
     $title = htmlspecialchars($row['title']);
