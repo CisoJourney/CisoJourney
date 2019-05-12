@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 function drawFrontPage($mysqli) {
-  $result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
+  $result = $mysqli->query("SELECT id,title,description,icon FROM areas AND hidden = 0;");
   while($row = $result->fetch_assoc()) {
     $id    = htmlspecialchars($row['id']);	// TODO: INT in the DB, filtering is excessive
     $title = htmlspecialchars($row['title']);
@@ -16,7 +16,7 @@ function drawFrontPage($mysqli) {
     $icon  = htmlspecialchars($row['icon']);
 
     // TODO: What a mess
-    print '<div class="content-trio">';
+    print '<div class="content-duo">';
     print '<div class="content-block center-text">';
     print '<a href="/categories.php?area=' . $id . '">';
     if ($title == 'Labs') { print '<div class="labs-comingsoon">Coming Soon!</div>'; }
