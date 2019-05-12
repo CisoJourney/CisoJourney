@@ -57,10 +57,10 @@ $url   = clean($row['url']);
 
 ?>
 <form method="POST" action="/admin/update-topnav.php">
-<input class="login-input" name="id" type="hidden" value="<?php print $id; ?>">
-<input class="login-input" name="area" type="text" value="<?php print $area; ?>">
-<input class="login-input" name="title" type="text" value="<?php print $title; ?>">
-<input class="login-input" name="url" type="text" value="<?php print $url; ?>">
+<input class="login-input dim-input" name="id" type="hidden" value="<?php print $id; ?>" readonly />
+<input class="login-input" name="area" type="text" value="<?php print $area; ?>" />
+<input class="login-input" name="title" type="text" value="<?php print $title; ?>" />
+<input class="login-input" name="url" type="text" value="<?php print $url; ?>" />
 <input class="login-button" value="Update" type="submit">
 </form>
 
