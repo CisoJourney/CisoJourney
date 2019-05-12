@@ -57,6 +57,7 @@ $hidden = clean($row['hidden']);
   print '<td class="admin-table">' . $area . '</td>';
   print '<td class="admin-table">' . $title . '</td>';
   print '<td class="admin-table">' . $url . '</td>';
+  print '<td class="admin-table">' . $hidden .'</td>';
   print '<td class="admin-table">';
   print '<a href="/admin/edit-topnav.php?nav=' . $id . '"><input class="admin-button" type="submit" value="Edit"></a>';
   print '</td>';
