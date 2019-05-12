@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 function drawCategoryDesc($mysqli) {
-  $result = execPrepare($mysqli, "SELECT title,description FROM categories WHERE id = ?;", array("i", $_GET['id']));
+  $result = execPrepare($mysqli, "SELECT title,description FROM categories WHERE id = ? AND hidden = 0;", array("i", $_GET['id']));
   while($row = $result->fetch_assoc()) {
     $title = htmlspecialchars($row['title']);
     $desc  = htmlspecialchars($row['description']);
@@ -19,7 +19,7 @@ function drawCategoryDesc($mysqli) {
 }
 
 function drawCategory($mysqli, $area) {
-  $result = execPrepare($mysqli, "SELECT area,title,description FROM articles WHERE area = ? and category = ?;", array("ii", $area, $_GET['id']));
+  $result = execPrepare($mysqli, "SELECT area,title,description FROM articles WHERE area = ? AND category = ? AND hidden = 0;", array("ii", $area, $_GET['id']));
   while($row = $result->fetch_assoc()) {
     $title = htmlspecialchars($row['title']);
     $desc  = htmlspecialchars($row['description']);
