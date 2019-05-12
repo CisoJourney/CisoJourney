@@ -26,9 +26,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
           <div class="block-icon"><i class="fas fa-align-justify"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Content</h5>
 <table>
-<tr><th class="admin-table">ID</th><th class="admin-table">Title</th><th>icon</th><th></th></tr>
+<tr><th class="admin-table">ID</th><th class="admin-table">Title</th><th>icon</th><th></th><th></th></tr>
 <?php
-$result = $mysqli->query("SELECT id,title,icon FROM areas;");
+$result = $mysqli->query("SELECT id,title,icon,visible FROM areas;");
 while($row = $result->fetch_assoc()) {
   $id    = clean($row['id']);
   $title = clean($row['title']);
@@ -39,7 +39,15 @@ while($row = $result->fetch_assoc()) {
   print '<td class="admin-table">' . $title . '</td>';
   print '<td class="admin-table">' . $icon . '</td>';
   print '<td class="admin-table">';
-  print '<a href="/admin/edit-content.php?content=' . $id . '"><input type="submit" value="edit"></a>';
+  print '<a href="/admin/edit-content.php?content=' . $id . '"><input class="admin-button"type="submit" value="edit"></a>';
+  print '</td>';
+  print '<td class="admin-table">';
+  print '<a href="/admin/hide-content.php?content=' . $id . '&hidden=';
+  if ($hidden == 0) { print "1"; } else { print "0"; }
+  print '">';
+  print '<input class="admin-button" type="submit" value="';
+  if ($hidden == 0) { print "  Hide  "; } else { print "Unhide"; }
+  print '"></a>';
   print '</td>';
   print '</tr>';
 }
