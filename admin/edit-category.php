@@ -43,7 +43,7 @@ $desc   = clean($row['description']);
 $title  = clean($row['title']);
 $icon   = clean($row['icon']);
 
-$areaResult = $mysqli->query("id,title FROM areas;");
+$areaResult = $mysqli->query("SELECT id,title FROM areas;");
 
 ?></p>
 <form method="POST" action="/admin/update-category.php">
