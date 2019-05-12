@@ -7,6 +7,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
+function drawCategoryDesc($mysqli) {
+  $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE id = ?;", array("i", $_GET['area']));
+  while($row = $result->fetch_assoc()) {
+    $title = clean($row['title']);
+    $desc  = clean($row['description']);
+
+    print '<h3 class="uppercase-text black-text">' . $title . '</h3>';
+    print '<p>' . $desc . '</p>';
+  }
+}
+
+
 function drawCategories($mysqli, $area) {
   $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area =  ? AND hidden = 0;", array("i", $area));
   while($row = $result->fetch_assoc()) {
@@ -29,8 +41,7 @@ function drawCategories($mysqli, $area) {
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
-      <h3 class="uppercase-text black-text">Cybersecurity Strategy</h3>
-      <p>A chat full of security strategy hints, tips, and discussion.</p>
+      <?php drawCategoryDesc($mysqli); ?>
     </div>
     <div class="content-wrapper">
       <?php drawCategories($mysqli, $area); ?>
