@@ -26,18 +26,20 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
           <div class="block-icon"><i class="fas fa-align-justify"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Content</h5>
 <table>
-<tr><th class="admin-table">ID</th><th class="admin-table">Title</th><th>icon</th><th></th><th></th></tr>
+<tr><th class="admin-table">ID</th><th class="admin-table">Title</th><th>icon</th><th>Hidden</th><th></th><th></th></tr>
 <?php
 $result = $mysqli->query("SELECT id,title,icon,visible FROM areas;");
 while($row = $result->fetch_assoc()) {
   $id    = clean($row['id']);
   $title = clean($row['title']);
   $icon  = clean($row['icon']);
+  $hidden  = clean($row['visible']);
 
   print '<tr>';
   print '<td class="admin-table">' . $id . '</td>';
   print '<td class="admin-table">' . $title . '</td>';
   print '<td class="admin-table">' . $icon . '</td>';
+  print '<td class="admin-table">' . $hidden . '</td>';
   print '<td class="admin-table">';
   print '<a href="/admin/edit-content.php?content=' . $id . '"><input class="admin-button"type="submit" value="edit"></a>';
   print '</td>';
