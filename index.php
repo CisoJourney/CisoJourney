@@ -33,7 +33,7 @@ function drawFrontPage($mysqli) {
   <div class="content">
     <div class="content-full center-text">
       <h3 class="uppercase-text black-text">CISO: Journey Group</h3>
-      <p>A collection of resources for Chief Information Security Officer, IT Security Managers, Security Engineers, and Penetration Testers. Real-world security information, presented neatly, in bite-size pieces.</p>
+      <p>A collection of resources for CISOs, Security Managers, Security Engineers, and Penetration Testers. Offering real-world security information, presented neatly, in bite-size pieces.</p>
     </div>
     <div class="content-wrapper">
       <?php drawFrontPage($mysqli); ?>

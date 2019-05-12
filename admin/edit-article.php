@@ -58,7 +58,7 @@ $category = clean($row['category']);
 </select>
 <input class="login-input" name="id" type="hidden" value="<?php print $id; ?>">
 <input class="login-input" name="title" type="text" value="<?php print $title; ?>">
-<textarea class="login-input" name="description"><?php print $description; ?></textarea>
+<textarea class="login-input" name="description"><?php print $desc; ?></textarea>
 <textarea class="login-input" name="content"><?php print $content; ?></textarea>
 <select class="login-input" name="premium">
   <option <?php if($premium == 0) { print "selected"; } ?> value="0">Not Premium</option>
