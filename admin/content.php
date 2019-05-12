@@ -28,12 +28,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 <table>
 <tr><th class="admin-table">ID</th><th class="admin-table">Title</th><th>icon</th><th>Hidden</th><th></th><th></th></tr>
 <?php
-$result = $mysqli->query("SELECT id,title,icon,visible FROM areas;");
+$result = $mysqli->query("SELECT id,title,icon,hidden FROM areas;");
 while($row = $result->fetch_assoc()) {
   $id    = clean($row['id']);
   $title = clean($row['title']);
   $icon  = clean($row['icon']);
-  $hidden  = clean($row['visible']);
+  $hidden  = clean($row['hidden']);
 
   print '<tr>';
   print '<td class="admin-table">' . $id . '</td>';
