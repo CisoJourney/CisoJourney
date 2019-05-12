@@ -1,20 +1,17 @@
 <?php
-session_start();
-
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+
+if ($_SESSION['privs'] < 3) {
+  softRedirect('/profile.php');
+}
+
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-if (!isset($_SESSION['privs'])) {
-  header('Location: /login.php');
-  exit();
-}
-else if ($_SESSION['privs'] < 3) {
-  header('Location: /profile.php');
-  exit();
-}
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -36,29 +33,28 @@ else if ($_SESSION['privs'] < 3) {
 <?php
 $result = $mysqli->query("SELECT area,ID,title,description,content,premium,category FROM articles;");
 while($row = $result->fetch_assoc()) {
+  $id      = clean($row['id']);
+  $title   = clean($row['title']);
+  $premium = clean($row['premium']);
+  $display = clean($row['display']);
+
   print '<tr>';
   print '<td class="admin-table">';
   if ($row['area'] == 1) { print '<i class="fas fa-flag"></i>'; }
   else if ($row['area'] == 2) { print '<i class="fas fa-dumbbell"></i>'; }
   else if ($row['area'] == 3) { print '<i class="fas fa-flask"></i>'; }
   print '</td>';
+  print '<td class="admin-table">' . $id . '</td>';
+  print '<td class="admin-table">' . $title . '</td>';
   print '<td class="admin-table">';
-  print htmlspecialchars($row['ID']);
+  if ($premium == 1) { print '<i class="fas fa-crown"></i>'; }
+  print '</td>';
+  print '<td class="admin-table">' . $display . '</td>';
+  print '<td class="admin-table">';
+  print '<a href="/admin/edit-article.php?article=' . $id . '"><input type="submit" value="edit"></a>';
   print '</td>';
   print '<td class="admin-table">';
-  print htmlspecialchars($row['title']);
-  print '</td>';
-  print '<td class="admin-table">';
-  if ($row['premium'] == 1) { print '<i class="fas fa-crown"></i>'; }
-  print '</td>';
-  print '<td class="admin-table">';
-  print htmlspecialchars($row['display']);
-  print '</td>';
-  print '<td class="admin-table">';
-  print '<a href="/admin/edit-article.php?article=' . htmlspecialchars($row['ID']) . '"><input type="submit" value="edit"></a>';
-  print '</td>';
-  print '<td class="admin-table">';
-  print '<a href="/admin/delete-article.php?article=' . htmlspecialchars($row['ID']) . '"><input type="submit" value="delete"></a>';
+  print '<a href="/admin/delete-article.php?article=' . $id . '"><input type="submit" value="delete"></a>';
   print '</td>';
   print '</tr>';
 }
