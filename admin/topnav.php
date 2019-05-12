@@ -33,10 +33,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 <?php
 $result = $mysqli->query("SELECT id,area,title,url FROM topnav;");
 while($row = $result->fetch_assoc()) {
-$id = clean($row['id']);
-$id = clean($row['area']);
-$id = clean($row['title']);
-$id = clean($row['url']);
+$id    = clean($row['id']);
+$area  = clean($row['area']);
+$title = clean($row['title']);
+$url   = clean($row['url']);
 
   print '<tr>';
   print '<td class="admin-table">' . $id . '</td>';
