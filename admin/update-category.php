@@ -1,26 +1,22 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 
 if ($_SESSION['privs'] < 3) {
   softRedirect('/profile.php');
 }
 else if (!isset($_POST['id'])) {
-  header('Location: /admin/categories.php');
-  exit();
+  softRedirect('/admin/categories.php');
 }
 else if (!isset($_POST['title']) or !isset($_POST['description']) or !isset($_POST['icon']) or !isset($_POST['area'])) {
-  header('Location: /admin/edit-category.php?error=missing&nav=' . htmlspecialchars($_POST['id']));
-  exit();
+  softRedirect('/admin/edit-category.php?error=missing&nav=' . $_POST['id']);
 }
 else if ($_POST['title'] == "" or $_POST['description'] == "" or $_POST['icon'] == "" or $_POST['area'] == "") {
-  header('Location: /admin/edit-category.php?error=blank&nav=' . htmlspecialchars($_POST['id']));
-  exit();
+  softRedirect('/admin/edit-category.php?error=blank&nav=' . $_POST['id']);
 }
 
-$stmt = $mysqli->prepare("UPDATE categories SET area = ?, title = ?, description = ?, icon = ? WHERE id = ?;");
-$stmt->bind_param("isssi", intval($_POST['area']), $_POST['title'], $_POST['description'], $_POST['icon'], intval($_POST['id']));
-$stmt->execute();
-header('Location: /admin/edit-category.php?updated=true&nav=' . htmlspecialchars($_POST['id']));
-exit();
+// TODO: Split this line
+execPrepare($mysqli, "UPDATE categories SET area = ?, title = ?, description = ?, icon = ? WHERE id = ?;", array("isssi", intval($_POST['area']), $_POST['title'], $_POST['description'], $_POST['icon'], intval($_POST['id'])));
+softRedirect('/admin/edit-category.php?updated=true&nav=' . $_POST['id']);
 ?>
