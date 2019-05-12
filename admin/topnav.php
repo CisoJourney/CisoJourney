@@ -1,20 +1,17 @@
 <?php
 session_start();
 
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+
+if ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
+
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-if (!isset($_SESSION['privs'])) {
-  header('Location: /login.php');
-  exit();
-}
-else if ($_SESSION['privs'] < 3) {
-  header('Location: /profile.php');
-  exit();
-}
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -36,21 +33,18 @@ else if ($_SESSION['privs'] < 3) {
 <?php
 $result = $mysqli->query("SELECT id,area,title,url FROM topnav;");
 while($row = $result->fetch_assoc()) {
+$id = clean($row['id']);
+$id = clean($row['area']);
+$id = clean($row['title']);
+$id = clean($row['url']);
+
   print '<tr>';
+  print '<td class="admin-table">' . $id . '</td>';
+  print '<td class="admin-table">' . $area . '</td>';
+  print '<td class="admin-table">' . $title . '</td>';
+  print '<td class="admin-table">' . $url . '</td>';
   print '<td class="admin-table">';
-  print htmlspecialchars($row['id']);
-  print '</td>';
-  print '<td class="admin-table">';
-  print htmlspecialchars($row['area']);
-  print '</td>';
-  print '<td class="admin-table">';
-  print htmlspecialchars($row['title']);
-  print '</td>';
-  print '<td class="admin-table">';
-  print htmlspecialchars($row['url']);
-  print '</td>';
-  print '<td class="admin-table">';
-  print '<a href="/admin/edit-topnav.php?nav=' . htmlspecialchars($row['id']) . '"><input type="submit" value="edit"></a>';
+  print '<a href="/admin/edit-topnav.php?nav=' . $id . '"><input type="submit" value="edit"></a>';
   print '</td>';
   print '</tr>';
 }
