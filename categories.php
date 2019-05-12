@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 function drawCategories($mysqli, $area) {
-  $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area =  ?;", array("i", $area));
+  $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area =  ? AND hidden = 0;", array("i", $area));
   while($row = $result->fetch_assoc()) {
     $id    = htmlspecialchars($row['id']);
     $icon  = htmlspecialchars($row['icon']);
