@@ -9,7 +9,7 @@ if ($_SESSION['privs'] < 3) {
 else if (!isset($_GET['content']) or !isset($_GET['hidden'])) {
   softRedirect('/admin/content.php?error=missing');
 }
-else if ($_GET['category'] == "" or $_GET['hidden'] == "") {
+else if ($_GET['content'] == "" or $_GET['hidden'] == "") {
   softRedirect('/admin/content.php?error=blank');
 }
 
