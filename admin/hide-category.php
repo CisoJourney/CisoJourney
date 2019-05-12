@@ -6,14 +6,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 if ($_SESSION['privs'] < 3) {
   softRedirect('/profile.php');
 }
-else if (!isset($_POST['category']) or !isset($_POST['hidden'])) {
+else if (!isset($_GET['category']) or !isset($_GET['hidden'])) {
   softRedirect('/admin/categories.php?error=missing');
 }
-else if ($_POST['category'] == "" or $_POST['hidden'] == "") {
+else if ($_GET['category'] == "" or $_GET['hidden'] == "") {
   softRedirect('/admin/categories.php?error=blank');
 }
 
 // TODO: Split this line
-execPrepare($mysqli, "UPDATE categories SET hidden = ? WHERE id = ?;", array("ii", $_POST['hidden']), $_POST['category']);
-softRedirect('/admin/edit-category.php?updated=true&nav=' . $_POST['category']);
+execPrepare($mysqli, "UPDATE categories SET hidden = ? WHERE id = ?;", array("ii", $_GET['hidden']), $_GET['category']);
+softRedirect('/admin/edit-category.php?updated=true&nav=' . $_GET['category']);
 ?>
