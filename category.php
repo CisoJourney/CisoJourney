@@ -33,7 +33,7 @@ function drawCategory($mysqli, $area) {
   }
 }
 
-function drawCategorySlug($mysqli, $area) {
+function drawCategorySlug($mysqli) {
   $result = execPrepare($mysqli, "SELECT id,area,title,description FROM articles WHERE category = (SELECT id FROM categories WHERE slug = ?) AND hidden = 0;", array("s", $_GET['slug']));
   while($row = $result->fetch_assoc()) {
     $id    = clean($row['id']);
