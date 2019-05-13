@@ -30,7 +30,9 @@ hr {
   width: 75%;
   margin-bottom: 30px;
 }
-
+h1 {
+  font-weight: 400;
+}
 .top-bar {
   text-align: right;
   width: calc(100% - 20px);

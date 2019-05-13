@@ -16,7 +16,7 @@ function drawArticle($mysqli, $area) {
     $content = clean($row['content']);
 
     print '<div class="content-full center-text">';
-    print '<h5 class="nopad-text">' . $title . '</h5>';
+    print '<h1 class="black-text nopad-text">' . $title . '</h1>';
     print '<p class="nopad-text">' . $desc . '</p>';
     print '</div>';
     print '<div class="content-full">';
