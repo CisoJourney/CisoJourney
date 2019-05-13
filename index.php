@@ -70,6 +70,7 @@ function drawFrontPage($mysqli) {
     print '<p class="nopad-text">' . $description .'</p>';
     print '</a></div>';
 }
+?>
       </div>
     </div>
   </div>
