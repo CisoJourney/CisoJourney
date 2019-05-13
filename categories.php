@@ -31,7 +31,7 @@ function drawCategoryDesc($mysqli, $area) {
 
 
 function drawCategories($mysqli, $area) {
-  $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area = (SELECT id FROM areas WHERE slug = ? AND id = ?) AND hidden = 0;", array("si", $_GET['slug'], $area));
+  $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area = (SELECT id FROM areas WHERE slug = ?) AND hidden = 0;", array("s", $_GET['slug']));
   while($row = $result->fetch_assoc()) {
     $id    = clean($row['id']);
     $icon  = clean($row['icon']);
