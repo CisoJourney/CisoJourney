@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 function drawCategoryDesc($mysqli, $area) {
   if (isset($_GET['slug'])) {
-    $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ? AND area = ?;", array("si", $_GET['slug'], $area));
+    $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ? AND id = ?;", array("si", $_GET['slug'], $area));
   }
   else {
     $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE id = ?;", array("i", $area));
