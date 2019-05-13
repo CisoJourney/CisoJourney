@@ -28,8 +28,9 @@ else if ($area == 3) { $title = '<span class="' . $titleClass . '">IJ</span>: La
 function drawAreaMenu($mysqli) {
   $areaBarResult = $mysqli->query("SELECT id,title,slug FROM areas WHERE hidden = 0;");
   while($row = $areaBarResult->fetch_assoc()) {
-    $id    = intval($row['id']);           // id is INT in db, filtering is excessive but intval for paranoia
+    //$id    = intval($row['id']);           // id is INT in db, filtering is excessive but intval for paranoia
     $title = htmlspecialchars($row['title']);
+    $slug = htmlspecialchars($row['slug']);
     // TODO: Store these link destintions in the DB like the subAreas?
     print '<li><a href="/area/' . $slug . '/">' . $title . '</a></li>';
   }
