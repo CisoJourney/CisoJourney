@@ -32,8 +32,8 @@ function softRedirect($target) {	// "Soft" because 302, non-permanent
 }
 
 function display($input) {
-  $input = str_replace("<", "&gt;", $input);
-  $input = str_replace(">", "&lt;", $input);
+  $input = str_replace("<", "&lt;", $input);
+  $input = str_replace(">", "&gt;", $input);
   $input = str_replace('"', "&quot;", $input);
   $input = str_replace("'", "&apos;", $input);
   $input = str_replace("&lt;h2&gt;", "<h2>", $input);
