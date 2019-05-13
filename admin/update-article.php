@@ -18,6 +18,6 @@ else if ($_POST['title'] == "" or $_POST['slug'] == "" or $_POST['description'] 
 }
 
 // TODO: Split this line
-execPrepare($mysqli, "UPDATE articles SET title = ?, slug = ?, description = ?, content = ?, premium = ?, display = ?, category = ? WHERE id = ?;", array("ssssiiii", $_POST['title'], $_POST['slug'], $_POST['description'], $_POST['content'], intval($_POST['premium']), intval($_POST['display']), intval($_POST['category']), intval($_POST['id']));
+execPrepare($mysqli, "UPDATE articles SET title = ?, slug = ?, description = ?, content = ?, premium = ?, display = ?, category = ? WHERE id = ?;", array("ssssiiii", $_POST['title'], $_POST['slug'], $_POST['description'], $_POST['content'], intval($_POST['premium']), intval($_POST['display']), intval($_POST['category']), intval($_POST['id'])));
 softRedirect('/admin/edit-category.php?updated=true&article=' . $_POST['id']);
 ?>
