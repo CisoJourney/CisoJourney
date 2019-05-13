@@ -23,7 +23,7 @@ function drawCategory($mysqli, $area) {
   while($row = $result->fetch_assoc()) {
     $id    = clean($row['id']);
     $title = clean($row['title']);
-    $desc  = clan($row['description']);
+    $desc  = clean($row['description']);
 
     print '<div class="content-block">';
     print '<a href="/article.php?id=' . $id . '">';
