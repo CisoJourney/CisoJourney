@@ -33,6 +33,12 @@ hr {
 h1 {
   font-weight: 400;
 }
+h2 {
+  font-weight: 400;
+}
+h3 {
+  font-weight: 400;
+}
 .top-bar {
   text-align: right;
   width: calc(100% - 20px);
