@@ -67,7 +67,7 @@ $category = clean($row['category']);
   <option <?php if($premium == 1) { print "selected"; } ?> value="1">Member</option>
   <option <?php if($premium == 2) { print "selected"; } ?> value="2">Labs</option>
 </select>
-<select class="login-input" name="display">
+<select class="login-input" name="hidden">
   <option <?php if($hidden == 0) { print "selected"; } ?> value="0">Published</option>
   <option <?php if($hidden == 1) { print "selected"; } ?> value="1">Hidden</option>
 </select>
