@@ -3,18 +3,23 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+
+if (isset($_GET['slug'])) {
+  $result = execPrepare($mysqli, "SELECT area FROM articles WHERE slug = ?;", array("s", $_GET['slug']));
+  $row = $result->fetch_assoc();
+  $area = $row['id'];
+}
+else {
+  softRedirect('/error/404/');
+}
+
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 function drawArticle($mysqli, $area) {
   // TODO: ID is caps here but not in other tables
-  if (isset($_GET['slug'])) {
-    $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE slug = ? AND area = ? AND hidden = 0;", array("si", $_GET['slug'], $area));
-  }
-  else {
-    $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE ID = ? AND area = ? AND hidden = 0;", array("ii", $_GET['id'], $area));
-  }
+  $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE slug = ? AND hidden = 0;", array("s", $_GET['slug']));
   while($row = $result->fetch_assoc()) {
     $title   = clean($row['title']);
     $desc    = clean($row['description']);
