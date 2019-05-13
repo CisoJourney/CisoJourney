@@ -3,17 +3,23 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+
+if (isset($_GET['slug'])) {
+  $result = execPrepare($mysqli, "SELECT id FROM areas WHERE slug = ?;", array("s", $_GET['slug']));
+  $row = $result->fetch_assoc());
+  $area = $row['area'];
+}
+
+if (runPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ? AND id = ?;", array("si", $_GET['slug'], $area)) == 0) {
+  softRedirect('/error/404.php');
+}
+
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 function drawCategoryDesc($mysqli, $area) {
-  if (isset($_GET['slug'])) {
-    $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ? AND id = ?;", array("si", $_GET['slug'], $area));
-  }
-  else {
-    $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE id = ?;", array("i", $area));
-  }
+  $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ? AND id = ?;", array("si", $_GET['slug'], $area));
   while($row = $result->fetch_assoc()) {
     $title = clean($row['title']);
     $desc  = clean($row['description']);
@@ -26,12 +32,7 @@ function drawCategoryDesc($mysqli, $area) {
 
 
 function drawCategories($mysqli, $area) {
-  if (isset($_GET['slug'])) {
-    $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area = (SELECT id FROM areas WHERE slug = ? AND id = ?) AND hidden = 0;", array("si", $_GET['slug'], $area));
-  }
-  else {
-    $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area = ? AND hidden = 0;", array("s", $area));
-  }
+  $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area = (SELECT id FROM areas WHERE slug = ? AND id = ?) AND hidden = 0;", array("si", $_GET['slug'], $area));
   while($row = $result->fetch_assoc()) {
     $id    = clean($row['id']);
     $icon  = clean($row['icon']);
