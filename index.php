@@ -62,12 +62,12 @@ function drawFrontPage($mysqli) {
   while($row = $result->fetch_assoc()) {
     $title = clean($row['title']);
     $desc  = clean($row['description']);
-    $icon  = clean($row['slug']);
+    $slug  = clean($row['slug']);
 
     print '<div class="content-block">';
     print '<a href="/article/' . $slug . '/">';
     print '<h3 class="black-text nopad-text">' . $title .'</h3>';
-    print '<p class="nopad-text">' . $description .'</p>';
+    print '<p class="nopad-text">' . $desc .'</p>';
     print '</a></div>';
 }
 ?>
