@@ -15,16 +15,14 @@ function drawCategory($mysqli, $area) {
     $desc    = clan($row['description']);
     $content = clan($row['content']);
 
-    <div class="content-full center-text">
-      print '<h5 class="nopad-text">' . $title . '</h5>';
-      print '<p class="nopad-text">' . $desc . '</p>';
-    </div>
-    <div class="content-full">
-      print '<p class="nopad-text">' . $content . '</p>';
-    </div>
-
-
+    print '<div class="content-full center-text">';
+    print '<h5 class="nopad-text">' . $title . '</h5>';
+    print '<p class="nopad-text">' . $desc . '</p>';
+    print '</div>';
+    print '<div class="content-full">';
     print '<div class="content-block">';
+    print '<p class="nopad-text">' . $content . '</p>';
+    print '</div>';
     print '</div>';
   }
 }
