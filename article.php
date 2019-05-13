@@ -10,25 +10,28 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 function drawCategory($mysqli, $area) {
   $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE id = ? AND hidden = 0;", array("ii", $area, $_GET['id']));
   while($row = $result->fetch_assoc()) {
-    $id    = clean($row['id']);
-    $title = clean($row['title']);
-    $desc  = clan($row['description']);
+    $id      = clean($row['id']);
+    $title   = clean($row['title']);
+    $desc    = clan($row['description']);
+    $content = clan($row['content']);
+
+    <div class="content-full center-text">
+      print '<h5 class="nopad-text">' . $title . '</h5>';
+      print '<p class="nopad-text">' . $desc . '</p>';
+    </div>
+    <div class="content-full">
+      print '<p class="nopad-text">' . $content . '</p>';
+    </div>
+
 
     print '<div class="content-block">';
-    print '<h5 class="nopad-text">' . $title . '</h5>';
-    print '<p class="nopad-text">' . $desc . '</p>';
     print '</div>';
   }
 }
 ?>
 <div class="page-wrapper">
   <div class="content">
-    <div class="content-full center-text">
-      <?php drawCategoryDesc($mysqli); ?>
-    </div>
-    <div class="content-full">
-      <?php drawCategory($mysqli, $area); ?>
-    </div>
+    <?php drawArticle($mysqli, $area); ?>
   </div>
 </div>
 </body>
