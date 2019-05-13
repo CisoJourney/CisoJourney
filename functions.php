@@ -38,6 +38,8 @@ function display($input) {
   $input = str_replace("'", "&apos;", $input);
   $input = str_replace("&lt;h2&gt;", "<h2>", $input);
   $input = str_replace("&lt;/h2&gt;", "</h2>", $input);
+  $input = str_replace("&lt;h3&gt;", "<h3>", $input);
+  $input = str_replace("&lt;/h3&gt;", "</h3>", $input);
   $input = str_replace("&lt;br&gt;", "<br>", $input);
   return $input;
 }
