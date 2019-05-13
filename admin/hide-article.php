@@ -9,11 +9,11 @@ if ($_SESSION['privs'] < 3) {
 else if (!isset($_GET['article']) or !isset($_GET['hidden'])) {
   softRedirect('/admin/articles.php?error=missing');
 }
-else if ($_GET['category'] == "" or $_GET['hidden'] == "") {
+else if ($_GET['article'] == "" or $_GET['hidden'] == "") {
   softRedirect('/admin/articles.php?error=blank');
 }
 
 // TODO: ID here is caps but not elsewhere
-execPrepare($mysqli, "UPDATE articles SET hidden = ? WHERE ID = ?;", array("ii", $_GET['hidden'], $_GET['category']));
-softRedirect('/admin/articles.php?hidden=true&id=' . $_GET['category']);
+execPrepare($mysqli, "UPDATE articles SET hidden = ? WHERE ID = ?;", array("ii", $_GET['hidden'], $_GET['article']));
+softRedirect('/admin/articles.php?hidden=true&id=' . $_GET['article']);
 ?>
