@@ -29,7 +29,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
           <h5 class="uppercase-text center-text spacing-text">Articles</h5>
 <p><a href="/admin/new-article.php"><input class="admin-button" type="submit" value="New Article"></a></p>
 <table>
-<tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Premium</th><th></th><th></th></tr>
+<tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Premium</th><th>Hidden</th><th></th><th></th></tr>
 <?php
 $result = $mysqli->query("SELECT area,id,title,description,content,premium,category FROM articles;");
 while($row = $result->fetch_assoc()) {
