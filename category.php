@@ -25,18 +25,19 @@ function drawCategoryDesc($mysqli) {
 
 function drawCategory($mysqli, $area) {
   if (isset($_GET['slug'])) {
-    $result = execPrepare($mysqli, "SELECT id,area,title,description FROM articles WHERE category = (SELECT id FROM categories WHERE slug = ?) AND hidden = 0;", array("s", $_GET['slug']));
+    $result = execPrepare($mysqli, "SELECT id,area,title,description,slug FROM articles WHERE category = (SELECT id FROM categories WHERE slug = ?) AND hidden = 0;", array("s", $_GET['slug']));
   }
   else {
-    $result = execPrepare($mysqli, "SELECT id,area,title,description FROM articles WHERE area = ? AND category = ? AND hidden = 0;", array("ii", $area, $_GET['id']));
+    $result = execPrepare($mysqli, "SELECT id,area,title,description,slug FROM articles WHERE area = ? AND category = ? AND hidden = 0;", array("ii", $area, $_GET['id']));
   }
   while($row = $result->fetch_assoc()) {
     $id    = clean($row['id']);
     $title = clean($row['title']);
     $desc  = clean($row['description']);
+    $slug  = clean($row['slug']);
 
     print '<div class="content-block">';
-    print '<a href="/article.php?id=' . $id . '">';
+    print '<a href="/article/' . $slug . '/">';
     print '<h5 class="nopad-text">' . $title . '</h5>';
     print '<p class="nopad-text">' . $desc . '</p>';
     print '</a></div>';
