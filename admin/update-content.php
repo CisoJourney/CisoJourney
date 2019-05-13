@@ -19,7 +19,7 @@ else if ($_POST['title'] == "" or $_POST['slug'] == "" or $_POST['description'] 
 }
 
 $stmt = $mysqli->prepare("UPDATE areas SET title = ?, slug = ?, description = ?, icon = ? WHERE id = ?;");
-$stmt->bind_param("sssi", $_POST['title'], $_POST['slug'], $_POST['description'], $_POST['icon'], intval($_POST['id']));
+$stmt->bind_param("ssssi", $_POST['title'], $_POST['slug'], $_POST['description'], $_POST['icon'], intval($_POST['id']));
 $stmt->execute();
 header('Location: /admin/edit-content.php?updated=true&content=' . htmlspecialchars($_POST['id']));
 exit();
