@@ -16,3 +16,6 @@ RewriteRule ^category\/([a-zA-Z-]*)\/$ /category.php\?slug=$1 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^area\/([a-zA-Z-]*)\/$ /categories.php\?slug=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^article\/([a-zA-Z-]*)\/$ /article.php\?slug=$1 [L]
