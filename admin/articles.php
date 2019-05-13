@@ -31,7 +31,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Premium</th><th>Hidden</th><th></th><th></th></tr>
 <?php
-$result = $mysqli->query("SELECT area,id,title,description,content,premium,category FROM articles;");
+$result = $mysqli->query("SELECT area,id,title,description,content,premium,category,hidden FROM articles;");
 while($row = $result->fetch_assoc()) {
   $id      = clean($row['id']);
   $title   = clean($row['title']);
