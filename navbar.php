@@ -1,10 +1,12 @@
 <?php
 // Saves checking area GET variable each time a menu is drawn.
-if  (!isset($area) or isset($_GET['area'])) {
-  if      ($_GET['area'] == 1) { $area = 1; }
-  else if ($_GET['area'] == 2) { $area = 2; }
-  else if ($_GET['area'] == 3) { $area = 3; }
-} else                         { $area = 1; } // If not specified, deafult is 1
+if (!isset($area)) {
+  if  (isset($_GET['area'])) {
+    if      ($_GET['area'] == 1) { $area = 1; }
+    else if ($_GET['area'] == 2) { $area = 2; }
+    else if ($_GET['area'] == 3) { $area = 3; }
+  } else                         { $area = 1; } // If not specified, deafult is 1
+}
 
 // Set the title colors
 if	($area == 1) { $titleClass = 'ciso-title';     }
