@@ -23,7 +23,8 @@ function drawArticle($mysqli, $area) {
   while($row = $result->fetch_assoc()) {
     $title   = clean($row['title']);
     $desc    = clean($row['description']);
-    $content = clean($row['content']);
+    $content = display($row['content']);
+
 
     print '<div class="content-full center-text">';
     print '<h1 class="black-text nopad-text">' . $title . '</h1>';
