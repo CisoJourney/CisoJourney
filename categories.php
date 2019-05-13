@@ -7,11 +7,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 if (isset($_GET['slug'])) {
   $result = execPrepare($mysqli, "SELECT id FROM areas WHERE slug = ?;", array("s", $_GET['slug']));
   $row = $result->fetch_assoc();
-  $area = $row['area'];
+  $area = $row['id'];
+}
+else {
+  softRedirect('/error/404/');
 }
 
 if (numPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ? AND id = ?;", array("si", $_GET['slug'], $area)) == 0) {
-  softRedirect('/error/404.php');
+  softRedirect('/error/404/');
 }
 
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
