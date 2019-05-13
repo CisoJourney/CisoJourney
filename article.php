@@ -12,8 +12,8 @@ function drawArticle($mysqli, $area) {
   $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE ID = ? AND hidden = 0;", array("i", $_GET['id']));
   while($row = $result->fetch_assoc()) {
     $title   = clean($row['title']);
-    $desc    = clan($row['description']);
-    $content = clan($row['content']);
+    $desc    = clean($row['description']);
+    $content = clean($row['content']);
 
     print '<div class="content-full center-text">';
     print '<h5 class="nopad-text">' . $title . '</h5>';
