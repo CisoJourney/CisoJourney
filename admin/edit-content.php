@@ -37,7 +37,7 @@ if (isset($_GET['updated'])) {
   }
 }
 
-$result = execPrepare($mysqli, "SELECT id,title,description,icon FROM areas WHERE id = ?;", array("s", $_GET['content']));
+$result = execPrepare($mysqli, "SELECT id,title,slug,description,icon FROM areas WHERE id = ?;", array("s", $_GET['content']));
 $row = $result->fetch_assoc();
 
 $id    = clean($row['id']);
@@ -48,6 +48,7 @@ $icon  = clean($row['icon']);
 <form method="POST" action="/admin/update-content.php">
 <input class="login-input dim-input" name="id" value="<?php print $id; ?>" readonly>
 <input class="login-input" name="title" value="<?php print $title; ?>">
+<input class="login-input" name="slug" value="<?php print $slug; ?>">
 <input class="login-input" name="description" value="<?php print $desc; ?>">
 <input class="login-input" name="icon" value="<?php print $icon; ?>">
 <input class="login-button" value="Update" type="submit">
