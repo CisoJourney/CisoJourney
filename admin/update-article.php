@@ -12,7 +12,7 @@ else if (!isset($_POST['id'])) {
 else if (!isset($_POST['title']) or !isset($_POST['slug']) or !isset($_POST['description']) or !isset($_POST['content']) or !isset($_POST['premium']) or !isset($_POST['category']) or !isset($_POST['hidden'])) {
   softRedirect('/admin/articles.php?error=missing');
 }
-
+// TODO: These don't all need to be required; work out what's essential and change the below
 else if ($_POST['title'] == "" or $_POST['slug'] == "" or $_POST['description'] == "" or $_POST['content'] == "" or $_POST['premium'] == "" or $_POST['category'] == "" or $_POST['hidden']) {
   softRedirect('/admin/articles.php?error=blank');
 }
