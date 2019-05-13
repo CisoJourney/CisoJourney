@@ -39,7 +39,10 @@ function drawFrontPage($mysqli) {
       <?php drawFrontPage($mysqli); ?>
     </div>
     <!-- Simulate some content to play with styles -->
-    <div class="content-wrapper">
+    <div class="content-full">
+      <h3 class="uppercase-text black-text">Random Posts</h3>
+    </div>
+    <div class="content-full">
 <?php
   $result = $mysqli->query("SELECT title,description,slug FROM articles ORDER BY RAND() LIMIT 3;");
   while($row = $result->fetch_assoc()) {
