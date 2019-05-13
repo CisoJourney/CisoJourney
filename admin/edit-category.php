@@ -36,11 +36,12 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') {
   print('<p class="black-text">Updated!</p>');
 }
 
-$result = execPrepare($mysqli, "SELECT area,id,title,description,icon,hidden FROM categories WHERE id = ?;", array("s", $_GET['category']));
+$result = execPrepare($mysqli, "SELECT area,id,title,slug,description,icon,hidden FROM categories WHERE id = ?;", array("s", $_GET['category']));
 $row    = $result->fetch_assoc();
 $id     = clean($row['id']);
-$desc   = clean($row['description']);
 $title  = clean($row['title']);
+$slug  = clean($row['slug']);
+$desc   = clean($row['description']);
 $icon   = clean($row['icon']);
 $hidden = clean($row['hidden']);
 
@@ -59,6 +60,7 @@ while ($areaRow = $areaResult->fetch_assoc()) {
 </select>
 <input class="login-input" name="id" type="hidden" value="<?php print $id; ?>">
 <input class="login-input" name="title" type="text" value="<?php print $title ?>">
+<input class="login-input" name="slug" type="text" value="<?php print $slug ?>">
 <input class="login-input" name="description" type="text" value="<?php print $desc; ?>">
 <input class="login-input" name="icon" type="text" value="<?php print $icon; ?>">
 <select class="login-input" name="hidden">
