@@ -6,7 +6,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 
 if (isset($_GET['slug'])) {
   $result = execPrepare($mysqli, "SELECT id FROM areas WHERE slug = ?;", array("s", $_GET['slug']));
-  $row = $result->fetch_assoc());
+  $row = $result->fetch_assoc();
   $area = $row['area'];
 }
 
