@@ -9,7 +9,7 @@ if ($_SESSION['privs'] < 3) {
 else if (!isset($_POST['id'])) {
   softRedirect('/admin/articles.php');
 }
-else if (!isset($_POST['title']) or !isset($_POST['slug']) or !isset($_POST['description']) or !isset($_POST['content']) or !isset($_POST['premium']) or !isset($_POST['display']) or !isset($_POST['category']) or !isset('hidden')) {
+else if (!isset($_POST['title']) or !isset($_POST['slug']) or !isset($_POST['description']) or !isset($_POST['content']) or !isset($_POST['premium']) or !isset($_POST['display']) or !isset($_POST['category']) or !isset($_POST['hidden'])) {
   softRedirect('/admin/articles.php?error=missing');
 }
 
