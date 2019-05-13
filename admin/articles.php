@@ -27,6 +27,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-book"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Articles</h5>
+<?php
+if (isset($_GET['deleted']) and $_GET['deleted'] == 'true') {
+  print '<p class="red-text">Article deleted</p>';
+}
+else if (isset($_GET['hidden']) and $_GET['deleted'] == 'true') {
+  print '<p class="black-text">Article hidden</p>';
+}
+else if (isset($_GET['error'])) {
+  if ($_GET['error'] == 'missing' or $_GET['error'] == 'blank') {
+    print '<p class="black-text">All parameters required!</p>';
+  }
+}
+?>
 <p><a href="/admin/new-article.php"><input class="admin-button" type="submit" value="New Article"></a></p>
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th>Premium</th><th>Hidden</th><th></th><th></th></tr>
@@ -52,6 +65,14 @@ while($row = $result->fetch_assoc()) {
   print '<td class="admin-table">' . $hidden . '</td>';
   print '<td class="admin-table">';
   print '<a href="/admin/edit-article.php?article=' . $id . '"><input class="admin-button" type="submit" value="Edit"></a>';
+  print '</td>';
+  print '<td class="admin-table">';
+  print '<a href="/admin/hide-article.php?article=' . $id . '&hidden=';
+  if ($hidden == 0) { print "1"; } else { print "0"; }
+  print '">';
+  print '<input class="admin-button" type="submit" value="';
+  if ($hidden == 0) { print "  Hide  "; } else { print "Unhide"; }
+  print '"></a>';
   print '</td>';
   print '<td class="admin-table">';
   print '<a href="/admin/delete-article.php?article=' . $id . '"><input class="admin-button" type="submit" value="Delete"></a>';
