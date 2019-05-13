@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 function drawArticle($mysqli, $area) {
-  $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE id = ? AND hidden = 0;", array("ii", $area, $_GET['id']));
+  $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE id = ? AND hidden = 0;", array("i", $_GET['id']));
   while($row = $result->fetch_assoc()) {
     $id      = clean($row['id']);
     $title   = clean($row['title']);
