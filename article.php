@@ -10,10 +10,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 function drawArticle($mysqli, $area) {
   // TODO: ID is caps here but not in other tables
   if (isset($_GET['slug'])) {
-    $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE slug = ? AND hidden = 0;", array("s", $_GET['slug']));
+    $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE slug = ? AND area = ? AND hidden = 0;", array("si", $_GET['slug'], $area));
   }
   else {
-    $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE ID = ? AND hidden = 0;", array("i", $_GET['id']));
+    $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE ID = ? AND area = ? AND hidden = 0;", array("ii", $_GET['id'], $area));
   }
   while($row = $result->fetch_assoc()) {
     $title   = clean($row['title']);

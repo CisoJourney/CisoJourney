@@ -7,12 +7,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-function drawCategoryDesc($mysqli) {
+function drawCategoryDesc($mysqli, $area) {
   if (isset($_GET['slug'])) {
-    $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ?;", array("s", $_GET['slug']));
+    $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ? AND area = ?;", array("si", $_GET['slug'], $area));
   }
   else {
-    $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE id = ?;", array("i", $_GET['area']));
+    $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE id = ?;", array("i", $area));
   }
   while($row = $result->fetch_assoc()) {
     $title = clean($row['title']);
@@ -52,7 +52,7 @@ function drawCategories($mysqli, $area) {
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
-      <?php drawCategoryDesc($mysqli); ?>
+      <?php drawCategoryDesc($mysqli, $area); ?>
     </div>
     <div class="content-wrapper">
       <?php drawCategories($mysqli, $area); ?>

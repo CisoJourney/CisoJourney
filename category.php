@@ -7,9 +7,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-function drawCategoryDesc($mysqli) {
+function drawCategoryDesc($mysqli, $area) {
   if (isset($_GET['slug'])) {
-    $result = execPrepare($mysqli, "SELECT title,description FROM categories WHERE slug = ? AND hidden = 0;", array("s", $_GET['slug']));
+    $result = execPrepare($mysqli, "SELECT title,description FROM categories WHERE slug = ? AND area = ? AND hidden = 0;", array("si", $_GET['slug'], $area));
   }
   else {
     $result = execPrepare($mysqli, "SELECT title,description FROM categories WHERE id = ? AND hidden = 0;", array("i", $_GET['id']));
@@ -25,7 +25,7 @@ function drawCategoryDesc($mysqli) {
 
 function drawCategory($mysqli, $area) {
   if (isset($_GET['slug'])) {
-    $result = execPrepare($mysqli, "SELECT id,area,title,description,slug FROM articles WHERE category = (SELECT id FROM categories WHERE slug = ?) AND hidden = 0;", array("s", $_GET['slug']));
+    $result = execPrepare($mysqli, "SELECT id,area,title,description,slug FROM articles WHERE category = (SELECT id FROM categories WHERE slug = ?) AND area = ? AND hidden = 0;", array("si", $_GET['slug'], $area));
   }
   else {
     $result = execPrepare($mysqli, "SELECT id,area,title,description,slug FROM articles WHERE area = ? AND category = ? AND hidden = 0;", array("ii", $area, $_GET['id']));
@@ -48,7 +48,7 @@ function drawCategory($mysqli, $area) {
 <div class="page-wrapper">
   <div class="content">
     <div class="content-full center-text">
-      <?php drawCategoryDesc($mysqli); ?>
+      <?php drawCategoryDesc($mysqli, $area); ?>
     </div>
     <div class="content-full">
       <?php drawCategory($mysqli, $area); ?>
