@@ -8,6 +8,7 @@ if (isset($_GET['slug'])) {
   $result = execPrepare($mysqli, "SELECT id FROM areas WHERE slug = ?;", array("s", $_GET['slug']));
   $row = $result->fetch_assoc();
   $area = $row['id'];
+  print $area . '<br />';
 }
 else {
   softRedirect('/error/404/');
@@ -16,6 +17,8 @@ else {
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
+
+print $area . '<br />';
 
 function drawCategoryDesc($mysqli, $area) {
   $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ?;", array("s", $_GET['slug']));
