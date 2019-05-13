@@ -11,7 +11,6 @@ function drawArticle($mysqli, $area) {
   // TODO: ID is caps here but not in other tables
   $result = execPrepare($mysqli, "SELECT title,description,content FROM articles WHERE ID = ? AND hidden = 0;", array("i", $_GET['id']));
   while($row = $result->fetch_assoc()) {
-    $id      = clean($row['ID']);
     $title   = clean($row['title']);
     $desc    = clan($row['description']);
     $content = clan($row['content']);
