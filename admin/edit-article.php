@@ -38,8 +38,7 @@ if (isset($_GET['updated'])) {
   }
 }
 
-$result = execPrepare($mysqli, "SELECT id,area,slug,title,description,content,premium,category,hidden FROM articles WHERE id = ?;", 
-array("i", $_GET['article']));
+$result = execPrepare($mysqli, "SELECT id,area,slug,title,description,content,premium,category,hidden FROM articles WHERE id = ?;", array("i", $_GET['article']));
 $row = $result->fetch_assoc();
 
 $id       = clean($row['id']);
