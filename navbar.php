@@ -26,11 +26,12 @@ else if ($area == 3) { $title = '<span class="' . $titleClass . '">IJ</span>: La
 
 // A function to load the area names from the DB and draw a menu item for each one
 function drawAreaMenu($mysqli) {
-  $areaBarResult = $mysqli->query("SELECT id,title FROM areas WHERE hidden = 0;");
+  $areaBarResult = $mysqli->query("SELECT id,title,slug FROM areas WHERE hidden = 0;");
   while($row = $areaBarResult->fetch_assoc()) {
     $id    = intval($row['id']);           // id is INT in db, filtering is excessive but intval for paranoia
     $title = htmlspecialchars($row['title']);
-    print '<li><a href="/categories.php?area=' . $id . '">' . $title . '</a></li>';
+    // TODO: Store these link destintions in the DB like the subAreas?
+    print '<li><a href="/area/' . $slug . '/">' . $title . '</a></li>';
   }
 }
 
