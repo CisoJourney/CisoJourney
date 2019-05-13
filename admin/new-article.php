@@ -1,20 +1,15 @@
 <?php
-session_start();
-
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php'
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+
+if ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
+
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-if (!isset($_SESSION['privs'])) {
-  header('Location: /login.php');
-  exit();
-}
-else if ($_SESSION['privs'] < 3) {
-  header('Location: /profile.php');
-  exit();
-}
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -30,32 +25,27 @@ else if ($_SESSION['privs'] < 3) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-book"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Articles</h5>
-          <p class="red-text">
 <?php
 if (isset($_GET['error'])) {
-  if ($_GET['error'] == 'missing') {
-    print('Oops, all fields are required!');
-  }
-  else if ($_GET['error'] == 'blank') {
-    print('Oops, all fields are required!');
+  if ($_GET['error'] == 'missing' or $_GET['error'] == 'blank') {
+    print('<p class="red-text">Oops, all fields are required!</p>');
   }
 }
-?>
-          </p>
-<?php
+
 $result = $mysqli->query("SELECT MAX(id) AS highestID FROM articles;");
-$row = $result->fetch_assoc();
-$id = $row['highestID'] + 1;
-?></p>
+$row    = $result->fetch_assoc();
+$id     = intval(clean($row['highestID'])) + 1;
+
+// TODO make are list dynamic from DB
+?>
 <form method="POST" action="/admin/insert-article.php">
-<?php //TODO: this list should be dynamic ?>
 <select class="login-input" name="area">
   <option value="1">Strategy</option>
-  <option value="2">Testing</option>
+  <option value="2">Technical</option>
   <option value="3">Labs</option>
 </select>
 <textarea class="login-input" name="category" placeholder="Category"></textarea>
-<input class="login-input" name="id" value="<?php print htmlspecialchars($id); ?>" readonly>
+<input class="login-input" name="id" value="<?php print $id; ?>" readonly>
 <textarea class="login-input" name="description" placeholder="Description"></textarea>
 <textarea class="login-input" name="content" placeholder="Content"></textarea>
 <select class="login-input" name="premium">
@@ -69,7 +59,6 @@ $id = $row['highestID'] + 1;
 </select>
 <input class="login-button" value="Create" type="submit">
 </form>
-
         </div>
       </div>
       </a>

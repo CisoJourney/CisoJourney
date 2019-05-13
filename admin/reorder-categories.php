@@ -1,20 +1,15 @@
 <?php
-session_start();
-
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+
+if ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
+
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-if (!isset($_SESSION['privs'])) {
-  header('Location: /login.php');
-  exit();
-}
-else if ($_SESSION['privs'] < 3) {
-  header('Location: /profile.php');
-  exit();
-}
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -30,13 +25,11 @@ else if ($_SESSION['privs'] < 3) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-layer-group"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Categories</h5>
-<p class="red-text">
 <?php
 if (isset($_GET['reordered']) && $_GET['reordered'] == 'true') {
-  print 'Categories reordered!';
+  print '<p class="red-text">Categories reordered!</p>';
 }
 ?>
-</p>
 <table>
 <tr><th class="admin-table">Area</th><th class="admin-table">ID</th><th class="admin-table">Title</th><th></th></tr>
 <form method="POST" action="process-reorder-categories.php">
@@ -47,23 +40,23 @@ $maxRow = $result->fetch_assoc();
 
 $result = $mysqli->query("SELECT * FROM categories ORDER BY colOrder;");
 while($row = $result->fetch_assoc()) {
+  $id       = clean($row['id']);
+  $title    = clean($row['title']);
+  $colOrder = clean($row['colOrder']);
+
   print '<tr>';
   print '<td class="admin-table">';
   if ($row['area'] == 1) { print '<i class="fas fa-flag"></i>'; }
   else if ($row['area'] == 2) { print '<i class="fas fa-dumbbell"></i>'; }
   else if ($row['area'] == 3) { print '<i class="fas fa-flask"></i>'; }
   print '</td>';
+  print '<td class="admin-table">' . $id . '</td>';
+  print '<td class="admin-table">' . $title . '</td>';
   print '<td class="admin-table">';
-  print htmlspecialchars($row['id']);
-  print '</td>';
-  print '<td class="admin-table">';
-  print htmlspecialchars($row['title']);
-  print '</td>';
-  print '<td class="admin-table">';
-  print '<select name="' . htmlspecialchars($row['id']) . '">';
+  print '<select name="' . $id . '">';
   foreach (range(1, $maxRow['maxID']) as $orderValue) {
     print '<option ';
-    if ($orderValue == $row['colOrder']) { print 'selected'; }
+    if ($orderValue == $colOrder) { print 'selected'; }
     print ' value="' . $orderValue . '">'  . $orderValue . '</option>';
   }
   print '</select>';

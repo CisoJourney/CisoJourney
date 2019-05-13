@@ -1,17 +1,16 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+
+if      ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
+else if (!isset($_GET['user']))  { softRedirect('/admin/users.php'); }
+
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-if      ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
-else if (!isset($_GET['user'])) {
-  header('Location: /admin/users.php');
-  exit();
-}
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -42,10 +41,7 @@ if ($_GET['user'] == $_SESSION['email']) {
 }
 
 // TODO: Check the supplied user exists
-$stmt = $mysqli->prepare("SELECT email,privs FROM users WHERE email = ?;");
-$stmt->bind_param("s", $_GET['user']);
-$stmt->execute();
-$result = $stmt->get_result();
+$result = execPrepare($mysqli, "SELECT email,privs FROM users WHERE email = ?;", array("s", $_GET['user']));
 $row = $result->fetch_assoc();
 ?>
 <form method="POST" action="/admin/confirmdelete-user.php">

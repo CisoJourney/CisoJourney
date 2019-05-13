@@ -1,14 +1,11 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/csrf.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 
-if ($_SESSION['privs'] < 3) {
-  softRedirect('/profile.php');
-}
-else if (!isset($_POST['id'])) {
-  softRedirect('/admin/categories.php');
-}
+if      ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
+else if (!isset($_POST['id']))   { softRedirect('/admin/categories.php'); }
 else if (!isset($_POST['title']) or !isset($_POST['slug']) or !isset($_POST['description']) or !isset($_POST['icon']) or !isset($_POST['area'])) {
   softRedirect('/admin/edit-category.php?error=missing&nav=' . $_POST['id']);
 }

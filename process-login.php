@@ -25,8 +25,7 @@ $result = execPrepare($mysqli, "SELECT * FROM users WHERE email = ?;", array("s"
 $row = $result->fetch_assoc();
 
 if ($row['email'] != $email) {
-  header('Location: https://cisojourney.com/login.php?error=user');
-  exit();
+  softRedirect('/login.php?error=user');
 }
 else {
   $salt      = $row['salt'];
@@ -37,14 +36,12 @@ else {
   $checkhash = hash_pbkdf2('sha3-512', $_POST['password'], $salt , $iter);
 
   if ($hash == $checkhash) {
-    header('Location: /login.php?error=user');
     $_SESSION['email'] = $email;
     $_SESSION['privs'] = $privs;
-    exit();
+    softRedirect('/login.php?error=user')
   }
   else {
-    header('Location: /login.php?error=user');
-    exit();
+    softRedirect('/login.php?error=user')
   }
 }
 ?>

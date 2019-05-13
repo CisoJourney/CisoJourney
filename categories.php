@@ -1,9 +1,9 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
@@ -33,10 +33,10 @@ function drawCategories($mysqli, $area) {
     $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area = ? AND hidden = 0;", array("i", $area));
   }
   while($row = $result->fetch_assoc()) {
-    $id    = htmlspecialchars($row['id']);
-    $icon  = htmlspecialchars($row['icon']);
-    $title = htmlspecialchars($row['title']);
-    $desc  = htmlspecialchars($row['description']);
+    $id    = clean($row['id']);
+    $icon  = clean($row['icon']);
+    $title = clean($row['title']);
+    $desc  = clean($row['description']);
 
     print '<div class="content-duo">';
     print '<div class="content-block center-text">';

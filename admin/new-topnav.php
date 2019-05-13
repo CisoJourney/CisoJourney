@@ -1,20 +1,15 @@
 <?php
-session_start();
-
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+
+if ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
+
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-if (!isset($_SESSION['privs'])) {
-  header('Location: /login.php');
-  exit();
-}
-else if ($_SESSION['privs'] < 3) {
-  header('Location: /profile.php');
-  exit();
-}
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -30,31 +25,25 @@ else if ($_SESSION['privs'] < 3) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-search"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Top Nav</h5>
-          <p class="red-text">
 <?php
 if (isset($_GET['error'])) {
-  if ($_GET['error'] == 'missing') {
-    print('Oops, all fields are required!');
-  }
-  else if ($_GET['error'] == 'blank') {
-    print('Oops, all fields are required!');
+  if ($_GET['error'] == 'missing' or $_GET['error'] == 'blank') {
+    print('<p class="red-text">Oops, all fields are required!</p>');
   }
 }
-?>
-          </p>
-<?php
+
 $result = $mysqli->query("SELECT MAX(id) AS highestID FROM topnav;");
 $row = $result->fetch_assoc();
-$id = $row['highestID'] + 1;
-?></p>
+$id = intval(clean($row['highestID'])) + 1;
+
+?>
 <form method="POST" action="/admin/insert-topnav.php">
-<input class="login-input" name="id" value="<?php print htmlspecialchars($id); ?>" readonly>
+<input class="login-input" name="id" value="<?php print $id; ?>" readonly>
 <input class="login-input" name="area" type="text" value="" placeholder="area">
 <input class="login-input" name="title" type="text" value="" placeholder="title">
 <input class="login-input" name="url" type="text" value="" placeholder="url">
 <input class="login-button" value="Create" type="submit">
 </form>
-
 
         </div>
       </div>

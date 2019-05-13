@@ -1,19 +1,19 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 function drawFrontPage($mysqli) {
   $result = $mysqli->query("SELECT id,title,description,icon FROM areas;");
   while($row = $result->fetch_assoc()) {
-    $id    = htmlspecialchars($row['id']);	// TODO: INT in the DB, filtering is excessive
-    $title = htmlspecialchars($row['title']);
-    $desc  = htmlspecialchars($row['description']);
-    $icon  = htmlspecialchars($row['icon']);
+    $id    = clean($row['id']);
+    $title = clean($row['title']);
+    $desc  = clean($row['description']);
+    $icon  = clean($row['icon']);
 
     // TODO: What a mess
     print '<div class="content-trio">';
@@ -56,19 +56,20 @@ function drawFrontPage($mysqli) {
         </div>
       </div>
       <div class="content-duo">
-        <h3 class="uppercase-text center-text black-text">Most Popular Posts</h3>
-        <div class="content-block">
-          <h3 class="black-text nopad-text">Article title here</h3>
-          <p class="nopad-text">Article content goes here</p>
-        </div>
-        <div class="content-block">
-          <h3 class="black-text nopad-text">Article title here</h3>
-          <p class="nopad-text">Article content goes here</p>
-        </div>
-        <div class="content-block">
-          <h3 class="black-text nopad-text">Article title here</h3>
-          <p class="nopad-text">Article content goes here</p>
-        </div>
+        <h3 class="uppercase-text center-text black-text">Random Posts</h3>
+<?php
+  $result = $mysqli->query("SELECT title,description,slug FROM articles ORDER BY RAND() LIMIT 3;");
+  while($row = $result->fetch_assoc()) {
+    $title = clean($row['title']);
+    $desc  = clean($row['description']);
+    $icon  = clean($row['slug']);
+
+    print '<div class="content-block">';
+    print '<a href="/article/' . $slug . '/">';
+    print '<h3 class="black-text nopad-text">' . $title .'</h3>';
+    print '<p class="nopad-text">' . $description .'</p>';
+    print '</a></div>';
+}
       </div>
     </div>
   </div>

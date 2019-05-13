@@ -1,13 +1,13 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 
-if      ($_SESSION['privs'] < 3)    { softRedirect('/profile.php'); }
-else if (!isset($_GET['nav'])) { softRedirect('/admin/topnav.php'); }
+if      ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
+else if (!isset($_GET['nav']))   { softRedirect('/admin/topnav.php'); }
 
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 

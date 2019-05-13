@@ -1,24 +1,16 @@
 <?php
-session_start();
-
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
+
+if      ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
+else if (!isset($_GET['user']))  { softRedirect('/admin/users.php'); }
+
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
-if (!isset($_SESSION['privs'])) {
-  header('Location: /login.php');
-  exit();
-}
-else if ($_SESSION['privs'] < 3) {
-  header('Location: /profile.php');
-  exit();
-}
-else if (!isset($_GET['user'])) {
-  header('Location: /admin/users.php');
-  exit();
-}
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -33,32 +25,20 @@ else if (!isset($_GET['user'])) {
         <div class="content-block">
           <div class="block-icon"><i class="fas fa-users"></i></div>
           <h5 class="uppercase-text center-text spacing-text">Users</h5>
-<p class="red-text">
 <?php
 if (isset($_GET['error'])) {
-  if ($_GET['error'] == 'missing') {
-    print('Oops, all fields are required!');
-  }
-  else if ($_GET['error'] == 'blank') {
-    print('Oops, all fields are required!');
+  if ($_GET['error'] == 'missing' or $_GET['error'] == 'blank') {
+    print('<p class="red-text">Oops, all fields are required!<p>');
   }
 }
-?>
-</p>
-<p class="black-text">
-<?php
+
 if (isset($_GET['updated'])) {
   if ($_GET['updated'] == 'true') {
-    print('Updated!');
+    print('<p class="black-text">Updated!<p>');
   }
 }
-?>
-</p>
-<?php
-$stmt = $mysqli->prepare("SELECT email,privs FROM users WHERE email = ?;");
-$stmt->bind_param("s", $_GET['user']);
-$stmt->execute();
-$result = $stmt->get_result();
+
+$result = execPrepare($mysqli, "SELECT email,privs FROM users WHERE email = ?;", array("s", $_GET['user']));
 $row = $result->fetch_assoc();
 ?>
 <form method="POST" action="/admin/update-user.php">
@@ -71,7 +51,6 @@ $row = $result->fetch_assoc();
 </select>
 <input class="login-button" value="Update" type="submit">
 </form>
-
         </div>
       </div>
       </a>

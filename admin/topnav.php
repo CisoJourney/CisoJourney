@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
@@ -69,7 +67,6 @@ $hidden = clean($row['hidden']);
   if ($hidden == 0) { print "  Hide  "; } else { print "Unhide"; }
   print '"></a>';
   print '</td>';
-
   print '<td class="admin-table">';
   print '<a href="/admin/delete-topnav.php?nav=' . $id . '"><input class="admin-button" type="submit" value="Delete"></a>';
   print '</td>';

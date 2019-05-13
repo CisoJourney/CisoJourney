@@ -1,8 +1,8 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/csrf.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/session.php';
-include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
+include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 
 if ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
 
@@ -17,18 +17,13 @@ foreach ($_POST as $post) {
     }
   }
   if ($count > 1) {
-    header('Location: /admin/reorder-categories.php?error=dupe');
-    exit();
+    softRedirect('/admin/reorder-categories.php?error=dupe');
   }
 }
 
 foreach ($_POST as $catNum => $catNewPosition) {
-  // Need to optimise out the erroneous moves!
-  $stmt = $mysqli->prepare("UPDATE categories SET colOrder = ? WHERE id = ?;");
-  $stmt->bind_param("ii", intval($catNewPosition), intval($catNum));
-  $stmt->execute();
+  execPrepare($mysqli, "UPDATE categories SET colOrder = ? WHERE id = ?;", array("ii", intval($catNewPosition), intval($catNum));
 }
-header('Location: /admin/reorder-categories.php?reordered=true');
-exit();
+softRedirect('/admin/reorder-categories.php?reordered=true');
 
 ?>

@@ -44,10 +44,7 @@ else if (isset($_GET['added'])) {
   }
 }
 
-$stmt = $mysqli->prepare("SELECT id,area,title,url FROM topnav WHERE id = ?;");
-$stmt->bind_param("s", $_GET['nav']);
-$stmt->execute();
-$result = $stmt->get_result();
+$result = execPrepare($mysqli, "SELECT id,area,title,url FROM topnav WHERE id = ?;", array("s", $_GET['nav']));
 $row = $result->fetch_assoc();
 
 $id    = clean($row['id']);

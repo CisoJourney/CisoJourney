@@ -4,7 +4,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/headers.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 
-// If you're not an admin, go away!
 if ($_SESSION['privs'] < 3) { softRedirect('/profile.php'); }
 
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/head.php';
