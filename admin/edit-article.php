@@ -38,15 +38,16 @@ if (isset($_GET['updated'])) {
   }
 }
 
-$result = execPrepare($mysqli, "SELECT area,id,title,description,content,premium,category,display FROM articles WHERE id = ?;", array("i", $_GET['article']));
+$result = execPrepare($mysqli, "SELECT id,area,slug,title,description,content,premium,category,display FROM articles WHERE id = ?;", array("i", $_GET['article']));
 $row = $result->fetch_assoc();
 
-$id      = clean($row['id']);
-$title   = clean($row['title']);
-$desc    = clean($row['description']);
-$content = clean($row['content']);
-$premium = clean($row['premium']);
-$display = clean($row['display']);
+$id       = clean($row['id']);
+$title    = clean($row['title']);
+$slug     = clean($row['slug']);
+$desc     = clean($row['description']);
+$content  = clean($row['content']);
+$premium  = clean($row['premium']);
+$display  = clean($row['display']);
 $category = clean($row['category']);
 
 ?>
@@ -58,6 +59,7 @@ $category = clean($row['category']);
 </select>
 <input class="login-input" name="id" type="hidden" value="<?php print $id; ?>">
 <input class="login-input" name="title" type="text" value="<?php print $title; ?>">
+<input class="login-input" name="slug" type="text" value="<?php print $slug; ?>">
 <textarea class="login-input" name="description"><?php print $desc; ?></textarea>
 <textarea class="login-input" name="content"><?php print $content; ?></textarea>
 <select class="login-input" name="premium">
