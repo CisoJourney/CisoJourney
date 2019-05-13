@@ -48,7 +48,7 @@ $slug     = clean($row['slug']);
 $desc     = clean($row['description']);
 $content  = clean($row['content']);
 $premium  = clean($row['premium']);
-$hidden  = clean($row['hidden']);
+$hidden   = clean($row['hidden']);
 $category = clean($row['category']);
 
 ?>
@@ -69,8 +69,8 @@ $category = clean($row['category']);
   <option <?php if($premium == 2) { print "selected"; } ?> value="2">Labs</option>
 </select>
 <select class="login-input" name="display">
-  <option <?php if($display == 0) { print "selected"; } ?> value="0">Hidden</option>
-  <option <?php if($display == 1) { print "selected"; } ?> value="1">Published</option>
+  <option <?php if($hidden == 0) { print "selected"; } ?> value="0">Hidden</option>
+  <option <?php if($hidden == 1) { print "selected"; } ?> value="1">Published</option>
 </select>
 <input class="login-input" name="category" type="text" value="<?php print $category; ?>">
 <input class="login-button" value="Update" type="submit">
