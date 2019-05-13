@@ -38,9 +38,9 @@ function drawFrontPage($mysqli) {
     <div class="content-wrapper">
       <?php drawFrontPage($mysqli); ?>
     </div>
-    <!-- Simulate some content to play with styles -->
+    <p>&nbsp</p>
     <div class="content-full">
-      <h3 class="uppercase-text black-text">Random Posts</h3>
+      <h3 class="uppercase-text center-text black-text">Random Posts</h3>
     </div>
     <div class="content-full">
 <?php
