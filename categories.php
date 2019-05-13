@@ -40,7 +40,7 @@ function drawCategories($mysqli, $area) {
 
     print '<div class="content-duo">';
     print '<div class="content-block center-text">';
-    print '<a href="/category.php?id=' .  $id . '&area=' . $area . '">';
+    print '<a href="/category/' . $slug . '/">';
     print '<div class="block-icon ciso-color"><i class="' . $icon . '"></i></div>';
     print '<h5 class="uppercase-text spacing-text">' .  $title . '</h5>';
     print '<p>' . $desc . '</p>';
