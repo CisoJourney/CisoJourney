@@ -44,6 +44,7 @@ $id    = clean($row['id']);
 $title = clean($row['title']);
 $desc  = clean($row['description']);
 $icon  = clean($row['icon']);
+$slug  = clean($row['slug']);
 ?>
 <form method="POST" action="/admin/update-content.php">
 <input class="login-input dim-input" name="id" value="<?php print $id; ?>" readonly>
