@@ -49,7 +49,7 @@ while($row = $result->fetch_assoc()) {
   print '<td class="admin-table">';
   if ($premium == 1) { print '<i class="fas fa-crown"></i>'; }
   print '</td>';
-  print '<td class="admin-table">' . $display . '</td>';
+  print '<td class="admin-table">' . $hidden . '</td>';
   print '<td class="admin-table">';
   print '<a href="/admin/edit-article.php?article=' . $id . '"><input class="admin-button" type="submit" value="Edit"></a>';
   print '</td>';
