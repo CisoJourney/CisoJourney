@@ -31,12 +31,13 @@ function drawCategoryDesc($mysqli, $area) {
 
 
 function drawCategories($mysqli, $area) {
-  $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area = (SELECT id FROM areas WHERE slug = ?) AND hidden = 0;", array("s", $_GET['slug']));
+  $result = execPrepare($mysqli, "SELECT id,title,description,icon,slug FROM categories WHERE area = (SELECT id FROM areas WHERE slug = ?) AND hidden = 0;", array("s", $_GET['slug']));
   while($row = $result->fetch_assoc()) {
     $id    = clean($row['id']);
     $icon  = clean($row['icon']);
     $title = clean($row['title']);
     $desc  = clean($row['description']);
+    $slug  = clean($row['slug']);
 
     print '<div class="content-duo">';
     print '<div class="content-block center-text">';
