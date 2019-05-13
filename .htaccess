@@ -21,4 +21,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^article\/([a-zA-Z-]+)\/$ /article.php\?slug=$1 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^preview\/([a-zA-Z-]+)\/$ /preview-article.php\?slug=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^error\/404\/$ /error/404.php [L]

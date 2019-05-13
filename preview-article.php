@@ -5,7 +5,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/auth.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/functions.php';
 
 if	($_SESSION['privs'] < 3)   { softRedirect('/profile.php'); }
-else if (!isset($_GET['article'])) { softRedirect('/admin/articles.php'); }
 
 if (isset($_GET['slug'])) {
   $result = execPrepare($mysqli, "SELECT area FROM articles WHERE slug = ?;", array("s", $_GET['slug']));
