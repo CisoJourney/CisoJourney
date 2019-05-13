@@ -8,7 +8,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] .  '/topbar.php';
 include_once $_SERVER['DOCUMENT_ROOT'] .  '/navbar.php';
 
 function drawCategoryDesc($mysqli) {
-  $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE id = ?;", array("i", $_GET['area']));
+  if (isset($_GET['slug'])) {
+    $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ?;", array("i", $_GET['slug']));
+  }
+  else {
+    $result = execPrepare($mysqli, "SELECT title,description FROM areas WHERE id = ?;", array("i", $_GET['area']));
+  }
   while($row = $result->fetch_assoc()) {
     $title = clean($row['title']);
     $desc  = clean($row['description']);
@@ -21,7 +26,12 @@ function drawCategoryDesc($mysqli) {
 
 
 function drawCategories($mysqli, $area) {
-  $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area =  ? AND hidden = 0;", array("i", $area));
+  if (isset($_GET['slug'])) {
+    $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE slug = ? AND hidden = 0;", array("i", $_GET['slug']));
+  }
+  else {
+    $result = execPrepare($mysqli, "SELECT id,title,description,icon FROM categories WHERE area = ? AND hidden = 0;", array("i", $area));
+  }
   while($row = $result->fetch_assoc()) {
     $id    = htmlspecialchars($row['id']);
     $icon  = htmlspecialchars($row['icon']);
