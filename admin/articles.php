@@ -36,7 +36,7 @@ while($row = $result->fetch_assoc()) {
   $id      = clean($row['id']);
   $title   = clean($row['title']);
   $premium = clean($row['premium']);
-  $display = clean($row['display']);
+  $hidden  = clean($row['hidden']);
 
   print '<tr>';
   print '<td class="admin-table">';
