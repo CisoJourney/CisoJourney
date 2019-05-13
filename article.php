@@ -15,10 +15,9 @@ function drawCategory($mysqli, $area) {
     $desc  = clan($row['description']);
 
     print '<div class="content-block">';
-    print 'a href="/article.php?id=' . $id . '">';
     print '<h5 class="nopad-text">' . $title . '</h5>';
     print '<p class="nopad-text">' . $desc . '</p>';
-    print '</a></div>';
+    print '</div>';
   }
 }
 ?>
