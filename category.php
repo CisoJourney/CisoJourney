@@ -32,6 +32,21 @@ function drawCategory($mysqli, $area) {
     print '</a></div>';
   }
 }
+
+function drawCategorySlug($mysqli, $area) {
+  $result = execPrepare($mysqli, "SELECT id,area,title,description FROM articles WHERE slug = ? AND hidden = 0;", array("s", $area, $_GET['slug']));
+  while($row = $result->fetch_assoc()) {
+    $id    = clean($row['id']);
+    $title = clean($row['title']);
+    $desc  = clean($row['description']);
+
+    print '<div class="content-block">';
+    print '<a href="/article.php?id=' . $id . '">';
+    print '<h5 class="nopad-text">' . $title . '</h5>';
+    print '<p class="nopad-text">' . $desc . '</p>';
+    print '</a></div>';
+  }
+}
 ?>
 <div class="page-wrapper">
   <div class="content">
@@ -39,7 +54,14 @@ function drawCategory($mysqli, $area) {
       <?php drawCategoryDesc($mysqli); ?>
     </div>
     <div class="content-full">
-      <?php drawCategory($mysqli, $area); ?>
+      <?php
+if (isset($_GET['slug'])) {
+  drawCategorySlug($mysqli);
+}
+else {
+  drawCategory($mysqli, $area);
+}
+?>
     </div>
   </div>
 </div>
