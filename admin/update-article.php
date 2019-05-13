@@ -9,11 +9,11 @@ if ($_SESSION['privs'] < 3) {
 else if (!isset($_POST['id'])) {
   softRedirect('/admin/articles.php');
 }
-else if (!isset($_POST['title']) or !isset($_POST['slug']) or !isset($_POST['description']) or !isset($_POST['content']) or !isset($_POST['premium']) or !isset($_POST['display']) or !isset($_POST['category']) or !isset($_POST['hidden'])) {
+else if (!isset($_POST['title']) or !isset($_POST['slug']) or !isset($_POST['description']) or !isset($_POST['content']) or !isset($_POST['premium']) or !isset($_POST['category']) or !isset($_POST['hidden'])) {
   softRedirect('/admin/articles.php?error=missing');
 }
 
-else if ($_POST['title'] == "" or $_POST['slug'] == "" or $_POST['description'] == "" or $_POST['content'] == "" or $_POST['premium'] == "" or $_POST['display'] == "" or $_POST['category'] == "" or $_POST['hidden']) {
+else if ($_POST['title'] == "" or $_POST['slug'] == "" or $_POST['description'] == "" or $_POST['content'] == "" or $_POST['premium'] == "" or $_POST['category'] == "" or $_POST['hidden']) {
   softRedirect('/admin/articles.php?error=blank');
 }
 
