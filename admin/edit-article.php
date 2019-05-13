@@ -73,6 +73,7 @@ $category = clean($row['category']);
 </select>
 <input class="login-input" name="category" type="text" value="<?php print $category; ?>">
 <input class="login-button" value="Update" type="submit">
+<a href="/preview-article/<?php print $slug; ?>/"><input class="login-button" value="Update" type="submit"></a>
 </form>
 
         </div>
