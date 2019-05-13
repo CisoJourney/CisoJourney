@@ -10,7 +10,7 @@ if (isset($_GET['slug'])) {
   $area = $row['area'];
 }
 
-if (runPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ? AND id = ?;", array("si", $_GET['slug'], $area)) == 0) {
+if (numPrepare($mysqli, "SELECT title,description FROM areas WHERE slug = ? AND id = ?;", array("si", $_GET['slug'], $area)) == 0) {
   softRedirect('/error/404.php');
 }
 
