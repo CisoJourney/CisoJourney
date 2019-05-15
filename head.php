@@ -6,8 +6,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 </head>
 <body>
-<div class="cookie-background"><div class="cookie-law">
-<p>We have placed cookies on your device to help make this website better.</p>
-<p>You can <a href="/cookies.php">click here</a> to change your cookie settings or learn more.</p>
+<div class="cookie-law">
+<p>We have placed cookies on your device to help make this website better. You can <a href="/cookies.php">click here</a> to change your cookie settings or learn more.</p>
 <p><a href="/cookies.php?dismiss=true"><input class="admin-button" type="button" value="Dismiss"></a></p>
-</div></div>
+</div>
