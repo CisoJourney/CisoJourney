@@ -39,6 +39,13 @@ h2 {
 h3 {
   font-weight: 400;
 }
+.cookie-text {
+  width: calc(100% - 100px);
+  display: inline-block;
+}
+.cookie-button {
+  display: inline-block;  
+}
 .cookie-law {
   background-color: white;
   font-size: 12pt;
@@ -47,9 +54,6 @@ h3 {
 .cookie-law p {
   padding:0;
   margin: 0;
-}
-.cookie-law input {
-  margin-left: 30px;
 }
 .top-bar {
   text-align: right;
