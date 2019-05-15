@@ -48,6 +48,9 @@ h3 {
   padding:0;
   margin: 0;
 }
+.cookie-law input {
+  margin-left: 30px;
+}
 .top-bar {
   text-align: right;
   width: calc(100% - 20px);
