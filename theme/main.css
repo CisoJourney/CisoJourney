@@ -45,6 +45,9 @@ h3 {
 .cookie-law {
   background-color: white;
   font-size: 12pt;
+  padding: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .cookie-law p {
   padding:0;
